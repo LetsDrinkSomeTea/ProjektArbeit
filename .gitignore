@@ -1,0 +1,14 @@
+*.aux
+*.bcf
+*.idx
+*.ilg
+*.ind
+*.log
+*.lol
+*.lot
+*.out
+*.toc
+*.run.xml
+*.synctex.gz
+*.synctex(busy)
+*.synctex.gz.sum.synctex
