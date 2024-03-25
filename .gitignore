@@ -12,3 +12,4 @@
 *.synctex.gz
 *.synctex(busy)
 *.synctex.gz.sum.synctex
+.obsidian
