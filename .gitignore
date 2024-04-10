@@ -13,3 +13,15 @@
 *.synctex(busy)
 *.synctex.gz.sum.synctex
 .obsidian
+*.acn
+*.acr
+*.alg
+*.glg
+*.glo
+*.gls
+*.ist
+*.xdy
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
