@@ -1,42 +1,60 @@
 # Deepfakes und Social Engineering
 
 ## 1. Einleitung
-- Definition und historischer Hintergrund von Deep Fakes
-- Überblick über Social Engineering und dessen Bedeutung in der Cybersecurity
-- Zielsetzung der Projektarbeit und Relevanz des Themas
+- Motivation
+- Problemstellung und Abgrenzung
+- Ziel der Arbeit
+- Vorgehen
 
-## 2. Theoretische Grundlagen
-- **Einführung in Deep Fakes**
-  - Wie funktionieren Deep Fakes? Technische Grundlagen
-  - Anwendungsgebiete von Deep Fakes außerhalb von Social Engineering
-  - Ethikrichtlinien für die Erstellung und Verwendung von Deep Fakes in der Forschung
+## 2. Grundlagen
+- **2.1 Einführung in Deepfakes** ```Max```
+    - Definition und historischer Hintergrund von Deepfakes
+    - Wie funktionieren Deepfakes? Technische Grundlagen
+    - Anwendungsgebiete von Deepfakes außerhalb von Social Engineering
+    - Ethikrichtlinien für die Erstellung und Verwendung von Deepfakes in der Forschung
 
-- **Social Engineering: Definition, Methoden und Ziele**
-  - Psychologische Aspekte von Social Engineering
-  - Beispiele für Social Engineering Attacken
+- **2.2 Social Engineering: Definition, Methoden und Ziele** ```Julian```
+    - Überblick über Social Engineering und dessen Bedeutung in der Cybersecurity
+    - Psychologische Aspekte von Social Engineering
+    - Beispiele für Social Engineering Attacken
 
-## 3. Erstellung von Deep Fakes
-- Auswahl der Werkzeuge und Software für die Erstellung von Deep Fakes
-- Schritt-für-Schritt-Anleitung zur Erstellung von Deep Fakes
-  - Bilder
-  - Videos
-  - Stimmen
+- **2.3 Aktueller Stand der Forschung** ```Jeweils```
+    - Forschungsergebnisse und Erkenntnisse zu Deepfakes und Social Engineering
+    - Herausforderungen und Risiken von Deepfakes in der Cybersicherheit
+    - Bekannte Fälle von Deep Fake-basierten Social Engineering-Angriffen
+    - Bestehende Lösungsansätze und Gegenmaßnahmen gegen Deepfakes
 
-## 4. Deep Fakes in der Praxis von Social Engineering
-- Analyse, wie Deep Fakes Social Engineering-Angriffe verstärken können
-  - Beispiele für potenzielle Angriffsszenarien
-- Fallstudien: Bekannte Fälle von Deep Fake-basierten Social Engineering-Angriffen
+## 3. Deepfake Varianten
+  - Bild ```Max```
+    - Funktionsweise/Technische Details
+    - Tools/Beispiel
+  - Stimme ```Max```
+    - Funktionsweise/Technische Details
+    - Tools/Beispiel
+  - Video ```Julian```
+    - Funktionsweise/Technische Details
+    - Tools/Beispiel
+  - Live-Video ```Julian```
+    - Funktionsweise/Technische Details
+    - Tools/Beispiel
 
-## 5. Experimente und Übungen
-  - Biometrische Authentifizierungssysteme und ihre Anfälligkeit für Deep Fakes
-  - Durchführung von Social Engineering-Angriffen mit Hilfe von Deep Fakes
-    - Stimmenimitation
-    - Video Stellungnahmen von Vorgesetzten durch Deep Fake
-    - Erpressung durch gefälschte Bilder
+## 4. Deepfakes in der Praxis von Social Engineering
+- Gefakte Videoanrufe und Videobotschaften
+    - Stimmenimitation (Umsetzung) 
+    - Videoimitation (Umsetzung)
 
-## 6. Fazit und Ausblick
+## 5. Evaluierung
+- Evaluierung der Wirksamkeit, Gefahren und Risiken von Deepfakes in Social Engineering-Angriffen
+- Vergleich von Deepfake-basierten Social Engineering-Angriffen mit traditionellen Social Engineering-Methoden
+- Empfehlungen für den Umgang mit Deepfakes in der Cybersicherheit
+
+## 6. Zusammenfassung und Ausblick
 - Die Rolle der KI in der Zukunft von Social Engineering und Cybersecurity
 - Zusammenfassung der wichtigsten Erkenntnisse der Arbeit
+- Ausblick auf zukünftige Entwicklungen und Herausforderungen
 
-## Projektplan
-![images/project-plan.png](images/Projektplan.png)
+
+## Fragen an Hellmann:
+- Können/sollen wir LLMs?
+  - Phishing Mails
+- Praktische Übungen unabhängig von Social Engineering?
