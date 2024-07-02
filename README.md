@@ -31,10 +31,10 @@
   - Stimme ```Max```
     - Funktionsweise/Technische Details
     - Tools/Beispiel
-  - Video ```Julian```
+  - Face-Swapping ```Julian```
     - Funktionsweise/Technische Details
     - Tools/Beispiel
-  - Live-Video ```Julian```
+  - Face-Puppetry ```Julian```
     - Funktionsweise/Technische Details
     - Tools/Beispiel
 
@@ -52,9 +52,3 @@
 - Die Rolle der KI in der Zukunft von Social Engineering und Cybersecurity
 - Zusammenfassung der wichtigsten Erkenntnisse der Arbeit
 - Ausblick auf zukünftige Entwicklungen und Herausforderungen
-
-
-## Fragen an Hellmann:
-- Können/sollen wir LLMs?
-  - Phishing Mails
-- Praktische Übungen unabhängig von Social Engineering?
