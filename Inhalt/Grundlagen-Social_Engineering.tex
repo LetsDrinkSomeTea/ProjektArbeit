@@ -1,0 +1,80 @@
+\section{Social Engineering}\label{sec:social_engineering}
+Unter Social Engineering werden alle Angriffe zusammengefasst, die die Schwachstelle Mensch ausnutzen.
+Es wird durch verschiedene Techniken versucht an private oder sensible Inhalte von Personen zu kommen.
+Social Engineering ist heutzutage eine der größten Gefahren im digitalen Raum.
+Kryptografische Verfahren und Protokolle wurden über die Jahre immer besser.
+Ist ein System bzw\. eine digitale Infrastruktur richtig gehärtet, sind Angriffe wie Brute-Force oder Dictionary
+-Attacks wirkungslos.
+Außerdem werden durch moderne \glspl{ids}, sowie \gls{threat-intelligence} technische Angriffe immer schneller
+erkannt und blockiert.
+Laut einem Paper aus 2018, sind 84\% aller Cyber-Angriffe auf Social Engineering zurückzuführen.
+Zudem haben Social Engineering Angriffe eine höhere Erfolgschance als herkömmliche Methoden.
+Laut des \gls{dbir} von Verizon waren 2024 \[45\%\] der erfassten Cyberangriffe auf Social Engineering zurückzuführen.
+Bei \[~83\%\] der 3661 reporteten Incidents Daten extrahiert.\cite{verizon-2024-dbir}
+
+\subsection{Verschiedene Typen von Social Engineering}\label{subsec:verschiedene-typen-von-social-engineering}
+Social Engineering lässt sich in verschiedene Bereiche untergliedern, die folgenden Beschreibungen richten sich nach
+dem Artikel: ``Social Engineering Attacks: A Survey''\cite{social-engineering-a-survey}
+
+Hier werden Social Engineering Angriffe in zwei Kategorien unterteilt.
+\begin{itemize}
+    \item Human-based
+\end{itemize}
+    Diese Angriffe werden manuell von einem Menschen ausgeführt.
+    Sie sind i.d.R\. spezifisch auf das Opfer angepasst und mit höherem Aufwand verbunden.
+    Dafür sind die Erfolgschancen höher als bei automatisierten Angriffen.
+\begin{itemize}
+    \item computer-based
+\end{itemize}
+Diese Angriffe werden automatisiert durchgeführt.
+Sie sind qualitativ deutlich schlechter als ihr Counterpart, dafür werden sie in hoher Quantität durchgeführt.
+Hierzu zählen Phishing-Mails oder SMS\@.
+Es gibt verschiedene Tools um solche Angriffe durchzuführen, ein bekanntes ist das ``Social Engineering Toolkit''\href{https://github.com/trustedsec/social-engineer-toolkit}
+
+Des Weiteren können Social Engineering Angriffe in drei weitere Kategorien unterteilt werden.
+
+
+Außerdem noch die Unterteilung in drei Kategorien abhängig davon wie der Angriff ausgeführt wird
+- social
+    Zwischenmenschliche Interaktion, z.B\. baiting und spear phishing
+- technical
+    Angriff durchs Internet/Online Services um Passwörter, cc details, usw.
+- physical
+    Angriffe in RL, z.B \. Mülleimer nach Dokumenten durchsuchen
+
+-based attacks
+
+
+Weitere Klassifizierung:
+- direkt
+    Direkter Kontakt zwischen Angreifer und Opfer, z.B\. Shoulder Surfing, Dumpster Diving, impersonation on helpdesk calls
+- indirekt
+    Kein direkten Kontakt, Angriffe können asynchron und remote ausgeführt werden z.B\. Phishing, ransomware, fake software
+
+Kleiner Überblick über manche Techniken:
+# Phishing
+    Meist verbreiteter Social engineering Angriff, mit dem Ziel private oder vertrauliche Daten der Opfer zu stehlen.
+    Dabei wird werden vor allem Mails, SMS, Anrufe oder fake Webseiten eingesetzt.
+
+Phishing lässt sich grob unterteilen in:
+- Spear Phishing
+    Zielspezifisch, durch z.B\. OSINT angepasste Mails
+- Whaling Phishing
+    Angriffe auf hochrangige Ziele
+- Vishing
+    Voice Phishing via z.B\. Telefon, Teams, usw.
+
+
+# Baiting
+Baiting, auch Road Apples genannt sind Phishing Angriffe die jemanden dazu verleiten sollen auf etwas zu klicken um
+etwas gratis zu bekommen. Auch Bad-USBs gehören dazu.
+
+# Tailgating Attacks
+Ist das unerlaubte Zutritt verschaffen indem z.B\. einer autorisierten Person gefolgt wird, RFID Chips gehackt werden.
+
+Gegenmaßnahmen:
+Vor allem Schulung der Mitarbeiter. Aber auch das überprüfen der Authentizität und Integrität von Nachrichten wie
+Mails usw.
+Außerdem vor allem Schadensbegrenzung, human-based social attacks sind schwer/unmöglich automatisiert zu erkennen.
+Durch Techniken wie z.B\. Domain-Tiering können die Worst-Case Szenarien abgeschwächt werden.
+Notfallmanagement ist ebenfalls entscheidend.
