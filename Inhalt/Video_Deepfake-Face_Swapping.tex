@@ -1,0 +1,23 @@
+\section{Video Deepfakes}
+\label{sec:video-deepfakes}
+Es gibt verschiedene Techniken von Video Deepfakes, im Folgenden werden Face-Swapping, sowie Reenactment näher
+betrachtet.
+
+\section{Face Swapping}\label{sec:face-swapping}
+Face Swapping, eine weit verbreitete Technik innerhalb der Deepfake-Technologie, beinhaltet das Austauschen eines Gesichts in einem Bild oder Video durch das Gesicht einer anderen Person. Diese Methode hat insbesondere in den letzten Jahren erhebliche Fortschritte gemacht, vor allem durch die Entwicklung generativer adversarieller Netzwerke (GANs). Bei Face Swapping wird das Gesicht der Zielperson durch ein anderes Gesicht ersetzt, wobei Merkmale wie Hautfarbe, Beleuchtung und Gesichtsausdrücke so angepasst werden, dass das Ergebnis möglichst realistisch wirkt.
+
+Im Rahmen des FSGAN (Face Swapping GAN) Ansatzes wird ein neuartiges rekurrentes neuronales Netzwerk (RNN) für das Face Swapping vorgestellt, das sowohl Pose- als auch Ausdrucksvariationen anpasst und auf ein einzelnes Bild oder eine Video-Sequenz angewendet werden kann. Die kontinuierliche Interpolation der Gesichtsansichten erfolgt auf der Grundlage von Delaunay-Triangulation und baryzentrischen Koordinaten. Ein Gesichtsvollständigungsnetzwerk behandelt verdeckte Gesichtsregionen, während ein Gesichtsmischungsnetzwerk für das nahtlose Einfügen der beiden Gesichter sorgt und dabei die Hautfarbe und Lichtverhältnisse des Zielbildes bewahrt. Diese Methode übertrifft sowohl qualitativ als auch quantitativ bestehende Systeme.
+
+Frühere Methoden für Face Swapping basierten oft auf 3D-Gesichtsmodellen, die entweder geschätzt oder festgelegt wurden. Diese Modelle wurden dann an die Eingabebilder angepasst und als Proxy für das Übertragen von Intensitäten (Swapping) oder das Steuern von Gesichtsausdrücken und -ansichten (Reenactment) verwendet. Neuere Ansätze nutzen tiefe Netzwerke, insbesondere GANs, um realistische Bilder von gefälschten Gesichtern zu erzeugen. Diese Methoden sind jedoch oft auf spezifische Subjekte trainiert und erfordern umfangreiche Datensätze, um akzeptable Ergebnisse zu erzielen. Im Gegensatz dazu ist FSGAN subjektsagnostisch und benötigt kein training auf spezifischen Gesichtern, was seine Anwendung deutlich vereinfacht und erweitert\cite{face-swapping-and-reenactment}.
+
+\section{Reenactment}\label{sec:reenactment}
+Reenactment, auch als Face Transfer oder Puppeteering bekannt, ist eine Technik, bei der die Gesichtsausdrücke und -bewegungen eines Ausgangsbildes oder -videos auf ein Zielbild oder -video übertragen werden. Dies ermöglicht es, das Gesicht der Zielperson so zu manipulieren, dass es die gleichen Bewegungen und Ausdrücke wie das Ausgangsgesicht zeigt. Diese Technik wird häufig in der Unterhaltungsindustrie, aber auch in Bereichen wie Datenschutz und der Erstellung von Trainingsdaten verwendet.
+
+Die FSGAN-Methode bietet eine innovative Lösung für das Reenactment, die keine spezifischen Trainingsdaten für die involvierten Subjekte benötigt. Stattdessen verwendet FSGAN ein rekurrentes Netzwerk, das sowohl die Pose als auch die Gesichtsausdrücke kontinuierlich anpasst. Ein wesentliches Element dieser Methode ist die Verwendung der Delaunay-Triangulation zur Interpolation zwischen verschiedenen Ansichten des Gesichts. Diese Triangulation ermöglicht es, die Gesichtsausdrücke nahtlos und realistisch zu übertragen, selbst bei großen Pose- und Ausdrucksunterschieden.
+
+Um verdeckte Gesichtsregionen zu rekonstruieren, setzt FSGAN auf ein Gesichtsvollständigungsnetzwerk, das fehlende Teile des Gesichts basierend auf den vorhandenen Segmentierungsdaten ergänzt. Schließlich sorgt ein Gesichtsmischungsnetzwerk dafür, dass das rekonstruierten Gesicht harmonisch in das Zielbild eingefügt wird. Diese Methode verwendet einen neuen Poisson-Blending-Verlust, der Poisson-Optimierung mit einem Wahrnehmungsverlust kombiniert, um eine nahtlose Integration zu gewährleisten.
+
+Frühere Ansätze zum Reenactment stützten sich oft auf 3D-Modelle, die Gesichtslandmarken zur Steuerung der
+Gesichtsausdrücke nutzten. Solche Modelle erforderten eine präzise Anpassung und waren anfällig für Fehler bei
+teilweise verdeckten Gesichtern. Moderne Ansätze, wie GANs, haben diese Herausforderungen durch die Nutzung tief
+lernender Netzwerke weitgehend überwunden, indem sie realistische und kohärente Ergebnisse liefern, ohne auf 3D-Modelle angewiesen zu sein. FSGAN setzt neue Maßstäbe, indem es eine vollständig trainierbare, subjektsagnostische Lösung für Face Swapping und Reenactment bietet, die qualitativ und quantitativ überlegen ist\cite{face-swapping-and-reenactment}.
