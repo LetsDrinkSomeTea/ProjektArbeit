@@ -34,7 +34,7 @@
   - Face-Swapping ```Julian```
     - Funktionsweise/Technische Details
     - Tools/Beispiel
-  - Face-Puppetry ```Julian```
+  - Reenactment ```Julian```
     - Funktionsweise/Technische Details
     - Tools/Beispiel
 
