@@ -1,7 +1,23 @@
-% SW
-\setcounter{tocdepth}{3}                   % Zeigt Chapter, Section, Subsection in toc
-\usepackage{tabularx}
-% END SW
+\documentclass{scrreprt}
+
+% Dam0k1es
+
+\setcounter{tocdepth}{3}                   % Setzt die Tiefe des Inhaltsverzeichnisses auf 3 Ebenen: Kapitel (chapter), Abschnitt (section), Unterabschnitt (subsection)
+\usepackage{tabularx}                      % Ermöglicht erweiterte Tabellenfunktionen, insbesondere Tabellen mit automatisch anpassbarer Spaltenbreite
+
+\usepackage[ngerman]{babel}                % Stellt Spracheinstellungen auf neues Deutsch um, beeinflusst z.B. Datumformat und Silbentrennung
+\usepackage[german]{translator}            % Wird für die Übersetzung von Strings in Paketen verwendet, die nicht direkt von babel unterstützt werden
+
+\usepackage[T1]{fontenc}                   % Wählt eine Schriftkodierung, die eine bessere Darstellung von Umlauten und anderen europäischen Zeichen ermöglicht
+%\usepackage{microtype}                     % Verbessert den Textsatz durch Mikrotypografie
+
+\usepackage{fixme}                         % Ermöglicht das Hinzufügen von Kommentaren und Notizen im Dokument, die leicht auffindbar sind
+\fxsetup{status=draft}                     % Legt den Status des Dokuments fest; 'draft' bedeutet, dass Notizen sichtbar sind
+
+
+
+
+% END Dam0k1es
 
 \KOMAoptions{DIV      = 10,                % Gibt die Größe des Textbereichs an
              fontsize = 11pt,              % Schriftgröße
@@ -12,10 +28,10 @@
                                            % Mathematiksatz
 \widowpenalty=1000%                        % Leicht erhöhte Strafe für Witwen
 
-\usepackage{iftex}                         % LuaLaTeX wird vorausgesetzt (für fontspec und selnolig)
-\RequireLuaTeX%
+% Auskommentiert aufgrund von 0x01
+% \usepackage{iftex}                         % LuaLaTeX wird vorausgesetzt (für fontspec und selnolig)
+% \RequireLuaTeX%
 
-\usepackage{ragged2e}                      % Für Blocksatz
 \usepackage{booktabs}                      % Bessere Tabellenlinien (eigene Befehle, Doku hilft)
 \usepackage{csquotes}                      % Bessere Zitate (eigene Befehle, Doku hilft)
 \usepackage{relsize}                       % Abgesetzte Zitate mit verkleinerter Schrift
@@ -27,7 +43,7 @@
 \usepackage{enumerate}                     % Weitere Möglichkeiten für die enumerate-Umgebung
 \usepackage{geometry}                      % Zentriert die Titelseite für die Druckausgabe
 \usepackage{graphicx}                      % Einbinden von Bildern
-\graphicspath{Bilder/}                      % Bilder können aus dem Verzeichnis img ohne Pfadangabe
+\graphicspath{{Bilder/}}                      % Bilder können aus dem Verzeichnis img ohne Pfadangabe
                                            % eingebunden werden
 \usepackage{icomma}                        % Korrigiert Platz um Kommas in Zahlen
 \usepackage{listings}                      % Einbinden von Quelltexten
@@ -35,27 +51,14 @@
 \lstset{%
     breaklines       = true,               % Automatischer Zeilenumbruch
     backgroundcolor  = \color{gray!8},
+    commentstyle     = \textcolor{black!70},
     numbers          = left,
     numbersep        = 5pt,
     numberstyle      = \textcolor{black!40},
     showspaces       = false,
     showstringspaces = false,
-    tabsize          = 4,
-    basicstyle=\small\ttfamily,
-    keywordstyle=\bfseries\ttfamily\color{blue},
-    stringstyle=\color{orange!50!black}\ttfamily,
-    commentstyle=\color{gray}\ttfamily,
-    literate=%
-        {Ã–}{{\"O}}1
-        {Ã„}{{\"A}}1
-        {Ãœ}{{\"U}}1
-        {ÃŸ}{{\ss}}1
-        {Ã¼}{{\"u}}1
-        {Ã¤}{{\"a}}1
-        {Ã¶}{{\"o}}1
-        {~}{{\textasciitilde}}1
+    tabsize          = 4
 }
-
 \renewcommand*{\lstlistlistingname}{Listings-Verzeichnis}
 \usepackage{mathtools}                     % Große Liste von Mathematikbefehlen, enthält amsmath
 \usepackage{fontspec}                      % Für den normalen Schriftsatz (standardmäßig: lmodern)
@@ -66,6 +69,7 @@
                  spelling = new]{german}
 \setotherlanguage{english}
 \usepackage[backend = biber,               % Standardmäßig ab TeXLive 2016
+            sorting = none,                % Sortieren nach erster Nennung
             style   = ieee]{biblatex}      % Bibliographie im IEEE-Stil
 \addbibresource{Quellen/Literatur.bib}
 % Definiert den Bibliographiestil für Online-Quellen nach IEEE StyleGuide von 2009.
@@ -77,15 +81,14 @@
 }
 \renewbibmacro*{title}{%
     \ifboolexpr{
-        test {\iffieldundef{title}\fi}
-    }\fi
+        test {\iffieldundef{title}}
+    }
     {}
     {%
         \printtext[title]{%
             \printfield[sentencecase]{title}%
         }%
-
-    }
+    }%
     \printfield{titleaddon}%
 }
 \DeclareBibliographyDriver{online}{%
@@ -105,7 +108,9 @@
 \cohead*{}
 \cofoot*{}
 \rofoot*{\pagemark}
-\usepackage[ngerman]{selnolig}             % Unterdrückt selektiv Ligaturen
+% Dieses Paket erzwingt LuaLatex. Damit muss der Font-Cache berechnet werden. 
+% Dies führt zu einer viel langsameren Kompilierung des Projekts.   ID: 0x01
+% \usepackage[ngerman]{selnolig}             % Unterdrückt selektiv Ligaturen
 \usepackage[ngerman]{varioref}             % Referenziert Labels wo möglich und nötig mit
                                            % relativen Seitenangaben
 \usepackage[breaklinks,                    % Trennung von Links erlauben
@@ -119,15 +124,15 @@
             nonumberlist,                  % Keine nummerierte Liste der Einträge
             nopostdot,                     % Kein automatischer Punkt nach Einträgen
             xindy]
-            {glossaries}                    % Zum Einbinden eines Abkürzungsverzeichnis und eines
+           {glossaries}                    % Zum Einbinden eines Abkürzungsverzeichnis und eines
                                            % Glossars
 \GlsSetXdyCodePage{duden-utf8}             % Einstellungen für Xindy: Sortierung und UTF8
 \setacronymstyle{short-long}               % Erste Abkürzung im Format kurz (lang)
 \setglossarystyle{long}                    % Gleiche Breite für Spalten
 \setlength\LTleft\parindent%               % Linke Spalte linksbündig statt zentriert
 \setlength\LTright\fill%                   % Rechte Spalte füllt die restliche Seite
-\loadglsentries{Quellen/glossary.tex}              % Glossareinträge aus dieser Datei lesen
 \makeglossaries%                           % Glossareinträge erstellen
+\loadglsentries{Quellen/glossary}              % Glossareinträge aus dieser Datei lesen
 \usepackage{cleveref}                      % Referenziert zusätzlich den Typ eines Labels
 
 \AtBeginDocument{% Folgende Befehle am Beginn des Dokuments ausführen
