@@ -1,10 +1,13 @@
 \section{Video-Deepfakes}\label{sec:video-deepfakes2}
 
-Video-Deepfakes sind eine besondere Form von gefälschten Medieninhalten, bei denen Gesichtsbilder in Videos so manipuliert werden, dass sie authentisch erscheinen. Diese Technologie hat erhebliche Auswirkungen auf die Bereiche Sicherheit, Verifikation und Social Engineering. Im Folgenden werden verschiedene Methoden zur Erstellung von Video-Deepfakes beschrieben und ihre technischen Details, Unterschiede, Gemeinsamkeiten sowie Vor- und Nachteile diskutiert.
+Video-Deepfakes sind eine besondere Form von gefälschten Medieninhalten, bei denen Gesichtsbilder in Videos so manipuliert werden, dass sie authentisch erscheinen.
+Diese Technologie hat erhebliche Auswirkungen auf die Bereiche Sicherheit, Verifikation und Social Engineering.
+Im Folgenden werden verschiedene Methoden zur Erstellung von Video-Deepfakes beschrieben und ihre technischen Details, Unterschiede, Gemeinsamkeiten sowie Vor- und Nachteile diskutiert.
 
 \subsection{Veraltete Methode: 3D Modellierung}\label{subsec:3d-modellierung}
 
-Die frühe Methode zur Erstellung von Video-Deepfakes basierte auf der 3D-Modellierung. Hierbei wird ein dreidimensionales Modell des Gesichts einer Person erstellt, das anschließend animiert und in ein Video eingefügt wird.
+Die frühe Methode zur Erstellung von Video-Deepfakes basierte auf der 3D-Modellierung.
+Hierbei wird ein dreidimensionales Modell des Gesichts einer Person erstellt, das anschließend animiert und in ein Video eingefügt wird.
 
 \textbf{Technische Details:}
 \begin{itemize}
@@ -77,50 +80,42 @@ Sie können verwendet werden, um falsche Identitäten zu erstellen und Vertrauen
 \begin{itemize}
     \item 3D-Modellierung erfordert manuelle Arbeit und ist weniger flexibel bei dynamischen Szenen.
     \item \glspl{gan} und deren Weiterentwicklungen (\gls{fsgan}, FSGANv2) bieten automatisierte Lösungen mit höherer Qualität und Flexibilität.
-    \item \gls{fsgan} und FSGANv2 sind speziell auf Gesichtsmanipulation optimiert und bieten bessere Ergebnisse bei der Anpassung an verschiedene Bedingungen \cite{Deepfakes-a-survey-and-introduction-to-the-topical-collection}.
+    \item \gls{fsgan} und FSGANv2 sind speziell auf Gesichtsmanipulation optimiert und bieten bessere Ergebnisse bei der Anpassung an verschiedene Bedingungen\cite{Deepfakes-a-survey-and-introduction-to-the-topical-collection}.
 \end{itemize}
 
 Insgesamt zeigt sich, dass die Weiterentwicklung der Deepfake-Technologien, insbesondere durch \glspl{gan} und deren Spezialisierungen wie \gls{fsgan} und FSGANv2, erheblich zur Verbesserung der Qualität und Realismus beigetragen hat.
 Dies stellt jedoch auch eine größere Bedrohung im Bereich des Social Engineering dar, da die Täuschungsabsicht hinter den erzeugten Medieninhalten immer schwerer zu durchschauen ist.
 
-
 \section{Face Swapping vs. Reenactment}\label{sec:face-swapping-vs.-reenactment}
-Es gibt verschiedene Techniken von Video Deepfakes, im Folgenden werden Face-Swapping, sowie Reenactment näher
-betrachtet.
+Es gibt verschiedene Techniken von Video Deepfakes, im Folgenden werden Face-Swapping, sowie Reenactment näher betrachtet.
+Beide Varianten können mit den oben vorgestellten Möglichkeiten realisiert werden.
+Es gibt Modelle die für einen von beiden Anwendungsfällen besser geeignet sind, grundlegend basieren aber heutige Modelle immer auf \glspl{gan}.
 
-\section{Face Swapping}\label{sec:face-swapping}
+\subsection{Face Swapping}\label{subsec:face-swapping}
 Face Swapping, eine weit verbreitete Technik innerhalb der Deepfake-Technologie, beinhaltet das Austauschen eines
 Gesichts in einem Bild oder Video durch das Gesicht einer anderen Person.
 Diese Methode hat insbesondere in den letzten Jahren erhebliche Fortschritte gemacht, vor allem durch die Entwicklung von \glspl{gan}.
 Bei Face Swapping wird das Gesicht der Zielperson durch ein anderes Gesicht ersetzt, wobei Merkmale wie Hautfarbe,
 Beleuchtung und Gesichtsausdrücke so angepasst werden, dass das Ergebnis möglichst realistisch wirkt.
+Diese Technik findet vor allem Anwendung in der Gestaltungs- und Medienbranche.
+Es können z.B. Gesichter von Schauspielern auf ihre Stuntdoubles gesetzt werden, um realistischere Stunt Szenen zu erzeugen.
+Eine besondere Form des Face Swapping ersetzt speziell den Mund eines Schauspielers, um die Synchronisation in anderen Sprachen zu vereinfachen\cite{Deepfakes-An-Overview}.
+In der Cyber-Security spielt diese Technik keine große Rolle, da nur das Gesicht ersetzt wird, müssen Dinge wie Hintergrund, Frisur und Kleidung selbst an die Zielperson angepasst werden.
+Dieser Aufwand ist heutzutage nicht mehr nötig, da Reenactmentmodelle ähnlich gute Ergebnisse erzielen.
 
-Im Rahmen des \glspl{fsgan}\cite{face-swapping-and-reenactment} Ansatzes wird ein neuartiges rekurrentes neuronales Netzwerk (RNN) für das Face Swapping vorgestellt, das sowohl Pose- als auch Ausdrucksvariationen anpasst und auf ein einzelnes Bild oder eine Video-Sequenz angewendet werden kann.
-Die kontinuierliche Interpolation der Gesichtsansichten erfolgt auf der Grundlage von Delaunay-Triangulation und baryzentrischen Koordinaten.
-Ein Gesichtsvollständigungsnetzwerk behandelt verdeckte Gesichtsregionen, während ein Gesichtsmischungsnetzwerk für das nahtlose Einfügen der beiden Gesichter sorgt und dabei die Hautfarbe und Lichtverhältnisse des Zielbildes bewahrt.
-Diese Methode übertrifft sowohl qualitativ als auch quantitativ bestehende Systeme.
-
-Frühere Methoden für Face Swapping basierten oft auf 3D-Gesichtsmodellen, die entweder geschätzt oder festgelegt wurden.
-Diese Modelle wurden dann an die Eingabebilder angepasst und als Proxy für das Übertragen von Intensitäten (Swapping) oder das Steuern von Gesichtsausdrücken und -ansichten (Reenactment) verwendet.
-Neuere Ansätze nutzen tiefe Netzwerke, insbesondere \glspl{gan}, um realistische Bilder von gefälschten Gesichtern zu erzeugen.
-Diese Methoden sind jedoch oft auf spezifische Subjekte trainiert und erfordern umfangreiche Datensätze, um akzeptable Ergebnisse zu erzielen.
-Im Gegensatz dazu ist \gls{fsgan} subjektsagnostisch und benötigt kein training auf spezifischen Gesichtern, was seine Anwendung deutlich vereinfacht und erweitert.
-
-\section{Reenactment}\label{sec:reenactment}
+\subsection{Reenactment}\label{subsec:reenactment}
 Reenactment, auch als Face Transfer oder Puppeteering bekannt, ist eine Technik, bei der die Gesichtsausdrücke und -bewegungen eines Ausgangsbildes oder -videos auf ein Zielbild oder -video übertragen werden.
 Dies ermöglicht es, das Gesicht der Zielperson so zu manipulieren, dass es die gleichen Bewegungen und Ausdrücke wie das Ausgangsgesicht zeigt.
-Diese Technik wird häufig in der Unterhaltungsindustrie, aber auch in Bereichen wie Datenschutz und der Erstellung von Trainingsdaten verwendet.
-
-Die \gls{fsgan}-Methode bietet eine innovative Lösung für das Reenactment, die keine spezifischen Trainingsdaten für die involvierten Subjekte benötigt.
-Stattdessen verwendet \gls{fsgan} ein rekurrentes Netzwerk, das sowohl die Pose als auch die Gesichtsausdrücke kontinuierlich anpasst.
-Ein wesentliches Element dieser Methode ist die Verwendung der Delaunay-Triangulation zur Interpolation zwischen verschiedenen Ansichten des Gesichts.
-Diese Triangulation ermöglicht es, die Gesichtsausdrücke nahtlos und realistisch zu übertragen, selbst bei großen Pose- und Ausdrucksunterschieden.
-
-Um verdeckte Gesichtsregionen zu rekonstruieren, setzt \gls{fsgan} auf ein Gesichtsvollständigungsnetzwerk, das fehlende Teile des Gesichts basierend auf den vorhandenen Segmentierungsdaten ergänzt.
-Schließlich sorgt ein Gesichtsmischungsnetzwerk dafür, dass das rekonstruierten Gesicht harmonisch in das Zielbild eingefügt wird.
-Diese Methode verwendet einen neuen Poisson-Blending-Verlust, der Poisson-Optimierung mit einem Wahrnehmungsverlust kombiniert, um eine nahtlose Integration zu gewährleisten.
-
-Frühere Ansätze zum Reenactment stützten sich oft auf 3D-Modelle, die Gesichtslandmarken zur Steuerung der Gesichtsausdrücke nutzten.
-Solche Modelle erforderten eine präzise Anpassung und waren anfällig für Fehler bei teilweise verdeckten Gesichtern.
-Moderne Ansätze, wie \glspl{gan}, haben diese Herausforderungen durch die Nutzung tief lernender Netzwerke weitgehend überwunden, indem sie realistische und kohärente Ergebnisse liefern, ohne auf 3D-Modelle angewiesen zu sein.
-\gls{fsgan} setzt neue Maßstäbe, indem es eine vollständig trainierbare, subjektsagnostische Lösung für Face Swapping und Reenactment bietet, die qualitativ und quantitativ überlegen ist\cite{face-swapping-and-reenactment}.
+Diese Technik findet sich ebenfalls in der Filmbranche wieder, indem z.B. verstorbene oder anderweitig verhinderte Schauspieler trotzdem noch in Filmen oder Serien zu sehen sind.
+Das vermutlich bekannteste Beispiel hierfür ist die Nutzung von Deepfake-Technologie, um die Charaktere Grand Moff Tarkin und Prinzessin Leia in ``Rogue One: A Star Wars Story'' realistischer darzustellen.
+In der originalen Filmproduktion wurden von beiden Charakteren alte 3D-Modelle bzw. Facescans verwendet um mit herkömmlichen Animations- und Rendertechniken realisiert.
+Durch den Einsatz von Face-Swapping und Reenactment wurden die visuellen Effekte dieser Charaktere von Fans so verbessert, dass sie natürlicher und lebensechter wirken als die ursprünglichen Effekte.
+Dieses Beispiel zeigt die Vorteile vom Einsatz von Deepfakes in der Filmproduktion und erweitern die Möglichkeiten der Branche erheblich\cite{rouge-one-deepfake}.\\
+Im Kontext von Cyber-Security sind die Anwendungsfälle offensichtlich.
+Es können durch Reenactment Videos von einflussreichen Personen innerhalb von Firmen erstellt werden, um Phishing noch effektiver zu gestalten.
+Außerdem können Videos von Personen des öffentlichen Lebens angefertigt werden in denen diese kontroverse Aussagen tätigen, um die öffentliche Meinung ins Negative zu ziehen.
+Ein gutes Beispiel hierfür ist \href{https://www.youtube.com/watch?v=cQ54GDm1eL0}{``You Won’t Believe What Obama Say In This Video''}.\\
+Vor allem durch den Einsatz von auf Performance spezialisierter \glspl{gan} können Videos nahezu in Echtzeit gefaked werden.
+Für Social Engineering relevante Videomedien sind ohnehin Video-Calls -- dies hat zur Folge, dass ein Delay von wenigen Sekunden, sowie kleine Artefakte oder Bildrauschen nicht ins Gewicht fallen, da diese auch von der Streamingplattform ausgehen könnten.
+Die Qualität der Deepfakes braucht also nicht auf filmreifen Niveau zu sein, um für Social Engineering brauchbar zu sein.
+Dies hat zur Folge, dass schon mit wenig Aufwand und Wissen, eine großzahl von Personen solche Fakes erstellen können.

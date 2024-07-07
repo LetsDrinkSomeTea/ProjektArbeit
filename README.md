@@ -13,7 +13,7 @@
     - Anwendungsgebiete von Deepfakes außerhalb von Social Engineering
     - Ethikrichtlinien für die Erstellung und Verwendung von Deepfakes in der Forschung
 
-- **2.2 Social Engineering: Definition, Methoden und Ziele** ```Julian```
+- [x] **2.2 Social Engineering: Definition, Methoden und Ziele** ```Julian```
     - Überblick über Social Engineering und dessen Bedeutung in der Cybersecurity
     - Psychologische Aspekte von Social Engineering
     - Beispiele für Social Engineering Attacken
@@ -31,10 +31,10 @@
   - Stimme ```Max```
     - Funktionsweise/Technische Details
     - Tools/Beispiel
-  - Face-Swapping ```Julian```
+  - [x] Face-Swapping ```Julian```
     - Funktionsweise/Technische Details
     - Tools/Beispiel
-  - Reenactment ```Julian```
+  - [x] Reenactment ```Julian```
     - Funktionsweise/Technische Details
     - Tools/Beispiel
 
