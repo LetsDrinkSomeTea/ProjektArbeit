@@ -1,0 +1,33 @@
+\section{Face Swapping vs. Reenactment}\label{sec:face-swapping-vs.-reenactment}
+Es gibt verschiedene Techniken von Video Deepfakes, im Folgenden werden Face-Swapping, sowie Reenactment näher betrachtet.
+Beide Varianten können mit den oben vorgestellten Möglichkeiten realisiert werden.
+Es gibt Modelle die für einen von beiden Anwendungsfällen besser geeignet sind, grundlegend basieren aber heutige Modelle immer auf \glspl{gan}.
+
+\subsection{Face Swapping}\label{subsec:face-swapping}
+Face Swapping, eine weit verbreitete Technik innerhalb der Deepfake-Technologie, beinhaltet das Austauschen eines
+Gesichts in einem Bild oder Video durch das Gesicht einer anderen Person.
+Diese Methode hat insbesondere in den letzten Jahren erhebliche Fortschritte gemacht, vor allem durch die Entwicklung von \glspl{gan}.
+Bei Face Swapping wird das Gesicht der Zielperson durch ein anderes Gesicht ersetzt, wobei Merkmale wie Hautfarbe,
+Beleuchtung und Gesichtsausdrücke so angepasst werden, dass das Ergebnis möglichst realistisch wirkt.
+Diese Technik findet vor allem Anwendung in der Gestaltungs- und Medienbranche.
+Es können z.B. Gesichter von Schauspielern auf ihre Stuntdoubles gesetzt werden, um realistischere Stunt Szenen zu erzeugen.
+Eine besondere Form des Face Swapping ersetzt speziell den Mund eines Schauspielers, um die Synchronisation in anderen Sprachen zu vereinfachen\cite{Deepfakes-An-Overview}.
+In der Cyber-Security spielt diese Technik keine große Rolle, da nur das Gesicht ersetzt wird, müssen Dinge wie Hintergrund, Frisur und Kleidung selbst an die Zielperson angepasst werden.
+Dieser Aufwand ist heutzutage nicht mehr nötig, da Reenactmentmodelle ähnlich gute Ergebnisse erzielen.
+
+\subsection{Reenactment}\label{subsec:reenactment}
+Reenactment, auch als Face Transfer oder Puppeteering bekannt, ist eine Technik, bei der die Gesichtsausdrücke und -bewegungen eines Ausgangsbildes oder -videos auf ein Zielbild oder -video übertragen werden.
+Dies ermöglicht es, das Gesicht der Zielperson so zu manipulieren, dass es die gleichen Bewegungen und Ausdrücke wie das Ausgangsgesicht zeigt.
+Diese Technik findet sich ebenfalls in der Filmbranche wieder, indem z.B. verstorbene oder anderweitig verhinderte Schauspieler trotzdem noch in Filmen oder Serien zu sehen sind.
+Das vermutlich bekannteste Beispiel hierfür ist die Nutzung von Deepfake-Technologie, um die Charaktere Grand Moff Tarkin und Prinzessin Leia in ``Rogue One: A Star Wars Story'' realistischer darzustellen.
+In der originalen Filmproduktion wurden von beiden Charakteren alte 3D-Modelle bzw. Facescans verwendet um mit herkömmlichen Animations- und Rendertechniken realisiert.
+Durch den Einsatz von Face-Swapping und Reenactment wurden die visuellen Effekte dieser Charaktere von Fans so verbessert, dass sie natürlicher und lebensechter wirken als die ursprünglichen Effekte.
+Dieses Beispiel zeigt die Vorteile vom Einsatz von Deepfakes in der Filmproduktion und erweitern die Möglichkeiten der Branche erheblich\cite{rouge-one-deepfake}.\\
+Im Kontext von Cyber-Security sind die Anwendungsfälle offensichtlich.
+Es können durch Reenactment Videos von einflussreichen Personen innerhalb von Firmen erstellt werden, um Phishing noch effektiver zu gestalten.
+Außerdem können Videos von Personen des öffentlichen Lebens angefertigt werden in denen diese kontroverse Aussagen tätigen, um die öffentliche Meinung ins Negative zu ziehen.
+Ein gutes Beispiel hierfür ist \href{https://www.youtube.com/watch?v=cQ54GDm1eL0}{``You Won’t Believe What Obama Say In This Video''}.\\
+Vor allem durch den Einsatz von auf Performance spezialisierter \glspl{gan} können Videos nahezu in Echtzeit gefaked werden.
+Für Social Engineering relevante Videomedien sind ohnehin Video-Calls -- dies hat zur Folge, dass ein Delay von wenigen Sekunden, sowie kleine Artefakte oder Bildrauschen nicht ins Gewicht fallen, da diese auch von der Streamingplattform ausgehen könnten.
+Die Qualität der Deepfakes braucht also nicht auf filmreifen Niveau zu sein, um für Social Engineering brauchbar zu sein.
+Dies hat zur Folge, dass schon mit wenig Aufwand und Wissen, eine großzahl von Personen solche Fakes erstellen können.

@@ -1,0 +1,38 @@
+\section{Detection Methods für Video-Deepfakes}\label{sec:detection-methods}
+Die rasante Verbreitung von Deepfake-Inhalten stellt eine erhebliche Bedrohung für die Privatsphäre, die soziale Sicherheit und die Integrität des Internets dar.
+Um diesen Bedrohungen entgegenzuwirken, sind effektive Erkennungsmethoden unerlässlich.
+Verschiedene Techniken wurden entwickelt, um die Authentizität von Videos zu prüfen und Deepfakes zu identifizieren.
+
+\subsection*{Temporale Sequenzanalyse}
+Eine der gängigsten Methoden zur Erkennung von Deepfakes ist die temporale Sequenzanalyse.
+Diese Technik nutzt die Fähigkeit von \gls{lstm} Netzwerken und \glspl{cnn}, um zeitliche Unstimmigkeiten zwischen den Frames eines Videos zu erkennen.
+Durch die Analyse der Sequenzen von Frames können \gls{lstm}-Netzwerke zusammen mit \glspl{cnn} Muster identifizieren, die auf Deepfake-Manipulationen hinweisen.
+Hierbei extrahieren die \glspl{cnn} eine Vielzahl von Merkmalen aus jedem Frame und übergeben diese an die \gls{lstm}-Netzwerke, die eine temporale Sequenzbeschreibung erzeugen.
+Eine SoftMax-Schicht berechnet schließlich die Wahrscheinlichkeit, dass die analysierten Frames Deepfakes sind\cite{Deepfakes-An-Overview}.
+
+\subsection*{Blinzelmuster Erkennung}
+Eine weitere Methode basiert auf der Analyse der Augenblinzelmuster in Videos.
+Deepfake-Videos weisen oft unnatürliche Blinzelraten auf, da das Blinzeln in den synthetisierten Videos schlecht dargestellt wird.
+Hierfür wird das Video in einzelne Frames konvertiert und die Augenbereiche werden extrahiert.
+Diese Augenbereich-Sequenzen werden durch \glspl{lrcn} verarbeitet, um die Wahrscheinlichkeit der Augenöffnungs oder -schließzustände vorherzusagen.
+Diese Methode ist besonders effektiv, da menschliche Blinzelmuster schwer nachzuahmen und synthetisierbar sind\cite{Deepfakes-An-Overview}.
+
+\subsection*{Physiologisch basierte Erkennungsmethoden}
+Physiologisch basierte Erkennungsmethoden nutzen Unterschiede zwischen computergenerierten Gesichtern und realen menschlichen Gesichtern.
+Ein Beispiel hierfür ist die Analyse von Blutflussmustern im Gesicht, die in Deepfake-Videos oft fehlen oder unnatürlich dargestellt werden.
+Solche physiologischen Signale können mit spezieller Software erfasst und analysiert werden, was eine hohe Genauigkeit bei der Erkennung von subtilen Unterschieden zwischen echten und gefälschten Gesichtern ermöglicht\cite{The-Emergence-of-Deepfake-Technology}.
+
+\subsection*{Digitale Wasserzeichen und Blockchains}
+Digitale Wasserzeichen und Blockchain-Technologien bieten ebenfalls effektive Möglichkeiten zur Authentifizierung von Videoinhalten.
+Digitale Wasserzeichen können in Videos eingebettet werden und gehen bei Manipulationen verloren.
+Die Blockchain-Technologie kann verwendet werden, um digitale Signaturen zu speichern und die Verbreitung von Videos zu verfolgen.
+Dies bietet eine hohe Sicherheit und Transparenz bei der Verifizierung der Authentizität von Videoinhalten, erfordert jedoch einen hohen Implementierungsaufwand\cite{The-Emergence-of-Deepfake-Technology}.
+
+\subsection*{Echtzeiterkennung durch Augenspiegelung}
+Aktive forensische Methoden sind besonders nützlich für die Echtzeit-Erkennung von Deepfakes, beispielsweise bei Videoanrufen.
+Diese Methoden nutzen spezifische Muster oder Reize, um Deepfakes in Echtzeit zu erkennen.
+Ein Beispiel ist die Anzeige eines unverwechselbaren Musters auf dem Bildschirm und die Analyse der kornealen Reflexion im Auge des Gesprächspartners.
+Solche biometriebasierten Ansätze sind effektiv für die Echtzeit-Erkennung und bieten eine robuste Lösung zur Verhinderung von Deepfake-Angriffen in Videokonferenzen\cite{detection-of-real-time-deepfakes}.\\
+
+Insgesamt bieten die verschiedenen Erkennungsmethoden für Video-Deepfakes eine breite Palette von Ansätzen zur Identifizierung und Authentifizierung von Inhalten.
+Die kontinuierliche Weiterentwicklung dieser Technologien ist entscheidend, um den immer leistungsfähigen Deepfake-Techniken entgegenzuwirken.
