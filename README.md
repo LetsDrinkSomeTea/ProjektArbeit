@@ -52,3 +52,9 @@
 - Die Rolle der KI in der Zukunft von Social Engineering und Cybersecurity
 - Zusammenfassung der wichtigsten Erkenntnisse der Arbeit
 - Ausblick auf zukünftige Entwicklungen und Herausforderungen
+
+
+# Hinweis:
+> Laborumgebung Setup, Video und Übungen pro Tool
+
+> Ggf. technische Details von Implementierungen Ausführen
