@@ -26,3 +26,7 @@
 *.fdb_latexmk
 *.fls
 .idea
+DeepFaceLive_DirectX12/
+DeepFaceLab
+venv/
+.vscode/
