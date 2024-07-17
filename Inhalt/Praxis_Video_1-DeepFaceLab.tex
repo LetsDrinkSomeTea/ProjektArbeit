@@ -1,0 +1,66 @@
+Um Deepfakes erstellen zu können, gibt es einige verschiedene Tools.
+Die verbreitetsten Tools sind DeepFaceLab für Video-Deepfakes und DeepFaceLive für \gls{jit}-Anwendungen.
+Im Folgenden werden beide Tools mit ihren verschiedenen Möglichkeiten sowie Best-Practices vorgestellt.
+
+\section{DeepFaceLab}\label{sec:deepfacelab}
+\gls{dfl} ist ein Open-Source Framework zur Erstellung von Face-Swapping Videos.
+\gls{dfl} pipelined den Prozess der fotorealistischen Videomanipulation.
+
+\subsection{Motivation}\label{subsec:motivation}
+Die Motivation hinter \gls{dfl} ist es, sowohl die Erstellung als auch die Erkennung von Deepfakes zu verbessern.
+Durch die Bereitstellung eines leistungsfähigen und flexiblen Werkzeugs für Gesichtsmanipulationen trägt es zur Weiterentwicklung der Forschung im Bereich der Medienfälschungserkennung bei.
+Es hilft dabei, qualitativ hochwertige Fälschungsdaten zu erzeugen, die für die Entwicklung robuster Erkennungsmodelle unerlässlich sind\cite{deepfacelabintegratedflexibleextensible, deepfacelab}.
+
+\subsection{Fähigkeiten}\label{subsec:fahigkeiten}
+DeepFaceLab zeichnet sich durch mehrere Hauptmerkmale aus:
+\begin{itemize}
+    \item \textbf{Bequemlichkeit}: Der gesamte Workflow von DeepFaceLab, einschließlich Datenverarbeitung, Modelltraining und Nachbearbeitung, ist darauf ausgelegt, so benutzerfreundlich und effizient wie möglich zu sein.
+     Es bietet ein vollständiges \gls{cli}, die eine flexible Implementierung ermöglicht.
+    \item \textbf{Breite technische Unterstützung}: Das Tool unterstützt Multi-GPU-Konfigurationen und die Verwendung von mehreren Threads zur Beschleunigung grafischer Operationen und Datenverarbeitung.
+     Laut Paper können selbst auf einem Rechner mit nur 2GB VRAM erfolgreiche Gesichtsmanipulationen durchgeführt werden\cite{deepfacelabintegratedflexibleextensible}.
+    \item \textbf{Erweiterbarkeit}: Die Architektur von DeepFaceLab ist modular aufgebaut, sodass einzelne Komponenten einfach austauschen werden können\cite{deepfacelabintegratedflexibleextensible}.
+    \item \textbf{Skalierbarkeit}: \gls{dfl} unterstützt durch verschiedene Tools die Verarbeitung von großen Datenmengen.\cite{deepfacelabintegratedflexibleextensible}.
+\end{itemize}
+
+\subsection{Workflow}\label{subsec:workflow}
+Der Workflow von DeepFaceLab ist in der Form einer Pipeline und besteht aus drei Hauptphasen: Extraction, Training und Conversion.
+
+\subsubsection{Extraction}
+In der Extraktionsphase werden Gesichter aus den Quell- und Zielvideos extrahiert.
+Diese Phase umfasst mehrere Algorithmen und Verarbeitungsschritte, dazu gehören face detection, face alignment und face segmentation.
+\gls{dfl} bietet verschiedene Extraktionsmodi (z.B. half-face, full-face, whole-face), um den unterschiedlichen Anforderungen gerecht zu werden\cite{deepfacelabintegratedflexibleextensible, deepfacelab}.
+
+\begin{itemize}
+    \item \textbf{Face Detection}: Hierbei wird ein \gls{cnn} verwendet, um Gesichter in den Videoframes zu erkennen.
+    Diese Detektion ist entscheidend, um die Position und Größe des Gesichts für die weiteren Verarbeitungsschritte zu bestimmen.
+    \item \textbf{Face Alignment}: Nachdem die Gesichter erkannt wurden, werden sie durch Algorithmen zur Gesichtsangleichung normalisiert.
+    Dies bedeutet, dass die Gesichter in eine einheitliche Position und Größe gebracht werden, was die Genauigkeit der späteren Schritte erhöht.
+    \item \textbf{Face Segmentation}: In diesem Schritt werden die Gesichter von den restlichen Bildinformationen getrennt.
+    Dies ermöglicht eine gezielte Bearbeitung der Gesichter ohne Beeinträchtigung des restlichen Bildes.
+\end{itemize}
+
+\subsubsection{Training}
+Das Training ist die entscheidende Phase, in der ein Modell trainiert wird, um realistische Gesichtsmanipulationen zu erzeugen.
+DeepFaceLab verwendet zwei Hauptstrukturen: die DF-Struktur und die LIAE-Struktur.
+Dabei wird eine Mischung aus DSSIM- und MSE-Verlusten verwendet, um sowohl eine schnelle Generalisierung als auch eine hohe Präzesion zu erreichen\cite{deepfacelabintegratedflexibleextensible, deepfacelab}.
+
+\begin{itemize}
+    \item \textbf{DF-Struktur (DeepFakes)}: Diese Struktur basiert auf \glspl{gan} und nutzt zwei Netzwerke - ein Generator und ein Diskriminator. 
+    Der Generator versucht, realistische Gesichter zu erzeugen, während der Diskriminator versucht, zwischen echten und generierten Gesichtern zu unterscheiden.
+    Durch diesen Wettbewerb lernen beide Netzwerke, immer realistischere Ergebnisse zu produzieren.
+    \item \textbf{LIAE-Struktur (Learned Image-to-Image Translation)}: Diese Struktur verwendet ebenfalls \glspl{gan}, fokussiert sich aber stärker auf die Übersetzung von Bildern. 
+     Es wird ein Encoder-Decoder-Ansatz verwendet, bei dem das Gesicht in einen latenten Raum kodiert und anschließend in das Zielgesicht dekodiert wird.
+    \item \textbf{Verlustfunktionen}: Der DSSIM (Structural Dissimilarity) Verlust wird verwendet, um strukturelle Unterschiede zwischen dem generierten und dem echten Bild zu minimieren, während der MSE (Mean Squared Error) Verlust die pixelweisen Unterschiede minimiert.
+\end{itemize}
+
+\subsubsection{Konvertierung}
+In der Konvertierungsphase werden die erzeugten Gesichter wieder in die ursprünglichen Zielbilder eingefügt.
+Dieser Schritt umfasst Farbanpassungen, um den Hautton und die Beleuchtung anzugleichen, sowie das Schärfen der Bilder, um Details hervorzuheben.
+DeepFaceLab bietet mehrere Farbanpassungsalgorithmen und nutzt ein vortrainiertes Super-Resolution-Netzwerk, um die endgültigen Bilder zu verbessern\cite{deepfacelabintegratedflexibleextensible, deepfacelab}.
+
+\begin{itemize}
+    \item \textbf{Farbanpassung}: Hierbei werden Algorithmen verwendet, die den Hautton und die Beleuchtung des generierten Gesichts an das Zielbild anpassen, um einen nahtlosen Übergang zu gewährleisten.
+    \item \textbf{Super-Resolution}: Ein vortrainiertes Super-Resolution-Netzwerk wird eingesetzt, um die Auflösung der generierten Gesichter zu erhöhen und feinere Details hervorzuheben. 
+     Dies ist besonders wichtig für hochauflösende Videos.
+    \item \textbf{Nachbearbeitung}: Weitere Nachbearbeitungsschritte umfassen das Schärfen der Bilder und das Entfernen von Artefakten, um die Gesamtqualität zu verbessern.
+\end{itemize}
