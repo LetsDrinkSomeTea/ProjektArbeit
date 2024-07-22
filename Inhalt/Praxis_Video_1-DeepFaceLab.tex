@@ -25,6 +25,15 @@ DeepFaceLab zeichnet sich durch mehrere Hauptmerkmale aus:
 \subsection{Workflow}\label{subsec:workflow}
 Der Workflow von DeepFaceLab ist in der Form einer Pipeline und besteht aus drei Hauptphasen: Extraction, Training und Conversion.
 
+\subsubsection{Pretraining}\label{subsubsec:pretraining}
+Da das Trainieren von Deepfake Modellen viel Zeit und Rechenleistung in Anspruch nimmt, ist es ratsam ein vortrainiertes Modell (engl. pretrained Model) als Ausgangspunkt zu verwenden.
+\texttt{Pretrained Models} sind Modell die mit vielen unterschiedlichen Gesichtern trainiert wurden.
+Sie liefern nach gleich vielen Iterationen schlechtere Ergebnisse als Modelle, die speziell auf ein Gesichterpaar trainiert wurden.
+Allerdings können diese generischen Modelle schnell auf ein Gesichterpaar spezialisiert werden.
+Es ist also ratsam ein generisches Modell vorzutrainieren und abzuspeichern.
+Künftige spezifische Models können dieses als Ausgangspunkt verwenden und so schneller trainiert werden.
+Oft können auch \texttt{Pretrained Models} bereits im Internet gefunden werden.
+
 \subsubsection{Extraction}
 In der Extraktionsphase werden Gesichter aus den Quell- und Zielvideos extrahiert.
 Diese Phase umfasst mehrere Algorithmen und Verarbeitungsschritte, dazu gehören face detection, face alignment und face segmentation.
@@ -53,7 +62,7 @@ Dabei wird eine Mischung aus DSSIM- und MSE-Verlusten verwendet, um sowohl eine 
     \item \textbf{Verlustfunktionen}: Der DSSIM (Structural Dissimilarity) Verlust wird verwendet, um strukturelle Unterschiede zwischen dem generierten und dem echten Bild zu minimieren, während der MSE (Mean Squared Error) Verlust die pixelweisen Unterschiede minimiert.
 \end{itemize}
 
-\subsubsection{Konvertierung}
+\subsubsection{Conversion}
 In der Konvertierungsphase werden die erzeugten Gesichter wieder in die ursprünglichen Zielbilder eingefügt.
 Dieser Schritt umfasst Farbanpassungen, um den Hautton und die Beleuchtung anzugleichen, sowie das Schärfen der Bilder, um Details hervorzuheben.
 DeepFaceLab bietet mehrere Farbanpassungsalgorithmen und nutzt ein vortrainiertes Super-Resolution-Netzwerk, um die endgültigen Bilder zu verbessern\cite{deepfacelabintegratedflexibleextensible, deepfacelab}.
