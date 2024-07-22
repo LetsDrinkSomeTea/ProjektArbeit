@@ -1,5 +1,21 @@
 # Face-Swapping
 
+# Presets
+#### lstlisting
+```
+\begin{lstlisting}[numbers=none,label={lst:}]
+\end{lstlisting}
+```
+#### figure
+```
+\begin{figure}
+    \center
+    \includegraphics[width=0.7\textwidth]{Bilder/DFL/}
+    \caption{}
+    \label{fig:}
+\end{figure}
+```
+
 
 # Reenactment
 Example Video: [You Won’t Believe What Obama Say In This Video](https://www.youtube.com/watch?v=cQ54GDm1eL0)
@@ -96,4 +112,59 @@ Praktische Anwendung:
 8) merged to mp4.bat
 10.misc) make CPU only.bat
 10.misc) start EBSynth.bat
+
+
+[0] Autobackup every N hour ( 0..24 ?:help ) :
+0
+[n] Write preview history ( y/n ?:help ) :
+n
+[0] Target iteration :
+0
+[n] Flip SRC faces randomly ( y/n ?:help ) :
+n
+[y] Flip DST faces randomly ( y/n ?:help ) :
+y
+[8] Batch_size ( ?:help ) :
+8
+[128] Resolution ( 64-640 ?:help ) :
+128
+[f] Face type ( h/mf/f/wf/head ?:help ) :
+f
+[liae-ud] AE architecture ( ?:help ) :
+liae-ud
+[256] AutoEncoder dimensions ( 32-1024 ?:help ) :
+256
+[64] Encoder dimensions ( 16-256 ?:help ) :
+64
+[64] Decoder dimensions ( 16-256 ?:help ) :
+64
+[22] Decoder mask dimensions ( 16-256 ?:help ) :
+22
+[n] Eyes and mouth priority ( y/n ?:help ) :
+n
+[n] Uniform yaw distribution of samples ( y/n ?:help ) :
+n
+[n] Blur out mask ( y/n ?:help ) :
+n
+[y] Place models and optimizer on GPU ( y/n ?:help ) :
+y
+[y] Use AdaBelief optimizer? ( y/n ?:help ) :
+y
+[n] Use learning rate dropout ( n/y/cpu ?:help ) :
+n
+[y] Enable random warp of samples ( y/n ?:help ) :
+y
+[0.0] Random hue/saturation/light intensity ( 0.0 .. 0.3 ?:help ) :
+0.0
+[0.0] GAN power ( 0.0 .. 5.0 ?:help ) :
+0.0
+[0.0] Face style power ( 0.0..100.0 ?:help ) :
+0.0
+[0.0] Background style power ( 0.0..100.0 ?:help ) :
+0.0
+[none] Color transfer for src faceset ( none/rct/lct/mkl/idt/sot ?:help ) :
+none
+[n] Enable gradient clipping ( y/n ?:help ) :
+n
+[n] Enable pretraining mode ( y/n ?:help ) :
 ```
