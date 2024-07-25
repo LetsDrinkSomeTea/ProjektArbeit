@@ -1,7 +1,7 @@
 \section{Praxisbeispiel DeepFaceLab}\label{sec:praxisbeispiel-dfl}
 Im Folgenden wird der Workflow zum Erstellen von Video Deepfakes mit \gls{dfl} näher betrachtet.
 Ziel dieses Kapitels ist das Tauschen zweier Gesichter in zwei Videos.
-Für das Ersetzen in Echtzeit wird \gls{dflive} verwendet, dessen Workflow in einem anderen Kapitel (% TODO ref DFLive) beschrieben wird.
+Für das Ersetzen in Echtzeit wird \gls{dflive} verwendet, dessen Workflow in einem anderen Kapitel (\ref{sec:deepfacelive}) beschrieben wird.
 
 \subsection{Laborumgebung}\label{subsec:laborumgebung}
 Alle Deepfakes, wenn nicht anders genannt, werden auf folgender Hardware erstellt.\\[0.5cm]
@@ -50,7 +50,7 @@ Für den exemplarischen Deepfake dieser Arbeit, werden das mitgelieferte Standar
 Aus Gründen die in \ref{subsubsec:pretraining} beschrieben sind, wird ein Modell vortrainiert.
 \gls{dfl} liefert bereits einen Datensatz zum Vortrainieren mit.
 Das Pretraining kann also ohne weitere Vorbereitung beginnen.
-\subsubsection{Pretrain XSeg}
+\subsubsection*{Pretrain XSeg}
 \begin{lstlisting}[label={lst:xseg-pretraining},numbers=none]
     5.XSeg) train.bat
 \end{lstlisting}
@@ -69,7 +69,7 @@ Das Pretraining für XSeg kommt schon mit einigen Zehntausend Iterationen aus.
     \label{fig:xseg-pretrain}
 \end{figure}
 
-\subsubsection{Pretrain SAEHD}
+\subsubsection*{Pretrain SAEHD}
 \begin{lstlisting}[label={lst:saehd-pretraining},numbers=none]
     6) train SAEHD.bat
 \end{lstlisting}

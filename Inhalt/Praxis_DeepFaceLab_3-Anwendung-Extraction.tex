@@ -22,7 +22,7 @@ Das \texttt{dst}-Video wird immer komplett extrahiert, da die Frames am Ende der
 Es müssen alle Frames vorhanden sein, um ein flüssiges Endergebnis zu gewährleisten.
 Es kann ebenfalls das Bildformat ausgewählt werden, dieses sollte gleich gewählt werden wie beim ersten Video.
 
-\subsubsection{Face Extraction}
+\subsubsection*{Face Extraction}
 Nun müssen die Gesichter aus den Bildern extrahiert werden.
 Im Folgenden wird der Prozess für das \texttt{src}-Material (in \gls{dfl} Schritt 4.X) beschrieben.
 Für das \texttt{dst}-Material verläuft der Prozess (als Schritt 5.X) analog.
@@ -73,7 +73,7 @@ Dies sollte nur gemacht werden, wenn die Bilder sonst unscharf oder zu klein sin
 Besser ist es, direkt scharfe, hoch aufgelöste Bilder bzw. Ausgangsvideos zu verwenden.
 Das Vorgehen ist für das \texttt{dst}-Material identisch.
 
-\subsubsection{XSeg Mask}
+\subsubsection*{XSeg Mask}
 Sind alle Bilder entsprechend gesichtet und aussortiert, muss eine \texttt{XSeg Mask} angewandt werden.
 Diese Maske erfasst das ganze Gesicht mit seinen genauen Umrissen.
 Wenn Deepfakes im \textit{face} oder \textit{whole-face} Modus gemacht werden, kann eine pretrained generische Maske angewandt werden.
@@ -138,7 +138,7 @@ Anschließend muss die Maske neu angewandt werden.
     \label{fig:xseg-train-comparison}
 \end{figure}
 
-\subsubsection{Facepack Erstellung}
+\subsubsection*{Facepack Erstellung}
 Der letzte (optionale) Schritt der Extraktionsphase ist das Erstellen eines Facepacks.
 Dies ist eine komprimierte Version der bisher geleisteten Arbeit.
 Die bisherigen Schritte erforderten vergleichsweise wenig Rechenleistung; durch Facepacks lassen sich die Daten einfacher auf z.B. einen stärkeren Computer übermitteln.

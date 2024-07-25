@@ -2,63 +2,45 @@
 Unter Social Engineering werden alle Angriffe zusammengefasst, die die Schwachstelle Mensch ausnutzen.
 Es wird durch verschiedene Techniken versucht, an private oder sensible Inhalte von Personen zu gelangen.
 Social Engineering ist heutzutage eine der größten Gefahren im digitalen Raum.
-Kryptografische Verfahren und Protokolle wurden über die Jahre immer besser.
-Ist ein System bzw. eine digitale Infrastruktur richtig gehärtet, sind Angriffe wie Brute-Force oder Dictionary-Attacks wirkungslos.
-Außerdem werden durch moderne \glspl{ids} sowie \gls{threat-intelligence} technische Angriffe immer schneller erkannt und blockiert.
-Laut einem Paper aus 2018 sind 84\% aller Cyber-Angriffe auf Social Engineering zurückzuführen.
-Zudem haben Social Engineering Angriffe eine höhere Erfolgschance als herkömmliche Methoden.
+Kryptografische Verfahren und Protokolle wurden über die Jahre immer weniger anfällig für Exploits.
+Ist ein System bzw. eine digitale Infrastruktur richtig gehärtet, sind Angriffe wie Brute-Force- oder Dictionary-Attacken wirkungslos.
+Außerdem werden durch moderne \glspl{ids}, sowie \gls{threat-intelligence} technische Angriffe immer schneller erkannt und blockiert.
+Social Engineering Angriffe eine höhere Erfolgschance als herkömmliche Methoden.
 Laut des \gls{dbir} von Verizon waren 2024 $45\%$ der erfassten Cyberangriffe auf Social Engineering zurückzuführen.
 Bei $~83\%$ der 3661 reporteten Incidents wurden Daten extrahiert.\cite{verizon-2024-dbir}
-
-% Kommentar: Es wäre hilfreich, ein konkretes Beispiel für einen erfolgreichen Social Engineering Angriff einzufügen, um die Einführung lebendiger und verständlicher zu machen.
 
 \subsection{Verschiedene Typen von Social Engineering}\label{subsec:verschiedene-typen-von-social-engineering}
 Social Engineering lässt sich in verschiedene Bereiche untergliedern, die folgenden Beschreibungen richten sich nach dem Artikel: ``Social Engineering Attacks: A Survey''\cite{social-engineering-a-survey}
 
-Hier werden Social Engineering Angriffe in zwei Kategorien unterteilt.
-\begin{itemize}
-    \item Human-based
-\end{itemize}
-    Diese Angriffe werden manuell von einem Menschen ausgeführt.
-    Sie sind in der Regel spezifisch auf das Opfer angepasst und mit höherem Aufwand verbunden.
-    Dafür sind die Erfolgschancen höher als bei automatisierten Angriffen.
-\begin{itemize}
-    \item Computer-based
-\end{itemize}
-Diese Angriffe werden automatisiert durchgeführt.
+Hier werden Social Engineering Angriffe in zwei Kategorien unterteilt.\\
+\textbf{Human-based:} Diese Angriffe werden manuell von einem Menschen ausgeführt.
+Sie sind in der Regel spezifisch auf das Opfer angepasst und mit höherem Aufwand verbunden.
+Dafür sind die Erfolgschancen höher als bei automatisierten Angriffen.\\
+\textbf{Computer-based:} Diese Angriffe werden automatisiert durchgeführt.
 Sie sind qualitativ deutlich schlechter als ihr Gegenstück, dafür werden sie in hoher Quantität durchgeführt.
 Hierzu zählen Phishing-Mails oder SMS.
 Es gibt verschiedene Tools, um solche Angriffe durchzuführen, ein bekanntes ist das ``\href{https://github.com/trustedsec/social-engineer-toolkit}{Social Engineering Toolkit}''.
 
-Des Weiteren können Social Engineering Angriffe in drei weitere Kategorien unterteilt werden.
-\begin{itemize}
-    \item Social-based
-\end{itemize}
-Diese Form von Social Engineering Angriffen besteht aus zwischenmenschlicher Interaktion.
+Des Weiteren können Social Engineering Angriffe in drei weitere Kategorien unterteilt werden.\\
+\textbf{Social-based:} Diese Form von Social Engineering Angriffen besteht aus zwischenmenschlicher Interaktion.
 Dabei spielt sie mit der Psychologie und den Emotionen der Zielperson.
 Diese Form von Social Engineering birgt ein hohes Risiko, hat aber ebenfalls eine hohe Erfolgschance, da der Angreifer im direkten oder indirekten Kontakt mit dem Opfer steht.
-Beispiele hierfür wären: Baiting, Spear-Phishing, aber auch Dinge wie der \gls{enkeltrick}.
+Beispiele hierfür wären: Baiting, Spear-Phishing, aber auch nicht technische Methoden wie der \gls{enkeltrick}.
 
-\begin{itemize}
-    \item Technical-based
-\end{itemize}
-Hier werden Angriffe übers Internet remote ausgeführt.
+\textbf{Technical-based:} Hier werden Angriffe übers Internet remote ausgeführt.
 Dafür werden Social-Media Plattformen und Online-Dienste verwendet, um Passwörter, Kreditkarteninformationen oder personenbezogene Daten zu stehlen.
 Hierzu zählen zum Beispiel Phishing-Kampagnen oder gefälschte Webseiten.
 
-\begin{itemize}
-    \item Physical-based
-\end{itemize}
-Physical-based Angriffe geschehen abseits des Internets in der realen Welt.
+\textbf{Physical-based:} Physical-based Angriffe geschehen abseits des Internets in der realen Welt.
 Dabei werden durch physisches Handeln Informationen erschlossen.
 Ein Beispiel wäre das Durchsuchen von Müllcontainern (auch Dumpster-Diving genannt) nach sensiblen Dokumenten.
 
 Je nachdem, aus welchem Blickwinkel die verschiedenen Techniken des Social Engineerings betrachtet werden, können diese in noch mehr verschiedene Kategorien eingeteilt werden.
 Neben Human-, Computer-, Social-, Technical- und Physical-based Social Engineering ist die zusätzliche Unterscheidung in \textbf{direkt} und \textbf{indirekt} sinnvoll.
 Ersteres benötigt direkten Kontakt zwischen Angreifer und Opfer, dabei zählen physischer Kontakt sowie Telefonate.
-Beispiele sind: physical access, shoulder surfing, dumpster diving, phone social engineering, pretexting, impersonation on help desk call.
+Beispiele sind: physical access, shoulder surfing, dumpster diving, phone social engineering, pretexting und impersonation on help desk call.
 Indirekte Angriffe sind entsprechend analog dazu.
-Hierzu zählen: phishing, fake software, Pop-Up windows, ransomware, SMSishing, online social engineering.
+Hierzu zählen: phishing, fake software, Pop-Up windows, ransomware und SMSishing.
 
 \subsection{Überblick über gängige Angriffe}\label{subsec:uberblick-uber-gangige-angriffe}
 Phishing ist eine der am weitesten verbreiteten Social Engineering-Techniken.
@@ -66,12 +48,12 @@ Ziel dieser Angriffe ist es, private oder vertrauliche Daten der Opfer zu stehle
 Dabei werden hauptsächlich E-Mails, SMS, Anrufe oder gefälschte Webseiten eingesetzt, um die Opfer zur Preisgabe ihrer Informationen zu verleiten.
 Phishing lässt sich grob in folgende Kategorien unterteilen\cite{advanced-social-engineering-attacks}:
 \begin{itemize}
-    \item \textbf{Spear Phishing}: Diese Methode ist zielspezifisch und verwendet oft durch Open Source Intelligence (OSINT) gesammelte Informationen, um maßgeschneiderte E-Mails zu erstellen.
-     Die Nachrichten wirken dadurch besonders glaubwürdig und erhöhen die Erfolgschancen des Angriffs.
+    \item \textbf{Spear Phishing}: Diese Methode ist zielspezifisch und verwendet oft durch \gls{osint} gesammelte Informationen, um maßgeschneiderte E-Mails zu erstellen.
+    Die Nachrichten wirken dadurch besonders glaubwürdig und erhöhen die Erfolgschancen des Angriffs.
     \item \textbf{Whaling Phishing}: Hierbei handelt es sich um Angriffe auf hochrangige Ziele, wie Führungskräfte oder Personen in Schlüsselpositionen.
-     Diese Angriffe sind oft sehr aufwendig und spezifisch auf das Ziel zugeschnitten, um wertvolle Informationen zu erlangen.
+    Diese Angriffe sind oft sehr aufwendig und spezifisch auf das Ziel zugeschnitten, um wertvolle Informationen zu erlangen.
     \item \textbf{Vishing}: Voice Phishing, bei dem Telefonanrufe oder Sprachdienste wie Teams genutzt werden, um sensible Informationen zu erlangen.
-     Die Angreifer geben sich häufig als vertrauenswürdige Institutionen oder Personen aus, um das Vertrauen des Opfers zu gewinnen.
+    Die Angreifer geben sich häufig als vertrauenswürdige Institutionen oder Personen aus, um das Opfers zu verleiten Informationen zu teilen.
 \end{itemize}
 
 Eine weitere Technik ist \textbf{Baiting}.
@@ -91,7 +73,7 @@ Eine der effektivsten Präventionsstrategien ist die \textbf{Schulung der Mitarb
 Durch regelmäßige Schulungen und Sensibilisierungsprogramme können Mitarbeiter lernen, die Anzeichen von Social Engineering Angriffen zu erkennen und angemessen darauf zu reagieren.
 Dies umfasst das Überprüfen der Authentizität und Integrität von Nachrichten, sei es per E-Mail, SMS oder Telefon.
 
-\textbf{Überprüfung der Authentizität und Integrität von Nachrichten}: Mitarbeiter sollten stets darauf achten, ungewöhnliche oder verdächtige Nachrichten sorgfältig zu prüfen.
+\textbf{Überprüfung der Authentizität und Integrität von Nachrichten}: Es sollte stets darauf geachtet werden, ungewöhnliche oder verdächtige Nachrichten sorgfältig zu prüfen.
 Dazu gehört, den Absender zu überprüfen, auf Rechtschreib- und Grammatikfehler zu achten und Links sowie Anhänge nicht ohne weiteres zu öffnen.
 Wenn Zweifel bestehen, sollte die Nachricht direkt beim vermeintlichen Absender verifiziert werden.
 
@@ -100,19 +82,19 @@ Hier kommen verschiedene technische und organisatorische Maßnahmen ins Spiel:
 
 \begin{itemize}
     \item \textbf{Domain-Tiering}: Diese Technik hilft, die Auswirkungen eines erfolgreichen Angriffs zu minimieren, indem unterschiedliche Sicherheitsstufen für verschiedene Domänen innerhalb eines Unternehmens festgelegt werden.
-     Dadurch kann ein kompromittierter Bereich isoliert und der Schaden begrenzt werden.
+    Dadurch kann ein kompromittierter Bereich isoliert und der Schaden begrenzt werden.
     \item \textbf{Notfallmanagement}: Ein effektives Notfallmanagement umfasst klare Protokolle und Verantwortlichkeiten für den Fall eines Angriffs.
-     Regelmäßige Schulungen und Übungen stellen sicher, dass alle Mitarbeiter wissen, wie sie im Ernstfall reagieren müssen.
-     Dies beinhaltet auch die schnelle Identifikation und Isolation kompromittierter Systeme sowie die Benachrichtigung betroffener Personen und Behörden.
+    Regelmäßige Schulungen und Übungen stellen sicher, dass alle Mitarbeiter wissen, wie sie im Ernstfall reagieren müssen.
+    Dies beinhaltet auch die schnelle Identifikation und Isolation kompromittierter Systeme sowie die Benachrichtigung betroffener Personen und Behörden.
 \end{itemize}
 
 Zusätzlich zu diesen Maßnahmen können technische Hilfsmittel den Schutz vor Social Engineering Angriffen verbessern:
 
 \begin{itemize}
     \item \textbf{E-Mail-Sicherheitslösungen}: Tools wie E-Mail-Filter und Anti-Phishing-Software können verdächtige Nachrichten erkennen und blockieren, bevor sie die Mitarbeiter erreichen.
-    \item \textbf{Zwei-Faktor-Authentifizierung (2FA)}: Durch die Implementierung von 2FA wird ein zusätzlicher Schutzlayer hinzugefügt, der es Angreifern erschwert, Zugang zu sensiblen Systemen und Daten zu erlangen, selbst wenn sie die Anmeldedaten eines Mitarbeiters gestohlen haben.
+    \item \textbf{Zwei-Faktor-Authentifizierung (2FA)}: Durch die Implementierung von 2FA wird ein zusätzlicher Schutzlayer hinzugefügt, der es Angreifern erschwert, Zugang zu sensiblen Systemen und Daten zu erlangen, selbst wenn sie bereits Anmeldedaten gestohlen haben.
     \item \textbf{Netzwerküberwachung und \glspl{ids}}: Diese Systeme überwachen den Netzwerkverkehr auf verdächtige Aktivitäten und können Angriffe frühzeitig erkennen und abwehren.
 \end{itemize}
 
 Ein ganzheitlicher Ansatz, der sowohl präventive als auch reaktive Maßnahmen umfasst, ist unerlässlich, um die Widerstandsfähigkeit eines Unternehmens gegenüber Social Engineering Angriffen zu erhöhen.
-Durch die Kombination aus regelmäßiger Mitarbeiterschulung, technischer Absicherung und einem robusten Notfallmanagement kann das Risiko solcher Angriffe erheblich reduziert werden.\cite{social-engineering-a-survey, bsi-social-engineering}
+Durch die Kombination aus regelmäßiger Mitarbeiterschulung, technischer Absicherung und einem robusten Notfallmanagement kann das Risiko solcher Angriffe erheblich reduziert werden\cite{social-engineering-a-survey, bsi-social-engineering}: Auch im Privaten, können und sollen dieser Techniken angewandt werden.

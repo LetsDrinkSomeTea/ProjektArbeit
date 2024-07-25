@@ -1,5 +1,5 @@
 Um Deepfakes erstellen zu können, gibt es einige verschiedene Tools.
-Die verbreitetsten Tools sind DeepFaceLab für Video-Deepfakes und DeepFaceLive für \gls{jit}-Anwendungen.
+Die verbreitetsten Tools sind DeepFaceLab (DFL) für Video-Deepfakes und DeepFaceLive (DFLive) für \gls{jit}-Anwendungen.
 Im Folgenden werden beide Tools mit ihren verschiedenen Möglichkeiten sowie Best-Practices vorgestellt.
 
 \section{DeepFaceLab}\label{sec:deepfacelab}
@@ -15,26 +15,26 @@ Es hilft dabei, qualitativ hochwertige Fälschungsdaten zu erzeugen, die für di
 DeepFaceLab zeichnet sich durch mehrere Hauptmerkmale aus:
 \begin{itemize}
     \item \textbf{Usability}: Der gesamte Workflow von DeepFaceLab, einschließlich Datenverarbeitung, Modelltraining und Nachbearbeitung, ist darauf ausgelegt, so benutzerfreundlich und effizient wie möglich zu sein.
-     Es bietet ein vollständiges \gls{cli}, die eine flexible Implementierung ermöglicht.
+     Es bietet ein vollständiges \gls{cli}, das eine flexible Implementierung ermöglicht.
     \item \textbf{Breite technische Unterstützung}: Das Tool unterstützt Multi-GPU-Konfigurationen und die Verwendung von mehreren Threads zur Beschleunigung grafischer Operationen und Datenverarbeitung.
      Laut Paper können selbst auf einem Rechner mit nur 2GB VRAM erfolgreiche Gesichtsmanipulationen durchgeführt werden\cite{deepfacelabintegratedflexibleextensible}.
-    \item \textbf{Erweiterbarkeit}: Die Architektur von DeepFaceLab ist modular aufgebaut, sodass einzelne Komponenten einfach austauschen werden können\cite{deepfacelabintegratedflexibleextensible}.
+    \item \textbf{Erweiterbarkeit}: Die Architektur von DeepFaceLab ist modular aufgebaut, sodass einzelne Komponenten einfach ausgetauscht werden können\cite{deepfacelabintegratedflexibleextensible}.
     \item \textbf{Skalierbarkeit}: \gls{dfl} unterstützt durch verschiedene Tools die Verarbeitung von großen Datenmengen.\cite{deepfacelabintegratedflexibleextensible}.
 \end{itemize}
 
 \subsection{Workflow}\label{subsec:workflow}
 Der Workflow von DeepFaceLab ist in der Form einer Pipeline und besteht aus drei Hauptphasen: Extraction, Training und Conversion.
 
-\subsubsection{Pretraining}\label{subsubsec:pretraining}
+\subsubsection*{Pretraining}\label{subsubsec:pretraining}
 Da das Trainieren von Deepfake Modellen viel Zeit und Rechenleistung in Anspruch nimmt, ist es ratsam ein vortrainiertes Modell (engl. pretrained Model) als Ausgangspunkt zu verwenden.
 \texttt{Pretrained Models} sind Modell die mit vielen unterschiedlichen Gesichtern trainiert wurden.
-Sie liefern nach gleich vielen Iterationen schlechtere Ergebnisse als Modelle, die speziell auf ein Gesichterpaar trainiert wurden.
+Sie liefern zwar nach gleich vielen Iterationen schlechtere Ergebnisse als Modelle, die speziell auf ein Gesichterpaar trainiert wurden.
 Allerdings können diese generischen Modelle schnell auf ein Gesichterpaar spezialisiert werden.
 Es ist also ratsam ein generisches Modell vorzutrainieren und abzuspeichern.
 Künftige spezifische Models können dieses als Ausgangspunkt verwenden und so schneller trainiert werden.
 Oft können auch \texttt{Pretrained Models} bereits im Internet gefunden werden.
 
-\subsubsection{Extraction}
+\subsubsection*{Extraction}
 In der Extraktionsphase werden Gesichter aus den Quell- und Zielvideos extrahiert.
 Diese Phase umfasst mehrere Algorithmen und Verarbeitungsschritte, dazu gehören face detection, face alignment und face segmentation.
 \gls{dfl} bietet verschiedene Extraktionsmodi (z.B. half-face, full-face, whole-face), um den unterschiedlichen Anforderungen gerecht zu werden\cite{deepfacelabintegratedflexibleextensible, deepfacelab}.
@@ -48,7 +48,7 @@ Diese Phase umfasst mehrere Algorithmen und Verarbeitungsschritte, dazu gehören
     Dies ermöglicht eine gezielte Bearbeitung der Gesichter ohne Beeinträchtigung des restlichen Bildes.
 \end{itemize}
 
-\subsubsection{Training}
+\subsubsection*{Training}
 Das Training ist die entscheidende Phase, in der ein Modell trainiert wird, um realistische Gesichtsmanipulationen zu erzeugen.
 DeepFaceLab verwendet zwei Hauptstrukturen: die DF-Struktur und die LIAE-Struktur.
 Dabei wird eine Mischung aus DSSIM- und MSE-Verlusten verwendet, um sowohl eine schnelle Generalisierung als auch eine hohe Präzesion zu erreichen\cite{deepfacelabintegratedflexibleextensible, deepfacelab}.
@@ -57,12 +57,14 @@ Dabei wird eine Mischung aus DSSIM- und MSE-Verlusten verwendet, um sowohl eine 
     \item \textbf{DF-Struktur (DeepFakes)}: Diese Struktur basiert auf \glspl{gan} und nutzt zwei Netzwerke - ein Generator und ein Diskriminator. 
     Der Generator versucht, realistische Gesichter zu erzeugen, während der Diskriminator versucht, zwischen echten und generierten Gesichtern zu unterscheiden.
     Durch diesen Wettbewerb lernen beide Netzwerke, immer realistischere Ergebnisse zu produzieren.
-    \item \textbf{LIAE-Struktur (Learned Image-to-Image Translation)}: Diese Struktur verwendet ebenfalls \glspl{gan}, fokussiert sich aber stärker auf die Übersetzung von Bildern. 
+    Diese Struktur erzielt die realistische Darstellung des Quellgesichts.
+    \item \textbf{LIAE-Struktur (Lenient Interpolation AutoEncoder)}: Diese Struktur verwendet ebenfalls \glspl{gan}.
      Es wird ein Encoder-Decoder-Ansatz verwendet, bei dem das Gesicht in einen latenten Raum kodiert und anschließend in das Zielgesicht dekodiert wird.
+     Diese Struktur erlaubt das morphen des Quellgesichts. Dies führt zu einer besseren Integration in das Zielbild mit der Möglichkeit einer Realitätsabweichung.
     \item \textbf{Verlustfunktionen}: Der DSSIM (Structural Dissimilarity) Verlust wird verwendet, um strukturelle Unterschiede zwischen dem generierten und dem echten Bild zu minimieren, während der MSE (Mean Squared Error) Verlust die pixelweisen Unterschiede minimiert.
 \end{itemize}
 
-\subsubsection{Conversion}
+\subsubsection*{Conversion}
 In der Konvertierungsphase werden die erzeugten Gesichter wieder in die ursprünglichen Zielbilder eingefügt.
 Dieser Schritt umfasst Farbanpassungen, um den Hautton und die Beleuchtung anzugleichen, sowie das Schärfen der Bilder, um Details hervorzuheben.
 DeepFaceLab bietet mehrere Farbanpassungsalgorithmen und nutzt ein vortrainiertes Super-Resolution-Netzwerk, um die endgültigen Bilder zu verbessern\cite{deepfacelabintegratedflexibleextensible, deepfacelab}.

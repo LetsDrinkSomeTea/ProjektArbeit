@@ -2,7 +2,7 @@
 Es gibt verschiedene Modelle, die für das Training genutzt werden können.
 Die wesentlichen Unterschiede sind:
 \begin{itemize}
-    \item \textbf{SAEHD (6GB+):} High Definition Styled Auto Encoder – geeignet für GPUs mit mindestens 6GB VRAM.
+    \item \textbf{SAEHD (6GB+):} Sparse Auto Encoder HD – geeignet für GPUs mit mindestens 6GB VRAM.
     Einstellbar und für die meisten Benutzer empfohlen.
     \item \textbf{AMP (6GB+):} Neues Modell mit unterschiedlicher Architektur, das versucht, die Form des \texttt{src} beizubehalten.
     Für GPUs mit mindestens 6GB VRAM.
@@ -26,7 +26,7 @@ Dazu gehören:
     \item Morph factor (nur bei AMP training)
 \end{itemize}
 
-\subsubsection{Trainingskonfiguration}
+\subsubsection*{Trainingskonfiguration}
 Die Konfiguration von DeepFake-Modell-Trainingsparameter bietet eine Vielzahl von Optionen, um die Qualität und Effizienz des Trainings zu optimieren.
 Nachfolgend wird auf die verschiedenen Parameter und deren empfohlene Einstellungen ausführlich eingegangen:
 
@@ -149,7 +149,7 @@ Das Konsolenfenster zeigt nochmals die gewählten Einstellungen, sowie einige an
 Über die Zeit werden diese Werte immer niedriger und gehen gegen Null.
 Bei einem unzureichend vorbereiteten Datensatz konvergieren die Werte nicht gegen Null.
 
-\subsubsection{Trainings Workflow und Ende}
+\subsubsection*{Trainings Workflow und Ende}
 In den Tests hat sich ein Vorgehen herauskristallisiert, dass zu weitestgehend zufriedenstellenden Ergebnissen geführt hat.
 Dies bestand aus:
 \begin{enumerate}
@@ -159,18 +159,18 @@ Dies bestand aus:
     \item Default training
     \item Training mit \texttt{GAN Power}
 \end{enumerate}
-Es lässt sich allerdings leider kein universelles Setup formulieren das über verschiedenes \texttt{src}- und \texttt{dst}-Material hinweg gute Ergebnisse liefert.
-Entscheidend für die Qualität der Deepfakes ist das Ausgangsmaterial.
+Es lässt sich kein universelles Setup formulieren das über verschiedenes \texttt{src}- und \texttt{dst}-Material hinweg gute Ergebnisse liefert.
+Außerdem ist auch bei gut gewählten Einstellungen, das Ausgangsmaterial maßgeblich entscheidend für die Qualität der Deepfakes.
 
-Werden die \texttt{Loss values} irgendwann nicht mehr kleiner, kann das Training beendet werden.
+Werden die \texttt{Loss values} nicht mehr kleiner, kann das Training beendet werden.
 Außerdem kann in der Preview Ansicht der aktuelle Stand des Modells überprüft werden.
 Ein Training kann auch jederzeit wieder fortgesetzt werden, falls die Ergebnisse des exportierten Materials nicht zufriedenstellend sind.\\
 
 Ist ein Modell trainiert, kann dieses als eine \texttt{.dfm}-Datei exportiert werden.
 Diese Dateien können in \textbf{DeepFaceLive} importiert und verwendet werden, um Echtzeit Face swapping durchzuführen.
-Der Trainingsprozess für ein DeepFaceLive Modell unterscheidet sich grundlegend von dem bisher beschriebenen Prozess (siehe %\ref % TODO Ref für DeepfaceLive Kapitel).
+Der Trainingsprozess für ein DeepFaceLive Modell unterscheidet sich in einigen Punkten von dem bisher beschriebenen Prozess (siehe Kapitel \ref{sec:deepfacelive}).
 
-\subsubsection{Conversion/Merging}
+\subsection*{Conversion/Merging}
 Nach abgeschlossenem Training muss das trainierte Modell noch auf das Zielvideo angewandt werden.
 Dafür bietet \gls{dfl} zahlreiche Konfigurationsmöglichkeiten.
 Diese sind jedoch von Fall zu Fall verschieden und müssen individuell angepasst werden.

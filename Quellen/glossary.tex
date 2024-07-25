@@ -1,29 +1,45 @@
-% \newacronym{Key}{Short}{Long}
-
-% Glossareinträge
-% \newglossaryentry{Key}
-% {%
-%     name={Name},
-%     description={Description}
-% }
 
 % im Text mit \gls{Key} oder \glspl{Key} (Plural) verwenden
 
+% Social Engineering
 \newacronym{ids}{IDS}{Intrusion Detection System}
 \newacronym{dbir}{DBIR}{Data Breach Investigations Report}
+\newacronym{osint}{OSINT}{Open Source Intelligence}
+
+\newglossaryentry{threat-intelligence}{
+    name={Threat Intelligence},
+    description={Threat Intelligence sind Daten, die gesammelt, verarbeitet und analysiert werden, um die Motive,
+    Ziele und das Angriffsverhalten eines Bedrohungsakteurs zu verstehen. Durch Threat Intelligence können schnellere,
+    fundiertere und datenbasierte Sicherheitsentscheidungen getroffen werden. Zudem ermöglicht es, das Verhalten im
+    Kampf gegen Bedrohungsakteure von reaktiv zu proaktiv zu ändern.\cite{crowdstrike-threat-intelligence}}
+}
+\newglossaryentry{enkeltrick}{
+    name={Enkeltrick},
+    description={Ein betrügerisches Vorgehen, bei dem sich Trickbetrüger
+    über das Telefon, neuerdings auch über Kontaktplattformen und Messengerdienste, meist gegenüber älteren und/oder
+    hilflosen Personen, als deren nahe Verwandte ausgeben, um unter Vorspiegelung falscher Tatsachen an deren Bargeld
+    oder Wertgegenstände zu gelangen}
+}
 
 % DeepFakes
+\newacronym{ki}{KI}{Künstliche Intelligenz}
 \newacronym{gan}{GAN}{Generative Adversarial Networks}
 \newacronym{fsgan}{FSGAN}{Face Swapping GAN}
 \newacronym{cnn}{CNN}{Convolutional Neural Network}
 \newacronym{lstm}{LSTM}{Long Short-Term Memory}
 \newacronym{lrcn}{LRCN}{Long-Term Recurrent Convolutional Network}
+\newacronym{sota}{SOTA}{State-Of-The-Art}
 
 % DeepFaceLab
 \newacronym{dfl}{DFL}{DeepFaceLab}
 \newacronym{cli}{CLI}{Command Line Interface}
 \newacronym{rdj}{RDJ}{Robert Downey Jr.}
 \newacronym{fps}{FPS}{Frames Per Second}
+
+\newglossaryentry{ai-upscaling}{
+    name={AI-Upscaling},
+    description={AI-Upscaling ist eine Technik, die künstliche Intelligenz verwendet, um die Auflösung von Bildern oder Videos zu erhöhen.}
+}
 
 % DeepFaceLive
 \newacronym{jit}{JIT}{Just-in-Time}
@@ -37,23 +53,5 @@
     description={Motion Tracking ist eine Technik, die verwendet wird, um die Bewegung von Objekten oder Personen in einem Video oder einer animierten Szene zu verfolgen und zu verfolgen. Dies kann in 2D oder 3D erfolgen.}
 }
 
-\newglossaryentry{threat-intelligence}{
-    name={Threat Intelligence},
-    description={Threat Intelligence sind Daten, die gesammelt, verarbeitet und analysiert werden, um die Motive,
-Ziele und das Angriffsverhalten eines Bedrohungsakteurs zu verstehen. Durch Threat Intelligence können schnellere,
-    fundiertere und datenbasierte Sicherheitsentscheidungen getroffen werden. Zudem ermöglicht es, das Verhalten im
-    Kampf gegen Bedrohungsakteure von reaktiv zu proaktiv zu ändern.\cite{crowdstrike-threat-intelligence}}
-}
 
-\newglossaryentry{enkeltrick}{
-    name={Enkeltrick},
-    description={Ein betrügerisches Vorgehen, bei dem sich Trickbetrüger
-    über das Telefon, neuerdings auch über Kontaktplattformen und Messengerdienste, meist gegenüber älteren und/oder
-    hilflosen Personen, als deren nahe Verwandte ausgeben, um unter Vorspiegelung falscher Tatsachen an deren Bargeld
-    oder Wertgegenstände zu gelangen}
-}
 
-\newglossaryentry{ai-upscaling}{
-    name={AI-Upscaling},
-    description={AI-Upscaling ist eine Technik, die künstliche Intelligenz verwendet, um die Auflösung von Bildern oder Videos zu erhöhen.}
-}
