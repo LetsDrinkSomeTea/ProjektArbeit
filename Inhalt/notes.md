@@ -50,9 +50,31 @@ Praktische Anwendung:
         - 10.000
         - 50.000
   - Merge
-    - XSeg
-    - SAEHD
-    - Verschiedene Merge Einstellungen
+
+DeepFaceLive:
+
+RTT (Real Time Transfer)
+- dst Faces ist Facepack
+- src Face ist gewünschtes Gesicht
+- XSeg apply generic
+  - train for an hour
+  - ggf. manuell und nochmal training
+- Pretrained RTT Model 10kk iterations Setup:
+  - flip dst: no
+  - blur mask: no
+  - dropout: no
+  - hue/sat/light: 0.1
+  - background style power: 1
+  - color: none
+  - gradient clipping: y
+- 150k Iterations:
+  - dropout: y
+- 250k Iterations:
+  - Random warp: n
+- 400k Iterations:
+  - Blur mask: y
+  - GAN power: 0.1
+  - color: sot
 
 
 ```

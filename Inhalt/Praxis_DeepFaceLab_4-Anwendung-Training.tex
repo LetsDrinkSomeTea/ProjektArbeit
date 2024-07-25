@@ -26,7 +26,7 @@ Dazu gehören:
     \item Morph factor (nur bei AMP training)
 \end{itemize}
 
-
+\subsubsection{Trainingskonfiguration}
 Die Konfiguration von DeepFake-Modell-Trainingsparameter bietet eine Vielzahl von Optionen, um die Qualität und Effizienz des Trainings zu optimieren.
 Nachfolgend wird auf die verschiedenen Parameter und deren empfohlene Einstellungen ausführlich eingegangen:
 
@@ -88,10 +88,10 @@ Diese Architektur benötigt mehr VRAM und GPU Leistung.
 \textbf{Decoder dimensions (16-256):} Beeinflusst die Fähigkeit des Decoders, Gesichter wiederherzustellen.\\
 \textbf{Decoder mask dimensions (16-256):} Beeinflusst die Qualität der gelernten Masken.\\
 
-\textbf{Morph Faktor (0.1-0.5) (Nur bei AMP):} Beeinflusst, wie stark das Modell die vorhergesagten Gesichter an die Quellgesichter anpasst.
+\textbf{Morph factor (0.1-0.5) (Nur bei AMP):} Beeinflusst, wie stark das Modell die vorhergesagten Gesichter an die Quellgesichter anpasst.
 Ein höherer Wert kann zu einer höheren Ähnlichkeit führen, jedoch auf Kosten der Realismus des Zielgesichts.
 Empfohlener Wert ist 0.5.\\
-\textbf{Maskiertes Training (y/n) (Nur bei AMP):} Priorisiert das Training der maskierten Bereiche, um sicherzustellen, dass der Fokus des Modells auf den relevanten Teilen des Gesichts liegt.\\
+\textbf{Masked training (y/n) (Nur bei AMP):} Priorisiert das Training der maskierten Bereiche, um sicherzustellen, dass der Fokus des Modells auf den relevanten Teilen des Gesichts liegt.\\
 \textbf{Eyes and mouth priority (y/n):} Verbessert die Schärfe und Detailgenauigkeit der Augen und des Mundes, indem diese Bereiche während des Trainings stärker gewichtet werden.\\
 \textbf{Uniform yaw distribution of samples (y/n):} Hilft beim Training von Profilgesichtern, indem es das Modell zwingt, gleichmäßig auf alle Gesichtsrichtungen zu trainieren.
 Dies kann besonders nützlich sein, wenn das Quellset nicht viele Profilaufnahmen enthält.\\
@@ -121,13 +121,68 @@ Empfohlener Wert ist 0.05.\\
 Sehr empfehlenswert für Modelle mit -D Architekturvarianten.\\[0.5cm]
 
 Nach der Konfiguration des Modells und Training, wird überprüft, ob die genügen Hardware (ins besondere RAM und VRAM) verfügbar ist.
-Anschließend startet das Training (Abbildung \ref{fig:saehd-training}).
+Anschließend startet das Training.
 \begin{figure}
     \center
     \includegraphics[width=0.7\textwidth]{Bilder/DFL/saehd-train-f}
     \caption{SAEHD Training $128$ \texttt{res}}
     \label{fig:saehd-training}
 \end{figure}
+Im neu geöffneten Fenster (Abbildung \ref{fig:saehd-training}) sind 5 Spalten zu erkennen.
+Diese beinhalten (von links nach rechts):
+\begin{enumerate}
+    \item Ein Original \texttt{src}-Bild
+    \item Die Rekonstruierung des \texttt{src}-Gesichts
+    \item Ein Original \texttt{dst}-Bild
+    \item Die Rekonstruierung des \texttt{dst}-Gesichts
+    \item Das \texttt{src}-Gesicht mit den Ausdrücken des \texttt{dst}-Gesichts
+\end{enumerate}
+Das Konsolenfenster zeigt nochmals die gewählten Einstellungen, sowie einige anderen Informationen.
+\begin{enumerate}
+    \item Die aktuelle Zeit
+    \item Die aktuelle Iteration
+    \item Die Dauer der letzten Iteration
+    \item \texttt{src loss value}
+    \item \texttt{dst loss value}
+\end{enumerate}
+\textbf{Loss values} sind Werte die angeben, wie verschieden das rekonstruierte Gesicht vom tatsächlichen Gesicht ist.
+Über die Zeit werden diese Werte immer niedriger und gehen gegen Null.
+Bei einem unzureichend vorbereiteten Datensatz konvergieren die Werte nicht gegen Null.
 
+\subsubsection{Trainings Workflow und Ende}
+In den Tests hat sich ein Vorgehen herauskristallisiert, dass zu weitestgehend zufriedenstellenden Ergebnissen geführt hat.
+Dies bestand aus:
+\begin{enumerate}
+    \item Pretraining
+    \item Training mit \texttt{Uniform yaw distribution of samples} (sonst default)
+    \item Training mit \texttt{Eyes and mouth priority}
+    \item Default training
+    \item Training mit \texttt{GAN Power}
+\end{enumerate}
+Es lässt sich allerdings leider kein universelles Setup formulieren das über verschiedenes \texttt{src}- und \texttt{dst}-Material hinweg gute Ergebnisse liefert.
+Entscheidend für die Qualität der Deepfakes ist das Ausgangsmaterial.
 
-% TODO Training workflow und Trainingsende
+Werden die \texttt{Loss values} irgendwann nicht mehr kleiner, kann das Training beendet werden.
+Außerdem kann in der Preview Ansicht der aktuelle Stand des Modells überprüft werden.
+Ein Training kann auch jederzeit wieder fortgesetzt werden, falls die Ergebnisse des exportierten Materials nicht zufriedenstellend sind.\\
+
+Ist ein Modell trainiert, kann dieses als eine \texttt{.dfm}-Datei exportiert werden.
+Diese Dateien können in \textbf{DeepFaceLive} importiert und verwendet werden, um Echtzeit Face swapping durchzuführen.
+Der Trainingsprozess für ein DeepFaceLive Modell unterscheidet sich grundlegend von dem bisher beschriebenen Prozess (siehe %\ref % TODO Ref für DeepfaceLive Kapitel).
+
+\subsubsection{Conversion/Merging}
+Nach abgeschlossenem Training muss das trainierte Modell noch auf das Zielvideo angewandt werden.
+Dafür bietet \gls{dfl} zahlreiche Konfigurationsmöglichkeiten.
+Diese sind jedoch von Fall zu Fall verschieden und müssen individuell angepasst werden.
+\begin{figure}
+    \center
+    \includegraphics[width=\textwidth]{Bilder/DFL/merger-comparison}
+    \caption{Unterschiede: \texttt{overlay}, \texttt{hist-match}, \texttt{seamless}, \texttt{seamless histmatch}}
+    \label{fig:merger-comparison}
+\end{figure}
+
+Ist das Ergebnis zufriedenstellend, können die neu generierten Bilder wiederrum mit FFmpeg zu einem Video zusammengefügt werden.
+\gls{dfl} bietet hierfür wiederrum einen Wrapper.
+\begin{lstlisting}[numbers=none,label={lst:merged-to-mp4}]
+    8) merged to mp4.bat
+\end{lstlisting}
