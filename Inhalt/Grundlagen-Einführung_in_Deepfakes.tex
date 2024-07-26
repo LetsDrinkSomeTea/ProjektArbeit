@@ -37,7 +37,90 @@ Als klar wurde, dass selbst eine Person ohne viel Wissen in dem Gebiet, beliebig
 Auch im Jahr 2018 wurde ein Deepfake Video von damaligen Präsidenten Donald Trump in den Medien hochgeladen, in dem die Belgier aufgefordert wurden, aus dem Pariser Klimaschutzabkommen auszusteigen.\newline
 Durch solche Veröffentlichungen der Deepfake Videos zeigte sich, dass die Technologie sich schnell weiterentwickelt und in der Lage ist einen großen Teil der Öffentlichkeit in die Irre führen zu können.\cite{Jatit}
 
-\subsection{Technische Grundlagen}
+\subsection{Theoretische Grundlagen}
+Wie in fast allen Modellen der künstlichen Intelligenz, wird auch bei den Deepfakes Ausgangsmaterial benötigt. Das kann zum Beispiel Videomaterial oder Bilder von Personen sein, die man manipulieren möchte. Auch hier gilt je mehr Ausgangsmaterial vorhanden ist, desto besser erfolgt das Training des Modells. Bei einer Video Manipulation wird das Ergebnis besser, je mehr Videomaterial aus verschiedenen Perspektiven und verschiedenen Mimiken vorhanden ist.\cite{HochschuleDerMedien}\newline
+\subsubsection{Autoencoder}
+Ein Ansatz zur Erstellung von Deepfakes ist die Autoencoder Variante. Dieses neuronale Netzerzeugt aus einem Eingabebild ein digitales Abbild (Encoding), indem es durch ein Verfahren wie \gls{MaxPooling} verkleinert und auf wesentliche Kernmerkale des Bildes reduziert. Das encodierte Bild wird dann im Anschluss versucht, dass Bild möglichst orginalgetreu nachzubilden (Decoding). Das Ziel des Decoding ist es also, ein identisches, künstliches Abbild des encodierten Eingabebildes zu erzeugen. Um die Robustheit des Autoencoders zu erhöhen, ist es ratsam die Eingabebilder zu verzerren, Auflösung zu variieren und die Größe zu verändern.  Über längere Zeit des Trainings wird das Netz immer präziser, sodass der Unterschied zwischen Eingabngs- und Ausgangsbild nahezu nicht mehr vorhanden ist.\newline
+Um zwei Personen zu tauschen, wird das Autoencoder Verfahren auf beide Personen angewendet. Der Encoder bleibt hier der gleiche für beide Personen und für den Decoder gibt es 2 verschiedene. Während des Trainings des Deepfakes wird zunächst das Bildmaterial von Person A encodiert und anschließend mit Decoder A nachgestellt. Danach folgt dasselbe Training mit Person B und Decoder B. Nach dem Training beider Personen wird der Decoder A durch den Decoder B ersetzt, wodurch dann der Deepfake entsteht.\cite{HochschuleDerMedien}
+\begin{figure}[H]
+    \includegraphics[width=0.7\textwidth]{Bilder/Autoencoder}
+    \centering
+    \caption{Darstellung des Autoencoders zur Erstellung eines Deepfakes\cite{HochschuleDerMedien}}
+    \label{fig:Autoencoder}
+\end{figure}
+
+\begin{itemize}
+    \item \textbf{Funktion des Autoencoder:} \\
+    Autoencoder entdecken latente Variablen. Hierfür leiten sie die Eingabedaten durch einen Engpass (Code), bevor sie den Decoder erreichen. Dieser Engpass zwingt den Encoder zu lernen, dass nur die Informationen extrahiert und weitergeleitet werden, die für eine präzise Rekonstruktion der ursprünglichen Eingabe am nützlichsten sind.\newline
+    Der Encoder umfasst hierbei mehrere Schichten, welche eine komprimierte Darstellung der Eingabedaten durch Dimensionreduktion erzeugen. In einem typischen Autoencoder reduzieren die verborgenen Schichten die Anzahl der Knoten schrittweise im Vergleich zur Eingabeschicht. Während die Daten die Encoderschichten durchlaufen, werden sie durch einen Prozess (Strauchung) in weniger Dimensionen komprimiert.\newline
+    Der Engpass (auch Code genannt) besitzt die stärkste komprimierte Darstellung der Eingabe. Er wird sowohl als Ausgangsschicht des Encodernetzes als auch die Eingabeschicht des Decodernetzes betrachtet. Eines der Ziele des Entwurfs und Trainings eines Autoencoders besteht darin, die kleinstmögliche Anzahl der relevantesten Merkmale zu ermitteln, welche für eine effektive Rekonstruktion der Eingabedaten erforderlich sind. Der austretende Code (Latent-Raum-Darstellung) dieser Schicht, wird in dem Decoder weitergeleitet und dort weiter verarbeitet.\newline
+    Der Decoder besteht aus verborgenen Schichten, von dem die Anzahl der Knoten zunehmend wächst, um so die codierte Darstellung der Daten zu decodieren und in die ursprüngliche Form vor der Codierung wiederherzustellen. Die rekonstruierte Ausgabe wird mit der "Ground Truth", in den meisten Fällen die ursprünglichen Eingabe, verglichen, um die Wirksamkeit des Autoencoders zu bewerten.\newline
+    In vielen Anwendungen von Autoencodern kann der Decoder nach dem Training gelöscht werden, da in solchen Fällen der Decoder nur dazu da war den Encoder zu trainieren. In einem \gls{gan} ist dieser Vorgang zu vergleichen mit der Rolle des Diskriminators, welcher dann als Komponente eines anderen neuronalen Netzes verwendet wird. Jedoch erfüllt der Decoder in vielen Autoencodern nach dem Training weiterhin einen Zweck, wie zum Beispiel das Ausgeben neuer Datenproben in \gls{VAE}s.\cite{ibmAutoencoder}
+\end{itemize}
+
+\subsubsection{Generative Adversarial Networks (GANs)}\label{subsubsec:gans}
+
+Mit dem Aufkommen von \glspl{gan} hat sich die Erstellung von Deepfakes erheblich vereinfacht und verbessert.
+\glspl{gan} bestehen aus zwei neuronalen Netzwerken, einem Generator und einem Diskriminator, die gegeneinander trainiert werden.\cite{Deepfakes-a-survey-and-introduction-to-the-topical-collection}
+
+\textbf{Technische Details:}
+\begin{itemize}
+    \item Der \textbf{Generator} erzeugt Bilder, die versuchen, echte Bilder nachzuahmen.
+    \item Der \textbf{Diskriminator} bewertet die Bilder des Generators und unterscheidet zwischen echten und generierten Bildern.
+    \item Durch diesen Wettbewerb verbessert sich die Qualität der erzeugten Bilder stetig.
+\end{itemize}
+
+\textbf{Vor- und Nachteile:}
+\begin{itemize}
+    \item \textbf{Vorteile:} Hohe Qualität der erzeugten Bilder, Möglichkeit zur Erstellung realistischer und dynamischer Gesichtsausdrücke.
+    \item \textbf{Nachteile:} Erfordert große Datenmengen und Rechenressourcen für das Training, anfällig für Artefakte und Unstimmigkeiten bei komplexen Bewegungen \cite{Deepfakes-An-Overview}.
+\end{itemize}
+
+\textbf{Einsatz im Kontext von Social Engineering:} \gls{gan}-basierte Deepfakes sind effektiver und leichter zu erstellen, was sie zu einem mächtigen Werkzeug für Angreifer im Bereich Social Engineering macht.
+Sie können verwendet werden, um gefälschte Videos zu erstellen, die Vertrauen erwecken und die Opfer täuschen.
+Um ein Modell zu trainieren werden mehrere Minuten Video-Material der Zielperson und viel Rechenleistung benötigt.
+Ist das Modell dann trainiert, können je nach Auflösung Videos \gls{jit}, auch auf einem schwächeren PC, manipuliert werden.
+\glspl{gan} sind heutzutage nach wie vor \gls{sota} und machen den Großteil der erstellten Deepfakes aus.
+Auch \gls{dfl} basiert auf dieser Technik und macht laut Entwickler ca. $95\%$ der im Internet kursierenden Deepfakes aus\cite{dfl-github-repo}.
+
+\subsubsection{FSGAN und FSGANv2}\label{subsubsec:fsgan}
+
+Eine Weiterentwicklung der \gls{gan}-Technologie sind die Face Swapping \glspl{gan} (\gls{fsgan}) und ihre verbesserte Version, FSGANv2.
+Diese Technologien sind speziell für den Gesichtstausch und die Gesichtsnachstellung entwickelt worden.
+
+\textbf{Technische Details:}
+\begin{itemize}
+    \item \gls{fsgan} nutzt \glspl{gan}, um Gesichtszüge von einer Quelle auf ein Zielvideo zu übertragen, ohne dass eine explizite 3D-Modellierung erforderlich ist.
+    \item FSGANv2 verbessert diese Methode durch bessere Algorithmen zur Anpassung der Gesichtsausdrücke und -bewegungen sowie durch die Verwendung von fortschrittlichen Netzwerktechniken, um die Konsistenz und Realismus zu erhöhen \cite{fsganv2}.
+\end{itemize}
+
+\textbf{Vor- und Nachteile:}
+\begin{itemize}
+    \item \textbf{Vorteile:} Sehr realistische Ergebnisse, weniger Training und Daten erforderlich im Vergleich zu reinen \glspl{gan}, bessere Anpassung an unterschiedliche Gesichtsausdrücke und Beleuchtungen.
+    \item \textbf{Nachteile:} Trotz Verbesserungen immer noch anfällig für subtile Unstimmigkeiten, die bei genauer Betrachtung auffallen können \cite{face-swapping-and-reenactment}.
+\end{itemize}
+
+\textbf{Einsatz im Kontext von Social Engineering:} \gls{fsgan} und FSGANv2 sind äußerst effektiv für Social Engineering-Angriffe, da sie schon mit wenigen Ausgangsbildern realistische Deepfakes erstellen können.
+Sie können verwendet werden, um falsche Identitäten zu erstellen und Vertrauen zu gewinnen, was das Risiko und den potenziellen Schaden solcher Angriffe erhöht \cite{deepfacelab}.
+
+\subsubsection{Gemeinsamkeiten und Unterschiede}\label{subsubsec:gemeinsamkeiten-unterschiede}
+
+\textbf{Gemeinsamkeiten:}
+\begin{itemize}
+    \item Alle Methoden zielen darauf ab, realistische Fälschungen zu erstellen, die schwer zu erkennen sind.
+    \item Nutzung von KI und maschinellem Lernen zur Verbesserung der Qualität und Realismus der erzeugten Videos.
+\end{itemize}
+
+\textbf{Unterschiede:}
+\begin{itemize}
+    \item 3D-Modellierung erfordert manuelle Arbeit, ist weniger flexibel und kann nicht in Echtzeit realisiert werden.
+    \item \glspl{gan} und deren Weiterentwicklungen (\gls{fsgan}, FSGANv2) bieten automatisierte Lösungen mit höherer Qualität und Flexibilität.
+    \item \gls{fsgan} und FSGANv2 sind speziell auf Gesichtsmanipulation optimiert und bieten bessere Ergebnisse bei der Anpassung an verschiedene Bedingungen\cite{Deepfakes-a-survey-and-introduction-to-the-topical-collection}.
+\end{itemize}
+
+Insgesamt zeigt sich, dass die Weiterentwicklung der Deepfake-Technologien, insbesondere durch \glspl{gan} und deren Spezialisierungen wie \gls{fsgan} und FSGANv2, erheblich zur Verbesserung der Qualität und Realismus beigetragen hat.
+Dies stellt jedoch auch eine größere Bedrohung im Bereich des Social Engineering dar, da die Täuschungsabsicht hinter den erzeugten Medieninhalten immer schwerer zu durchschauen ist.
+
 \subsection{Arten von Deepfakes}
 Deepfakes können in drei Hauptarten unterteilt werden: Video Deepfakes, Audio Deepfakes und Foto Deepfakes. Diese drei Arten lassen sich zusätzlich auch noch miteinander kombinieren.\cite{ResearchGate}\newline
 \subsubsection*{Video Deepfakes}
@@ -51,7 +134,7 @@ Dadurch ist es möglich die Person, dessen Gesicht verwendet wird, in einen ande
 Die zweite Art von Video Deepfakes ist das Face Morphing, welches ein Spezialeffekt ist, um ein Bild oder eine Form durch einen nahtlosen Übergang in ein anderes verändern zu können. Dieser Effekt wird oft in Filmen oder Animationen verwendet.\cite{ResearchGate}
 
 \subsubsection*{Reenactment}
-Reenactment (auch  face transfer or puppeteering genannt) ist eine Technik, bei der die Gesichtsausdrücke eines
+Reenactment (auch face transfer or puppeteering genannt) ist eine Technik, bei der die Gesichtsausdrücke eines
 Source Images entsprechend eines Target Images angepasst werden.
 Das bedeutet, das die Gesichtsausdrücke und (Lippen-, Augen-, usw.) Bewegungen der Ursprungsperson mit denen einer
 anderen Person ersetzt werden.
