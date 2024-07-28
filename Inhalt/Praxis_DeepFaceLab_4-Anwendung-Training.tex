@@ -4,7 +4,7 @@ Die wesentlichen Unterschiede sind:
 \begin{itemize}
     \item \textbf{SAEHD (6GB+):} Sparse Auto Encoder HD – geeignet für GPUs mit mindestens 6GB VRAM.
     Einstellbar und für die meisten Benutzer empfohlen.
-    \item \textbf{AMP (6GB+):} Neues Modell mit unterschiedlicher Architektur, das versucht, die Form des \texttt{src} beizubehalten.
+    \item \textbf{AMP (6GB+):} Neues Modell mit unterschiedlicher Architektur, das versucht, die Form des \texttt{src}-gesichtes beizubehalten.
     Für GPUs mit mindestens 6GB VRAM.
 Das AMP-Modell befindet sich noch in der Entwicklung.
     Es wird empfohlen, zunächst mit SAEHD zu arbeiten.
@@ -37,7 +37,7 @@ Im Falle eines unerwarteten Systemabsturzes oder anderer Probleme kann das Model
 Die Backups bewegen sich je nach \texttt{Resolution} zwischen mehreren Hundert MB und einigen GB.
 Ein Modell mit $224$ \texttt{res} war im Test ca. 500MB groß, ein $384$ \texttt{res} schon ca. 2GB.\\
 
-\textbf{Autobackup every N hour (y/n):} Diese Einstellung speichert Vorschaubilder während des Trainings in regelmäßigen Abständen.
+\textbf{Write preview history (y/n):} Diese Einstellung speichert Vorschaubilder während des Trainings in regelmäßigen Abständen.
 Wenn aktiviert, wird im Weiteren abgefragt ob die Bilder zufällig oder manuell ausgewählt werden sollen.
 Im zweiten Fall wird ein weiteres Fenster geöffnet, in dem die zu speichernden Bilder manuell ausgewählt werden können.
 Das Speichern von Vorschaubildern ist nützlich, um den Fortschritt des Trainings zu überwachen und frühzeitig Probleme zu erkennen.
@@ -71,7 +71,7 @@ Eine höhere Auflösung ist vorteilhaft, wenn die Gesichter im endgültigen Vide
     \item \textbf{MHF (Mid Half Face):} Deckt 30\% mehr des Gesichts ab als HF und reduziert das Risiko, dass wichtige Gesichtsteile abgeschnitten werden.
     \item \textbf{FF (Full Face):} Deckt den größten Teil des Gesichts ab, schließt jedoch die Stirn aus.
     \item \textbf{WF (Whole Face):} Deckt das gesamte Gesicht einschließlich der Stirn ab und sorgt so für eine vollständigere Gesichtsabdeckung.
-    \item \textbf{HEAD (Head):} Tauscht den gesamten Kopf aus, was nicht geeignet ist für Personen mit langen Haaren.
+    \item \textbf{HEAD (Head):} Tauscht den gesamten Kopf aus (nicht geeignet ist für Personen mit langen Haaren).
 \end{itemize}
 
 \textbf{AE architecture (df/liae - Varianten):} Diese Option ermöglicht die Auswahl zwischen zwei Hauptarchitekturen des SAEHD-Modells: DF und LIAE sowie deren Varianten.
@@ -116,6 +116,7 @@ Empfohlener Wert ist 0.05.\\
     \item \textbf{IDT (Iterative Distribution Transfer):} Iterative Verteilungstransfermethode.
     \item \textbf{SOT (Sliced Optimal Transfer):} Optimale Transfermethode, die Leistungseinbußen während des Trainings und der Zusammenführung verursachen kann.
 \end{itemize}
+Welche der Farbtransfer-Algorithmen am besten geeignet ist, muss abhängig vom Datensatz ausprobiert werden.
 \textbf{Enable gradient clipping (y/n):} Verhindert den Modellkollaps, der durch die Verwendung verschiedener Funktionen verursacht werden kann.\\
 \textbf{Enable pretraining mode (y/n):} Wie bereits in früheren Kapiteln beschrieben.
 Sehr empfehlenswert für Modelle mit -D Architekturvarianten.\\[0.5cm]
@@ -168,12 +169,13 @@ Ein Training kann auch jederzeit wieder fortgesetzt werden, falls die Ergebnisse
 
 Ist ein Modell trainiert, kann dieses als eine \texttt{.dfm}-Datei exportiert werden.
 Diese Dateien können in \textbf{DeepFaceLive} importiert und verwendet werden, um Echtzeit Face swapping durchzuführen.
-Der Trainingsprozess für ein DeepFaceLive Modell unterscheidet sich in einigen Punkten von dem bisher beschriebenen Prozess (siehe Kapitel \ref{sec:deepfacelive}).
+Der Trainingsprozess für ein DeepFaceLive Modell unterscheidet sich in einigen Punkten von dem bisher beschriebenen Prozess und wird in Kapitel \ref{sec:deepfacelive} näher betrachtet.
 
 \subsection*{Conversion/Merging}
 Nach abgeschlossenem Training muss das trainierte Modell noch auf das Zielvideo angewandt werden.
 Dafür bietet \gls{dfl} zahlreiche Konfigurationsmöglichkeiten.
 Diese sind jedoch von Fall zu Fall verschieden und müssen individuell angepasst werden.
+Ein Vergleich einer dieser Konfigurationsmöglichkeiten zeigt Abbildung \ref{fig:merger-comparison}.
 \begin{figure}
     \center
     \includegraphics[width=\textwidth]{Bilder/DFL/merger-comparison}

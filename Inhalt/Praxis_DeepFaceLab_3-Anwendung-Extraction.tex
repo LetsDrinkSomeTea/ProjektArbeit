@@ -1,5 +1,5 @@
 \subsection{Extraktion}\label{subsec:extraction}
-Im ersten Schritt werden die Videos zu einem Trainingsdatensatz verarbeitet.
+Im ersten tatsächlichen Schritt werden die Videos zu einem Trainingsdatensatz verarbeitet.
 \begin{lstlisting}[label={lst:extraction-1},numbers=none]
     2) extract images from video data_src.bat
     3) extract images from video data_dst FULL FPS.bat
@@ -71,7 +71,7 @@ So können Bilder einer nicht erwünschten zweiten Person einfach entfernt werde
 Ist die Auswahl der Gesichter abgeschlossen, können diese noch bei Bedarf mit \gls{ai-upscaling} vergrößert werden.
 Dies sollte nur gemacht werden, wenn die Bilder sonst unscharf oder zu klein sind.
 Besser ist es, direkt scharfe, hoch aufgelöste Bilder bzw. Ausgangsvideos zu verwenden.
-Das Vorgehen ist für das \texttt{dst}-Material identisch.
+Das gesamte bisher beschriebene Vorgehen ist für das \texttt{dst}-Material identisch.
 
 \subsubsection*{XSeg Mask}
 Sind alle Bilder entsprechend gesichtet und aussortiert, muss eine \texttt{XSeg Mask} angewandt werden.
@@ -141,7 +141,7 @@ Anschließend muss die Maske neu angewandt werden.
 \subsubsection*{Facepack Erstellung}
 Der letzte (optionale) Schritt der Extraktionsphase ist das Erstellen eines Facepacks.
 Dies ist eine komprimierte Version der bisher geleisteten Arbeit.
-Die bisherigen Schritte erforderten vergleichsweise wenig Rechenleistung; durch Facepacks lassen sich die Daten einfacher auf z.B. einen stärkeren Computer übermitteln.
+Die bisherigen Schritte erforderten vergleichsweise wenig Rechenleistung; durch Facepacks lassen sich die Daten einfacher auf z.B. einen stärkeren Computer übermitteln, außerdem verkürzen Facepacks die Initialisierungszeit für die folgenden Schritte, da nicht tausende Einzeldateien geladen werden müssen.
 \gls{dfl} speichert alle Informationen in den Bilddateien, daher könnten die Bilder auch einfach in einem Archiv verschickt werden.
 Eine \texttt{.pak}-Datei ist allerdings der von \gls{dfl} bevorzugte Weg.
 Ein Facepack beinhaltet immer nur die Informationen zu einem Gesicht, nicht einem Gesichterpaar.
