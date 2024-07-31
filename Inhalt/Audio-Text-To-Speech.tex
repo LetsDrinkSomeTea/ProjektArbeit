@@ -1,0 +1,28 @@
+Um Audio Deepfakes erstellen zu können gibt es verschiedene Tools, für die verschiedene Arten des Audio Deepfakes.
+In dieser Arbeit werden wir auf 2 unterschiedlichen Audio Deepfake Tools eingehen, um die vielfältigkeit der Deepfake besser demonstrieren zu können.
+Hierfür verwenden wir das Tool Tacotron2, für einen Text to Speech Deepfake und das Tool Real-Time Voice Cloning, um eine Echtzeit Sprachklonung durchzuführen.
+
+\section{Tacotron2}
+Tacotron ist eine Architektur für Sprachsynthesen, die eine \gls{Sequenz-zu-Sequenz-Methode} verwendet, um \gls{Magnituden-Spektrogramme} direkt aus einer Eingabesequenz von Zeichen zu erzeugen.
+
+\subsection{Motivation}
+Die Motivation hinter Tacotron2 ist es bei der Erstellung von Text-to-Speech Deepfakes die Sprachqualität deutlich zu verbessern, sodass die synthetisch generierte Sprache so natürlich wie mie möglich klingt.
+Außerdem reduziert Tacotron2 die Komplexität des Prozesses, welcher normalerweise viel Fachkenntnisse und manuelle Anpassungen benötigt.\cite{Arxiv},\cite{Arxiv2}
+
+\subsection{Fähigkeiten}
+Tacotron2 zeichnet sich durch mehrere Hauptmerkmale aus:
+\begin{itemize}
+    \item \textbf{Sequenz-zu-Sequenz Modell:} Dieses Modell wird verwendet, um die Eingabesequenz (Text) in eine Ausgabesequenz (Sprachspektrogramm) zu konvertieren. Das Modell verwendet außerdem Aufmerksamkeitsparadigmen, um dem Modell zu helfen, sich auf relevante Teile des Textes zu konzentrieren, während es die Sprache generiert.\cite{Arxiv2}
+    \item \textbf{Mel-Spektrogramm Generierung:} Diese Spektrogramme, bieten die Möglichkeit als Eingabe für ein Modell wie WaveNet verwendet zu werden, welches die endgültige Audiosynthese durchführen kann, um noch bessere Audioqualität zu erreichen.\cite{Arxiv}
+    \item \textbf{Flexibilität:} Tacotron2 ist in der Lage, verschiedene sprachliche Eigenschaften und Stile zu erlernen und wiederzugeben, wodurch es eine breite Auswahl zur Generierung von Stimmen und Ausdrucksweisen hat.\cite{Arxiv}
+    \item \textbf{Integration mit WaveNet:} Tacotron2 übernimmt die Generierung der Spektrogramme, welche dann optimal in ein Modell wie WaveNet eingegeben werden kann, um so die finale Sprachsynthese durchführen zu können. Zudem führt die Kombination aus Tacotron2 und WaveNet zu einer deutlich verbesserten Audioqualtität, weshalb die Integration mit WaveNet von hoher Bedeutung ist. \cite{Arxiv}
+\end{itemize}
+
+\subsection{Workflow}
+
+\section{Praxisbeispiel Tacotron2}
+\subsection{Laborumgebung}
+\subsection{Programmstruktur}
+\subsection{Vorbereitung}
+\subsection{Pretraining}
+\subsection{Extraktion}
