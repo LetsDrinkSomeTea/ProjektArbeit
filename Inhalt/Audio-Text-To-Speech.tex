@@ -13,13 +13,21 @@ Außerdem reduziert Tacotron2 die Komplexität des Prozesses, welcher normalerwe
 Tacotron2 zeichnet sich durch mehrere Hauptmerkmale aus:
 \begin{itemize}
     \item \textbf{Sequenz-zu-Sequenz Modell:} Dieses Modell wird verwendet, um die Eingabesequenz (Text) in eine Ausgabesequenz (Sprachspektrogramm) zu konvertieren. Das Modell verwendet außerdem Aufmerksamkeitsparadigmen, um dem Modell zu helfen, sich auf relevante Teile des Textes zu konzentrieren, während es die Sprache generiert.\cite{Arxiv2}
-    \item \textbf{Mel-Spektrogramm Generierung:} Diese Spektrogramme, bieten die Möglichkeit als Eingabe für ein Modell wie WaveNet verwendet zu werden, welches die endgültige Audiosynthese durchführen kann, um noch bessere Audioqualität zu erreichen.\cite{Arxiv}
+    \item \textbf{Mel-Spektrogramm Generierung:} Diese Spektrogramme, bieten die Möglichkeit als Eingabe für ein Vocoder verwendet zu werden, welches die endgültige Audiosynthese durchführen kann, um noch bessere Audioqualität zu erreichen.\cite{Arxiv}
     \item \textbf{Flexibilität:} Tacotron2 ist in der Lage, verschiedene sprachliche Eigenschaften und Stile zu erlernen und wiederzugeben, wodurch es eine breite Auswahl zur Generierung von Stimmen und Ausdrucksweisen hat.\cite{Arxiv}
-    \item \textbf{Integration mit WaveNet:} Tacotron2 übernimmt die Generierung der Spektrogramme, welche dann optimal in ein Modell wie WaveNet eingegeben werden kann, um so die finale Sprachsynthese durchführen zu können. Zudem führt die Kombination aus Tacotron2 und WaveNet zu einer deutlich verbesserten Audioqualtität, weshalb die Integration mit WaveNet von hoher Bedeutung ist. \cite{Arxiv}
+    \item \textbf{Integration mit Vocoder:} Tacotron2 übernimmt die Generierung der Spektrogramme, welche dann optimal in ein Vocoder, wie z.B. WaveNet, eingegeben werden kann, um so die finale Sprachsynthese durchführen zu können. Zudem führt die Kombination aus Tacotron2 und einem Vocoder zu einer deutlich verbesserten Audioqualtität, weshalb die Integration mit einem guten Vocoder von hoher Bedeutung ist. \cite{Arxiv}
 \end{itemize}
 
 \subsection{Workflow}
-
+Der Workflow von Tacotron2 ist in einer Pipeline und besteht aus drei Hauptphasen: Extraction, Training und Conversion.
+\subsubsection*{Pretraining}
+Für die Erstellung eines Deepfakes wird eine Sammlung von Daten benötigt, um das Modell trainieren zu können. Die Sammlung beinhalten das Zusammenstellen eines Datensatzes aus Text- und Sprachaufnahmen. Hierbei wird darauf geachtet das die Daten für das Training des Modells geeignet sind.\cite{Arxiv}
+\subsubsection*{Extraction}
+In der Extraktionsphase werden dann die relevanten Abschnitte aus den Sprachaufnahmen extrahiert. Tacotron2 wandelt hierbei die Sprachaufnahmen in Mel-Spektrogramme um, die das Modell anschließend dann während des Trainings verwendet.\cite{Arxiv}
+\subsubsection*{Training}
+Durch das Training passiert dann der eigentliche Prozess, in der ein Modell trainiert wird, um realistische Text-To-Speech Ausgaben zu erzeugen. Dabei wird das Modell darauf trainiert, aus den Eingabetexten Mel-Spektrogramme zu erzeugen. Parallel oder auch anschließend dazu kann ein Vocoder, wie WaveNet, trainiert werden, um aus den Mel-Spektrogrammen die endgültige Audiodaten zu erzeugen.\cite{Arxiv}
+\subsubsection*{Conversion}
+In der letzten Phase, die Konvertierungsphase, werden dann die Spektrogramme in eine Wellenform umgewandelt. Der Prozess von der Erzeugung von Sprache aus einem Spektrogramm wird Vocoder genannt. Dadurch wird dann die tatsächliche Sprache generiert.\cite{Arxiv},\cite{pytorch}
 \section{Praxisbeispiel Tacotron2}
 \subsection{Laborumgebung}
 \subsection{Programmstruktur}
