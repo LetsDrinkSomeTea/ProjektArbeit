@@ -29,8 +29,74 @@ Durch das Training passiert dann der eigentliche Prozess, in der ein Modell trai
 \subsubsection*{Conversion}
 In der letzten Phase, die Konvertierungsphase, werden dann die Spektrogramme in eine Wellenform umgewandelt. Der Prozess von der Erzeugung von Sprache aus einem Spektrogramm wird Vocoder genannt. Dadurch wird dann die tatsächliche Sprache generiert.\cite{Arxiv},\cite{pytorch}
 \section{Praxisbeispiel Tacotron2}
+Im Folgenden wird der Workflow zum Erstellen von Audio (Text-To-Speech) Deepfakes mit Tacotron näher betrachtet. Ziel dieses Kapitels ist es eine menschliche Audiodatei von einer Texteingabe zu erzeugen.
 \subsection{Laborumgebung}
+Die Audio Deepfakes werden auf folgender Hardware erstellt.\\[0.5cm]
+\begin{tabular}{rl}
+    CPU:& \texttt{AMD Ryzen 7 2700X}\\
+    RAM:& \texttt{16GB DDR4 3000MHz}\\
+    GPU:& \texttt{NVIDIA GTX 1070 (8GB GDDR5)}\\
+    OS:& \texttt{Windows 10}\\
+    Mikrofon:& \texttt{Auna Mic CM900}\\
+    Aufnahmeprogramm:& \texttt{Audacity}
+\end{tabular}\\[0.5cm]
 \subsection{Programmstruktur}
 \subsection{Vorbereitung}
+Bevor der Deepfake erstellt werden kann, müssen zuvor einige Schritte durchgeführt werden. Zuerst werden Audiospuren einer Person benötigt, um genug Ausgangsmaterial für das Training später zu verfügung zu haben. Hierzu müssen mehrere verschiedene Sätze, Satz für Satz, aufgenommen und in seperate .wav Audiodateien gespeichert werden. Hierbei gilt natürlich, je mehr Audiodateien zur verfügung stehen, desto besser wird am Ende das trainierte Modell klingen. Die Audiodateien sollen dann in eine gemeinsame Ordner mit einer Zahl als Dateinamen, aufteigend, abgelegt werden (z.B. 1.wav, 2.wav, 3.wav, ...).\newline
+Danach wird ein \href{https://github.com/rasmurtech/Tacotron2-Wav2Vec-Transcription/blob/main/transcribe_wav2vec.py}{Skript} benötigt, um grobe Transkripte der Aufnahmen zu erstellen. Hierbei wird eine Liste.txt Datei erstellt, in der die aufgenommenen Sätze stehen. Diese Liste muss auf Richtigkeit geprüft werden. Es sollte außerdem darauf geachtet werden, dass jede Zeile mit einem Punkt endet und weder Großbuchstaben noch Kommas im Satz vorkommen.\newline
 \subsection{Pretraining}
+Um das Training durchführen zu können, müssen zunächst die zuvor erstellten .wav Audiodateien durch ein preprocessing Skript durchlaufen. Das \href{https://github.com/rasmurtech/Tacotron-2-Audio-Preprocessor/blob/main/tacotron2_preprocessor_wav_files.py}{Skript} konvertiert die Audiodateien in das von Tacotron2 benötigte Format. Es ändert das Audioformat, einschließlich der Abtastrate und Kanäle.\newline
+Nachdem das preprocessing erfolgreich durchlaufen ist, muss in jeder .wav Audiodatei die entsprechende Zahl als Titel eingefügt werden. Hierzu gibt es ein weiteres \href{https://github.com/rasmurtech/Audio-Metadata-Updater/blob/main/audio_metadata_updater.py}{Skript}, dass die Zahlen aufsteigend in den Titel der jeweiligen Audiodateien schreibt.\newline
+Danach muss der Ordner, in den die .wav Audiodateien liegen, in einen komprimierten Zip-Ordner erstellt und dann in Google Drive hochladen werden.
 \subsection{Extraktion}
+\subsubsection*{Training}
+Um das Modell zu trainieren wird \href{https://colab.research.google.com/github/justinjohn0306/FakeYou-Tacotron2-Notebook/blob/dev/FakeYou_Tacotron_2_Training.ipynb}{Google Colab} verwendet. Dort müssen zunächst mehrere Schritte getan werden, bevor es zum Trainieren des Modells geht. Zuerst wird die GPU überprüft, danach muss Google Drive verbunden werden und anschließend Tacotron2 installiert werden.
+\begin{figure}[H]
+    \includegraphics[width=1.0\textwidth]{Bilder/AudioTraining1}
+    \centering
+    \caption{GPU Prüfung, Google Drive Verbindung und Tacotron2 Installation}
+    \label{fig:TrainingPart1}
+\end{figure}
+Nach der Installation von Tacotron2 muss die wavs.zip Datei ausgewählt werden, sowie das Transkript (list.txt), welches am Anfang erstellt wurde.
+\begin{figure}[H]
+    \includegraphics[width=1.0\textwidth]{Bilder/AudioTraining2}
+    \centering
+    \caption{Datensatz laden für Modell Training}
+    \label{fig:TrainingPart2}
+\end{figure}
+Nach dem Hochladen des Datensatzes kann das Modell konfiguriert werden, mit welchen Parametern das Training ausgeführt werden soll.
+\begin{figure}[H]
+    \includegraphics[width=1.0\textwidth]{Bilder/AudioTraining3}
+    \centering
+    \caption{Konfiguration der Modell Parameter}
+    \label{fig:TrainingPart3}
+\end{figure}
+Danach werden die .wav Dateien in die sogenannten Mel Spektrogramme konvertiert.
+\begin{figure}[H]
+    \includegraphics[width=1.0\textwidth]{Bilder/AudioTraining4}
+    \centering
+    \caption{Met Spektrogramme Konvertierung}
+    \label{fig:TrainingPart4}
+\end{figure}
+Sobald die Vorbereitungen abgeschlossen sind, kann das Modell trainiert werden. Das trainierte Modell befindet sich nach dem Training in dem angegebenen Google Drive Ordner.
+\begin{figure}[H]
+    \includegraphics[width=1.0\textwidth]{Bilder/AudioTraining5}
+    \centering
+    \caption{Modell Training}
+    \label{fig:TrainingPart5}
+\end{figure}
+\subsubsection*{Synthetisierung von Sprache}
+Nach dem Training des Modells, muss die Sprache noch synthetisiert werden. Hierfür muss zunächst das Modell in Google Drive auf Öffentlich gestellt und danach die Tacotron ID aus dem Google Drive Link kopiert werden. Die Tacotron ID ist immer unterschiedlich von Modell zu Modell.
+\begin{figure}[H]
+    \includegraphics[width=1.0\textwidth]{Bilder/AudioTrainingLink}
+    \centering
+    \caption{Tacotron ID aus dem Link des Modells}
+    \label{fig:TrainingLink}
+\end{figure}
+Danach kann die Tacotron ID in den \href{https://colab.research.google.com/github/justinjohn0306/FakeYou-Tacotron2-Notebook/blob/main/FakeYou_Tacotron2_Hi_Fi_GAN_(CPU).ipynb#scrollTo=nU8YYg6PXgjg}{Synthetisierer} eingegeben werden, welcher das Modell dann verwendet, um einen Text zu einer Audio zu synthetisieren. Nach dem Laden, kann anschließend die Audio angehört werden.
+\begin{figure}[H]
+    \includegraphics[width=1.0\textwidth]{Bilder/AudioTrainingSynth}
+    \centering
+    \caption{Synthetisierung des Modells}
+    \label{fig:TrainingSynth}
+\end{figure}
