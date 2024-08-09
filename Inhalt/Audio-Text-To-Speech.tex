@@ -31,7 +31,7 @@ In der letzten Phase, die Konvertierungsphase, werden dann die Spektrogramme in 
 \section{Praxisbeispiel Tacotron2}
 Im Folgenden wird der Workflow zum Erstellen von Audio (Text-To-Speech) Deepfakes mit Tacotron näher betrachtet. Ziel dieses Kapitels ist es eine menschliche Audiodatei von einer Texteingabe zu erzeugen.
 \subsection{Laborumgebung}
-Die Audio Deepfakes werden auf folgender Hardware erstellt.\\[0.5cm]
+Die Tacotron2 Audio Deepfakes werden auf folgender Hardware erstellt.\\[0.5cm]
 \begin{tabular}{rl}
     CPU:& \texttt{AMD Ryzen 7 2700X}\\
     RAM:& \texttt{16GB DDR4 3000MHz}\\
@@ -41,6 +41,17 @@ Die Audio Deepfakes werden auf folgender Hardware erstellt.\\[0.5cm]
     Aufnahmeprogramm:& \texttt{Audacity}
 \end{tabular}\\[0.5cm]
 \subsection{Programmstruktur}
+Für Vorbereitung und Pretraining des Trainingsmaterials wurden folgende 3 Skripts verwendet:
+\begin{itemize}
+    \item \textbf{transcribe\_wav2vec.py:} Das Skript \href{https://github.com/rasmurtech/Tacotron2-Wav2Vec-Transcription}{transcribe\_wav2vec.py} wird verwendet, um grobe Transkripte von den Aufnahmen zu erstellen. Dieses Transkript kann auch händisch geschrieben werden, jedoch erspart dieses Skript eine Menge Zeit.
+    \item \textbf{tacotron2\_preprocessor\_wav\_files.py:} Das Skript \href{https://github.com/rasmurtech/Tacotron-2-Audio-Preprocessor}{tacotron2\_preprocessor\_wav\_files.py} wird verwendet, um die Audiodateien in das von Tacotron2 benötigte Format zu konvertieren.
+    \item \textbf{audio\_metadata\_updater.py:} Das Skript \href{https://github.com/rasmurtech/Audio-Metadata-Updater}{audio\_metadata\_updater.py} wird verwendet, um den Titel jeder WAV Datei zu aktualisieren, sodass er der entsprechenden Nummer entspricht. Auch dieses Skript wird nicht dringen benötigt, da der Vorgang auch händisch getan werden kann. Jedoch spart es auch hier eine Menge an Zeit.
+\end{itemize}
+Für das anschließende Training und Synthetisieren der Modelle werden folgende 2 Ipynb Dateien verwendet:
+\begin{itemize}
+    \item \textbf{FakeYou\_Tacotron\_2\_Training.ipynb:} \href{https://colab.research.google.com/github/justinjohn0306/FakeYou-Tacotron2-Notebook/blob/dev/FakeYou_Tacotron_2_Training.ipynb}{Hier} wird das Training der Modelle konfiguriert und ausgeführt.
+    \item \textbf{FakeYou\_Tacotron2\_Hi\_Fi\_GAN\_(CPU).ipynb:} \href{https://colab.research.google.com/github/justinjohn0306/FakeYou-Tacotron2-Notebook/blob/main/FakeYou_Tacotron2_Hi_Fi_GAN_(CPU).ipynb}{Hier} werden die trainierten Modelle synthetisiert und ausgegeben.
+\end{itemize}
 \subsection{Vorbereitung}
 Bevor der Deepfake erstellt werden kann, müssen zuvor einige Schritte durchgeführt werden. Zuerst werden Audiospuren einer Person benötigt, um genug Ausgangsmaterial für das Training später zu verfügung zu haben. Hierzu müssen mehrere verschiedene Sätze, Satz für Satz, aufgenommen und in seperate .wav Audiodateien gespeichert werden. Hierbei gilt natürlich, je mehr Audiodateien zur verfügung stehen, desto besser wird am Ende das trainierte Modell klingen. Die Audiodateien sollen dann in eine gemeinsame Ordner mit einer Zahl als Dateinamen, aufteigend, abgelegt werden (z.B. 1.wav, 2.wav, 3.wav, ...).\newline
 Danach wird ein \href{https://github.com/rasmurtech/Tacotron2-Wav2Vec-Transcription/blob/main/transcribe_wav2vec.py}{Skript} benötigt, um grobe Transkripte der Aufnahmen zu erstellen. Hierbei wird eine Liste.txt Datei erstellt, in der die aufgenommenen Sätze stehen. Diese Liste muss auf Richtigkeit geprüft werden. Es sollte außerdem darauf geachtet werden, dass jede Zeile mit einem Punkt endet und weder Großbuchstaben noch Kommas im Satz vorkommen.\newline
@@ -93,7 +104,7 @@ Nach dem Training des Modells, muss die Sprache noch synthetisiert werden. Hierf
     \caption{Tacotron ID aus dem Link des Modells}
     \label{fig:TrainingLink}
 \end{figure}
-Danach kann die Tacotron ID in den \href{https://colab.research.google.com/github/justinjohn0306/FakeYou-Tacotron2-Notebook/blob/main/FakeYou_Tacotron2_Hi_Fi_GAN_(CPU).ipynb#scrollTo=nU8YYg6PXgjg}{Synthetisierer} eingegeben werden, welcher das Modell dann verwendet, um einen Text zu einer Audio zu synthetisieren. Nach dem Laden, kann anschließend die Audio angehört werden.
+Danach kann die Tacotron ID in den \href{https://colab.research.google.com/github/justinjohn0306/FakeYou-Tacotron2-Notebook/blob/main/FakeYou_Tacotron2_Hi_Fi_GAN_(CPU).ipynb#scrollTo=nU8YYg6PXgjg}{Vocoder} eingegeben werden, welcher das Modell dann verwendet, um einen Text zu einer Audio zu synthetisieren. Nach dem Laden, kann anschließend die Audio angehört werden.
 \begin{figure}[H]
     \includegraphics[width=1.0\textwidth]{Bilder/AudioTrainingSynth}
     \centering
