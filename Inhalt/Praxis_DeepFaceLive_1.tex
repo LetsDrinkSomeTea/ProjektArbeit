@@ -61,7 +61,14 @@ Die Ergebnisse sind natürlicher als die, die nur auf einem Bild basieren.
 Allerdings fordert diese Variante einen deutlich höheren Mehraufwand. 
 Es müssen zuerst genügend Bilder zusammengetragen werden und ein Modell trainiert werden.
 Außerdem muss beim Face swap eine Person, die ähnlich wie die Zielperson aussieht den Deepfake bzw. Social Engineering Angriff durchführen.
-% TODO Bild von fertigem Modell
+\begin{figure}[h]
+    \center
+    \includegraphics[width=0.7\textwidth]{Bilder/DFLive/Face-swap-dfm}
+    \caption{Face Swap (DFM)}
+    \label{fig:dflive-dfm-swapping}
+\end{figure}
+Das in Abbildung \ref{fig:dflive-dfm-swapping} gezeigt Modell wurde, auf grundlage eines $10.000.000$ Iterationen vortrainierten Modell, ca. $1.000.000$ Iterationen auf Harald Riegel trainiert.
+Dies bedeutete beim genannten Testsetup ca. 10 Tage Rechenaufwand.
 
 \subsubsection*{Face Merger und Output}
 Wird ein Gesicht getauscht, muss das Zielgesicht wieder mit dem Originalbild zusammengefügt werden.

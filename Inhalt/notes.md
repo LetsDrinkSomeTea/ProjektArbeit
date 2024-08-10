@@ -60,6 +60,7 @@ RTT (Real Time Transfer)
   - train for an hour
   - ggf. manuell und nochmal training
 - Pretrained RTT Model 10kk iterations Setup:
+  - flip src: yes
   - flip dst: no
   - blur mask: no
   - dropout: no
@@ -71,10 +72,12 @@ RTT (Real Time Transfer)
   - dropout: y
 - 250k Iterations:
   - Random warp: n
+- 350k it:
+  - flip src: no
+  - color: sot
 - 400k Iterations:
   - Blur mask: y
   - GAN power: 0.1
-  - color: sot
 
 
 ```
