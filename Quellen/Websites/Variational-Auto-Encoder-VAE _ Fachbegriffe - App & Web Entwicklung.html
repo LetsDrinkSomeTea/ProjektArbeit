@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<!-- saved from url=(0080)https://www.appmeisterei.de/app-entwicklung-glossar/Variational-Auto-Encoder-VAE -->
+<html lang="de"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>
+        Variational-Auto-Encoder-VAE | Fachbegriffe - App &amp; Web Entwicklung    </title>
+    <meta name="description" content="Variational-Auto-Encoder-VAE einfach erklärt. ► Fachbegriffe aus dem Bereich App &amp; Web Entwicklung von der App Agentur appmeisterei"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="robots" content="DoFollow">
+	<link rel="stylesheet" href="./Variational-Auto-Encoder-VAE _ Fachbegriffe - App &amp; Web Entwicklung_files/app.min.css">
+
+	<script src="./Variational-Auto-Encoder-VAE _ Fachbegriffe - App &amp; Web Entwicklung_files/jquery.min.js.Herunterladen"></script>
+	<script src="./Variational-Auto-Encoder-VAE _ Fachbegriffe - App &amp; Web Entwicklung_files/foundation.min.js.Herunterladen"></script><meta class="foundation-mq" name="foundation-mq" content="">
+	<script src="./Variational-Auto-Encoder-VAE _ Fachbegriffe - App &amp; Web Entwicklung_files/app.min.js.Herunterladen"></script>
+    <link rel="apple-touch-icon" sizes="57x57" href="https://www.appmeisterei.de/favicons/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="https://www.appmeisterei.de/favicons/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="https://www.appmeisterei.de/favicons/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="https://www.appmeisterei.de/favicons/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="https://www.appmeisterei.de/favicons/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="https://www.appmeisterei.de/favicons/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="https://www.appmeisterei.de/favicons/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="https://www.appmeisterei.de/favicons/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://www.appmeisterei.de/favicons/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192" href="https://www.appmeisterei.de/favicons/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://www.appmeisterei.de/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="https://www.appmeisterei.de/favicons/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://www.appmeisterei.de/favicons/favicon-16x16.png">
+<link rel="manifest" href="https://www.appmeisterei.de/favicons/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/favicons/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff"></head>
+<body id="body" class=" dashboard  Terms TermsViewVariational-Auto-Encoder-VAE" data-prefix="">
+<main>
+        <!-- Main menu Begin -->
+    <div id="mobileNavigation">
+    <a href="https://www.appmeisterei.de/" title="Startseite"><i class="mdi mdi-36px mdi-tablet"></i></a>
+    <a href="https://www.appmeisterei.de/" title="Navigation" id="hamburger"><i class="mdi mdi-36px mdi-menu"></i></a>
+</div>
+<nav class="main sticky-container" data-sticky-container="" style="height: 102px;">
+        <ul class="menu align-spaced sticky is-anchored is-at-top" data-top-anchor="" data-sticky="u1af0i-sticky" data-margin-top="0" data-resize="posr4n-sticky" data-mutate="posr4n-sticky" style="max-width: 1857px; margin-top: 0px; bottom: auto; top: 0px;" data-events="mutate">
+                <li class="show-for-medium">
+        <a href="https://www.appmeisterei.de/" title="Startseite"><i class="mdi mdi-36px mdi-tablet"></i></a>
+    </li>
+                <li>
+            <a href="https://www.appmeisterei.de/leistungen" title="Leistungen" target="_self" class="bold">Leistungen</a>        </li>
+            <li>
+            <a href="https://www.appmeisterei.de/projekte" title="Projekte" target="_self" class="bold">Projekte</a>        </li>
+            <li>
+            <a href="https://www.appmeisterei.de/kunden" title="Kunden" target="_self" class="bold">Kunden</a>        </li>
+            <li>
+            <a href="https://www.appmeisterei.de/kontakt" title="Kontakt" target="_self" class="bold">Kontakt</a>        </li>
+            <li>
+            <a href="https://www.appmeisterei.de/projekt-anfrage" title="Projekt Anfrage" target="_self" class="bold"><span>Projekt Anfrage</span></a>        </li>
+        </ul>
+</nav>
+    <!-- Main menu End -->
+
+    <!-- Content Begin -->
+        <div id="beforeHeader">
+    <div class="grid-container">
+        <div class="grid-x grid-padding-x">
+            <div class="cell small-8 large-6">
+                <a href="https://www.appmeisterei.de/app-entwicklung-glossar">
+                    <i class="mdi mdi-36px mdi-chevron-left primary"></i> Zurück zur Übersicht
+                </a>
+            </div>
+            <div class="cell small-8 large-4 text-center uppercase">
+                Glossar App Entwicklung
+            </div>
+        </div>
+    </div>
+</div>
+<header id="projectDetail">
+    <div class="grid-container">
+        <div class="grid-x grid-margin-x">
+            <div class="cell small-16 medium-offset-2 medium-12 large-offset-4 large-8">
+                <h1>Variational Auto-Encoder (VAE)</h1>
+                <p>Variational Auto-Encoders (VAE) sind eine Kombination aus einem Auto-Encoder (AE) und einem Variational Bayes (VB) Algorithmus. VAEs sind ein Deep Learning-Modell, das verwendet wird, um das generative Modellieren von Daten zu erleichtern. VAEs versuchen, ein generisches Modell der Daten zu erstellen, indem sie ein generatives Modell aufbauen, das die Daten so gut wie möglich beschreibt. </p>
+
+<p>Der Variational Auto-Encoder ist ein generatives Modell, das ein Bild als Eingabe akzeptiert und dieses dann in einen latenten Raum transformiert, der das Bild repräsentiert. Durch den latenten Raum kann der Variational Auto-Encoder das Bild neu generieren, indem er die versteckten Eigenschaften des Bildes wiederherstellt. Der VAE ist in der Lage, die versteckten Eigenschaften des Bildes zu lernen und zu extrahieren, ohne die konkreten Pixel zu kennen. </p>
+
+<p>VAEs werden auch verwendet, um generative Modelle zu erstellen, die ein besseres Verständnis des Modells liefern. Ein generatives Modell benötigt ein Verständnis der versteckten Parameter, die das Modell kontrollieren, und diese Parameter werden durch den Variational Auto-Encoder gelernt. Der VAE kann auch verwendet werden, um eine Art "Kompression" der Daten zu erreichen, indem die Eingabedaten in einen Raum überführt werden, der viel kleiner ist als der ursprüngliche Raum. </p>
+
+<p>VAEs sind eine sehr mächtige Technik und werden in vielen Anwendungen verwendet, wie z.B. der Bildverarbeitung, der Mustererkennung und der Bildklassifizierung. Sie werden auch in der maschinellen Übersetzung, der Audio-Analyse und der Robotik verwendet. VAEs sind sehr vielseitig und können in vielen verschiedenen Bereichen eingesetzt werden. </p>
+
+<p>VAEs sind ein sehr nützliches Werkzeug, um Daten zu generieren, zu komprimieren und zu klassifizieren. Sie können helfen, komplexe Modelle zu erstellen, die auf Daten lernen und intuitiv verstehen, wie sich die Daten verhalten. Durch die Verwendung von VAEs können Bilder besser klassifiziert und analysiert werden und neue Bilder werden generiert. VAEs können auch dazu verwendet werden, generative Modelle zu erstellen, die das Verhalten von Daten besser verstehen und vorhersagen können. </p>            </div>
+        </div>
+    </div>
+</header>    <!-- Content End -->
+
+    <!-- Footer Begin -->
+<footer>
+    <a id="contactFooter" href="https://www.appmeisterei.de/projekt-anfrage">
+        <section class="text-center">
+            <h4 class="bold">Sie haben eine Idee für eine App oder ein Webportal? Dann nehmen Sie Kontakt mit uns auf!
+                Wir behandeln Ihre Idee vertraulich und beraten lösungsorientiert.</h4>
+            <div class="button bold">Anfrage starten</div>
+        </section>
+    </a>
+    <nav id="pageFooter">
+        <div class="grid-container fluid">
+            <div class="grid-x grid-padding-x">
+                <address class="cell small-16 medium-8 large-3">
+                    <p class="h5 bold">App Entwicklung</p>
+                    <p>appmeisterei GmbH</p>
+                    <p>Clermont-Ferrand-Allee 36</p>
+                    <p>93049 Regensburg</p>
+                    <a href="tel:+4994178459530" title="App Agentur anrufen">Tel.: +49 941 - 78 45 953-0</a>
+                    <a href="mailto:kontakt@appmeisterei.de" title="Kontakt zur App Agentur">kontakt@appmeisterei.de</a>
+                </address>
+                <div class="cell small-16 medium-8 large-3 align-self-bottom">
+                    <ul>
+                        <li><a href="https://www.appmeisterei.de/leistungen" title="Leistungen der App Agentur">Leistungen</a></li>
+                        <li><a href="https://www.appmeisterei.de/projekte" title="Projekte der App Agentur">Projekte</a></li>
+                        <li><a href="https://www.appmeisterei.de/kunden" title="Kunden der App Agentur">Kunden</a></li>
+                        <li><a href="https://www.appmeisterei.de/kontakt" title="Kontakt zur App Agentur">Kontakt</a></li>
+                    </ul>
+                </div>
+                <div class="cell small-16 medium-8 large-3 align-self-bottom">
+                    <ul>
+                        <li><a href="https://www.appmeisterei.de/app-agentur-bayern" title="Über die App Agentur appmeisterei">Über uns</a></li>
+                        <li><a href="https://www.appmeisterei.de/app-entwicklung-glossar" title="Alle wichtigen Begriffe rund um die Themen App Entwicklung und Digitalisierung">App-Glossar</a></li>
+                        <li><a href="https://www.appmeisterei.de/impressum" title="Rechtliche Angaben, der App Agentur appmeisterei">Impressum</a></li>
+                        <li><a href="https://www.appmeisterei.de/datenschutz" title="Datenschutzbestimmungen und Sicherheit">Datenschutz</a></li>
+                    </ul>
+                </div>
+                <div class="cell small-16 medium-8 large-3 align-self-bottom">
+                    <ul>
+                        <li><a href="https://www.appmeisterei.de/app-entwicklung" title="Professionelle App-Entwicklung">App-Entwicklung</a></li>
+                        <li><a href="https://www.appmeisterei.de/webportal-entwicklung" title="Webportal-Entwicklung der Agentur für Digitalisierung">Webportal-Entwicklung</a></li>
+                        <li><a href="https://www.appmeisterei.de/webapp-entwicklung" title="WebApp-Entwicklung der App Agentur">WebApp-Entwicklung</a></li>
+                        <li><a href="https://www.appmeisterei.de/website-entwicklung" title="Website-Entwicklung der Agentur für Digitalisierung">Website-Entwicklung</a></li>
+                    </ul>
+                </div>
+                <div class="cell small-16 medium-8 large-4 align-self-bottom">
+                    <ul>
+                        <li><a href="https://www.appmeisterei.de/app-agentur-finden" title="So finden Sie die passende App Agentur">App Agentur finden</a></li>
+                        <li><a href="https://www.appmeisterei.de/web-app-entwickler" title="Web-App Entwickler – maßgeschneiderte Lösungen auf allen Geräten">Web App Entwickler</a></li>
+                        <li><a href="https://www.appmeisterei.de/app-entwicklung-wissen" title="App entwickeln lassen? Alles, was Sie wissen müssen">App Entwicklung Wissen</a></li>
+                        <li><a href="https://www.appmeisterei.de/digitalisierung" title="Ihr kompetenter Partner bei der Digitalisierung">Agentur für Digitalisierung</a></li>
+                        <li><a href="https://www.appmeisterei.de/portal-entwickeln-lassen" title="Portal entwickeln lassen? In fünf Schritten zum Erfolg">Portal entwickeln lassen</a></li>
+                    </ul>
+                </div>
+                            </div>
+        </div>
+    </nav>
+</footer>
+<!-- Footer End -->
+    <!-- Begin general elements -->
+</main>
+<a href="https://www.appmeisterei.de/app-entwicklung-glossar/Variational-Auto-Encoder-VAE#" id="scrollToTop" title="Zum Seitenanfang">▲</a>
+
+
+	<link rel="stylesheet" href="./Variational-Auto-Encoder-VAE _ Fachbegriffe - App &amp; Web Entwicklung_files/materialdesignicons.min.css">
+<!-- End general elements -->
+
+
+</body></html>

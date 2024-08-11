@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<!-- saved from url=(0063)https://computersciencewiki.org/index.php/Max-pooling_/_Pooling -->
+<html class="client-js vector-animations-ready" lang="en" dir="ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Max-pooling / Pooling - Computer Science Wiki</title>
+<script type="text/javascript" async="" src="./Max-pooling _ Pooling - Computer Science Wiki_files/analytics.js.Herunterladen"></script><script type="text/javascript" async="" src="./Max-pooling _ Pooling - Computer Science Wiki_files/js"></script><script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":false,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"d580a9e5bdb98fabe321086d","wgCSPNonce":false,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Max-pooling_/_Pooling","wgTitle":"Max-pooling / Pooling","wgCurRevisionId":7839,"wgRevisionId":7839,"wgArticleId":1148,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["2018 case study","Student created article"],"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Max-pooling_/_Pooling","wgRelevantArticleId":1148,"wgIsProbablyEditable":false,"wgRelevantPageIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],
+"wgVector2022PreviewPages":[]};RLSTATE={"skins.vector.user.styles":"ready","site.styles":"ready","user.styles":"ready","skins.vector.user":"ready","user":"ready","user.options":"loading","ext.cite.styles":"ready","ext.Lingo.styles":"ready","mediawiki.ui.button":"ready","skins.vector.styles":"ready","skins.vector.icons":"ready","mediawiki.ui.icon":"ready"};RLPAGEMODULES=["ext.cite.ux-enhancements","ext.Lingo","site","mediawiki.page.ready","mediawiki.toc","skins.vector.js","skins.vector.es6"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@12s5i",function($,jQuery,require,module){mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});});});</script>
+<link rel="stylesheet" href="./Max-pooling _ Pooling - Computer Science Wiki_files/load.php">
+<script async="" src="./Max-pooling _ Pooling - Computer Science Wiki_files/load(1).php"></script>
+<style>
+.mw-ui-icon-wikimedia-speechBubbleAdd:before{background-image:url(/load.php?modules=skins.vector.icons.js&image=speechBubbleAdd&format=rasterized&lang=en&skin=vector-2022&version=9375y);background-image:linear-gradient(transparent,transparent),url(/load.php?modules=skins.vector.icons.js&image=speechBubbleAdd&format=original&lang=en&skin=vector-2022&version=9375y)}.mw-ui-icon-wikimedia-speechBubbleAdd-progressive:before{background-image:url(/load.php?modules=skins.vector.icons.js&image=speechBubbleAdd&variant=progressive&format=rasterized&lang=en&skin=vector-2022&version=9375y);background-image:linear-gradient(transparent,transparent),url(/load.php?modules=skins.vector.icons.js&image=speechBubbleAdd&variant=progressive&format=original&lang=en&skin=vector-2022&version=9375y)}.mw-ui-icon-wikimedia-speechBubbles:before{background-image:url(/load.php?modules=skins.vector.icons.js&image=speechBubbles&format=rasterized&lang=en&skin=vector-2022&version=9375y);background-image:linear-gradient(transparent,transparent),url(/load.php?modules=skins.vector.icons.js&image=speechBubbles&format=original&lang=en&skin=vector-2022&version=9375y)}.mw-ui-icon-wikimedia-speechBubbles-progressive:before{background-image:url(/load.php?modules=skins.vector.icons.js&image=speechBubbles&variant=progressive&format=rasterized&lang=en&skin=vector-2022&version=9375y);background-image:linear-gradient(transparent,transparent),url(/load.php?modules=skins.vector.icons.js&image=speechBubbles&variant=progressive&format=original&lang=en&skin=vector-2022&version=9375y)}.mw-ui-icon-wikimedia-article:before{background-image:url(/load.php?modules=skins.vector.icons.js&image=article&format=rasterized&lang=en&skin=vector-2022&version=9375y);background-image:linear-gradient(transparent,transparent),url(/load.php?modules=skins.vector.icons.js&image=article&format=original&lang=en&skin=vector-2022&version=9375y)}.mw-ui-icon-wikimedia-article-progressive:before{background-image:url(/load.php?modules=skins.vector.icons.js&image=article&variant=progressive&format=rasterized&lang=en&skin=vector-2022&version=9375y);background-image:linear-gradient(transparent,transparent),url(/load.php?modules=skins.vector.icons.js&image=article&variant=progressive&format=original&lang=en&skin=vector-2022&version=9375y)}.mw-ui-icon-wikimedia-history:before{background-image:url(/load.php?modules=skins.vector.icons.js&image=history&format=rasterized&skin=vector-2022&version=9375y);background-image:linear-gradient(transparent,transparent),url(/load.php?modules=skins.vector.icons.js&image=history&format=original&skin=vector-2022&version=9375y)}.mw-ui-icon-wikimedia-history-progressive:before{background-image:url(/load.php?modules=skins.vector.icons.js&image=history&variant=progressive&format=rasterized&skin=vector-2022&version=9375y);background-image:linear-gradient(transparent,transparent),url(/load.php?modules=skins.vector.icons.js&image=history&variant=progressive&format=original&skin=vector-2022&version=9375y)}.mw-ui-icon-wikimedia-wikiText:before{background-image:url(/load.php?modules=skins.vector.icons.js&image=wikiText&format=rasterized&skin=vector-2022&version=9375y);background-image:linear-gradient(transparent,transparent),url(/load.php?modules=skins.vector.icons.js&image=wikiText&format=original&skin=vector-2022&version=9375y)}.mw-ui-icon-wikimedia-wikiText-progressive:before{background-image:url(/load.php?modules=skins.vector.icons.js&image=wikiText&variant=progressive&format=rasterized&skin=vector-2022&version=9375y);background-image:linear-gradient(transparent,transparent),url(/load.php?modules=skins.vector.icons.js&image=wikiText&variant=progressive&format=original&skin=vector-2022&version=9375y)}.mw-ui-icon-wikimedia-edit:before{background-image:url(/load.php?modules=skins.vector.icons.js&image=edit&format=rasterized&skin=vector-2022&version=9375y);background-image:linear-gradient(transparent,transparent),url(/load.php?modules=skins.vector.icons.js&image=edit&format=original&skin=vector-2022&version=9375y)}.mw-ui-icon-wikimedia-edit-progressive:before{background-image:url(/load.php?modules=skins.vector.icons.js&image=edit&variant=progressive&format=rasterized&skin=vector-2022&version=9375y);background-image:linear-gradient(transparent,transparent),url(/load.php?modules=skins.vector.icons.js&image=edit&variant=progressive&format=original&skin=vector-2022&version=9375y)}.mw-ui-icon-wikimedia-editLock:before{background-image:url(/load.php?modules=skins.vector.icons.js&image=editLock&format=rasterized&skin=vector-2022&version=9375y);background-image:linear-gradient(transparent,transparent),url(/load.php?modules=skins.vector.icons.js&image=editLock&format=original&skin=vector-2022&version=9375y)}.mw-ui-icon-wikimedia-editLock-progressive:before{background-image:url(/load.php?modules=skins.vector.icons.js&image=editLock&variant=progressive&format=rasterized&skin=vector-2022&version=9375y);background-image:linear-gradient(transparent,transparent),url(/load.php?modules=skins.vector.icons.js&image=editLock&variant=progressive&format=original&skin=vector-2022&version=9375y)}.mw-ui-icon-wikimedia-star:before{background-image:url(/load.php?modules=skins.vector.icons.js&image=star&format=rasterized&skin=vector-2022&version=9375y);background-image:linear-gradient(transparent,transparent),url(/load.php?modules=skins.vector.icons.js&image=star&format=original&skin=vector-2022&version=9375y)}.mw-ui-icon-wikimedia-star-progressive:before{background-image:url(/load.php?modules=skins.vector.icons.js&image=star&variant=progressive&format=rasterized&skin=vector-2022&version=9375y);background-image:linear-gradient(transparent,transparent),url(/load.php?modules=skins.vector.icons.js&image=star&variant=progressive&format=original&skin=vector-2022&version=9375y)}.mw-ui-icon-wikimedia-halfStar:before{background-image:url(/load.php?modules=skins.vector.icons.js&image=halfStar&format=rasterized&lang=en&skin=vector-2022&version=9375y);background-image:linear-gradient(transparent,transparent),url(/load.php?modules=skins.vector.icons.js&image=halfStar&format=original&lang=en&skin=vector-2022&version=9375y)}.mw-ui-icon-wikimedia-halfStar-progressive:before{background-image:url(/load.php?modules=skins.vector.icons.js&image=halfStar&variant=progressive&format=rasterized&lang=en&skin=vector-2022&version=9375y);background-image:linear-gradient(transparent,transparent),url(/load.php?modules=skins.vector.icons.js&image=halfStar&variant=progressive&format=original&lang=en&skin=vector-2022&version=9375y)}.mw-ui-icon-wikimedia-unStar:before{background-image:url(/load.php?modules=skins.vector.icons.js&image=unStar&format=rasterized&skin=vector-2022&version=9375y);background-image:linear-gradient(transparent,transparent),url(/load.php?modules=skins.vector.icons.js&image=unStar&format=original&skin=vector-2022&version=9375y)}.mw-ui-icon-wikimedia-unStar-progressive:before{background-image:url(/load.php?modules=skins.vector.icons.js&image=unStar&variant=progressive&format=rasterized&skin=vector-2022&version=9375y);background-image:linear-gradient(transparent,transparent),url(/load.php?modules=skins.vector.icons.js&image=unStar&variant=progressive&format=original&skin=vector-2022&version=9375y)}
+.cite-accessibility-label{ top:-99999px;clip:rect(1px,1px,1px,1px); position:absolute !important;padding:0 !important;border:0 !important;height:1px !important;width:1px !important; overflow:hidden}:target .mw-cite-targeted-backlink{font-weight:bold}.mw-cite-up-arrow-backlink{display:none}:target .mw-cite-up-arrow-backlink{display:inline}:target .mw-cite-up-arrow{display:none}
+.qtip{position:absolute;left:-28000px;top:-28000px;display:none;max-width:280px;min-width:50px;font-size:10.5px;line-height:12px;direction:ltr;box-shadow:none;padding:0}.qtip-content{position:relative;padding:5px 9px;overflow:hidden;text-align:left;word-wrap:break-word}.qtip-titlebar{position:relative;padding:5px 35px 5px 10px;overflow:hidden;border-width:0 0 1px;font-weight:bold}.qtip-titlebar + .qtip-content{border-top-width:0 !important} .qtip-close{position:absolute;right:-9px;top:-9px;cursor:pointer;outline:medium none;border-width:1px;border-style:solid;border-color:transparent}.qtip-titlebar .qtip-close{right:4px;top:50%;margin-top:-9px}* html .qtip-titlebar .qtip-close{top:16px} .qtip-titlebar .ui-icon,.qtip-icon .ui-icon{display:block;text-indent:-1000em;direction:ltr}.qtip-icon,.qtip-icon .ui-icon{-moz-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;text-decoration:none}.qtip-icon .ui-icon{width:18px;height:14px;line-height:14px;text-align:center;text-indent:0;font:normal bold 10px/13px Tahoma,sans-serif;color:inherit;background:transparent none no-repeat -100em -100em} .qtip-focus{} .qtip-hover{} .qtip-default{border-width:1px;border-style:solid;border-color:#F1D031;background-color:#FFFFA3;color:#555}.qtip-default .qtip-titlebar{background-color:#FFEF93}.qtip-default .qtip-icon{border-color:#CCC;background:#F1F1F1;color:#777}.qtip-default .qtip-titlebar .qtip-close{border-color:#AAA;color:#111} .qtip-light{background-color:white;border-color:#E2E2E2;color:#454545}.qtip-light .qtip-titlebar{background-color:#f1f1f1} .qtip-dark{background-color:#505050;border-color:#303030;color:#f3f3f3}.qtip-dark .qtip-titlebar{background-color:#404040}.qtip-dark .qtip-icon{border-color:#444}.qtip-dark .qtip-titlebar .ui-state-hover{border-color:#303030} .qtip-cream{background-color:#FBF7AA;border-color:#F9E98E;color:#A27D35}.qtip-cream .qtip-titlebar{background-color:#F0DE7D}.qtip-cream .qtip-close .qtip-icon{background-position:-82px 0} .qtip-red{background-color:#F78B83;border-color:#D95252;color:#912323}.qtip-red .qtip-titlebar{background-color:#F06D65}.qtip-red .qtip-close .qtip-icon{background-position:-102px 0}.qtip-red .qtip-icon{border-color:#D95252}.qtip-red .qtip-titlebar .ui-state-hover{border-color:#D95252} .qtip-green{background-color:#CAED9E;border-color:#90D93F;color:#3F6219}.qtip-green .qtip-titlebar{background-color:#B0DE78}.qtip-green .qtip-close .qtip-icon{background-position:-42px 0} .qtip-blue{background-color:#E5F6FE;border-color:#ADD9ED;color:#5E99BD}.qtip-blue .qtip-titlebar{background-color:#D0E9F5}.qtip-blue .qtip-close .qtip-icon{background-position:-2px 0}.qtip-shadow{-webkit-box-shadow:1px 1px 3px 1px rgba(0,0,0,0.15);-moz-box-shadow:1px 1px 3px 1px rgba(0,0,0,0.15);box-shadow:1px 1px 3px 1px rgba(0,0,0,0.15)} .qtip-rounded,.qtip-tipsy,.qtip-bootstrap{-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px}.qtip-rounded .qtip-titlebar{-moz-border-radius:4px 4px 0 0;-webkit-border-radius:4px 4px 0 0;border-radius:4px 4px 0 0} .qtip-youtube{-moz-border-radius:2px;-webkit-border-radius:2px;border-radius:2px;-webkit-box-shadow:0 0 3px #333;-moz-box-shadow:0 0 3px #333;box-shadow:0 0 3px #333;color:white;border-width:0;background:#4A4A4A;background-image:-webkit-gradient(linear,left top,left bottom,color-stop(0,#4A4A4A),color-stop(100%,black));background-image:-webkit-linear-gradient(top,#4A4A4A 0,black 100%);background-image:-moz-linear-gradient(top,#4A4A4A 0,black 100%);background-image:-ms-linear-gradient(top,#4A4A4A 0,black 100%);background-image:-o-linear-gradient(top,#4A4A4A 0,black 100%)}.qtip-youtube .qtip-titlebar{background-color:#4A4A4A;background-color:rgba(0,0,0,0)}.qtip-youtube .qtip-content{padding:.75em;font:12px arial,sans-serif;filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#4a4a4a,EndColorStr=#000000);-ms-filter:"progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#4a4a4a,EndColorStr=#000000);"}.qtip-youtube .qtip-icon{border-color:#222}.qtip-youtube .qtip-titlebar .ui-state-hover{border-color:#303030} .qtip-jtools{background:#232323;background:rgba(0,0,0,0.7);background-image:-webkit-gradient(linear,left top,left bottom,from(#717171),to(#232323));background-image:-moz-linear-gradient(top,#717171,#232323);background-image:-webkit-linear-gradient(top,#717171,#232323);background-image:-ms-linear-gradient(top,#717171,#232323);background-image:-o-linear-gradient(top,#717171,#232323);border:2px solid #ddd;border:2px solid rgba(241,241,241,1);-moz-border-radius:2px;-webkit-border-radius:2px;border-radius:2px;-webkit-box-shadow:0 0 12px #333;-moz-box-shadow:0 0 12px #333;box-shadow:0 0 12px #333} .qtip-jtools .qtip-titlebar{background-color:transparent;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#717171,endColorstr=#4A4A4A);-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#717171,endColorstr=#4A4A4A)"}.qtip-jtools .qtip-content{filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#4A4A4A,endColorstr=#232323);-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#4A4A4A,endColorstr=#232323)"}.qtip-jtools .qtip-titlebar,.qtip-jtools .qtip-content{background:transparent;color:white;border:0 dashed transparent}.qtip-jtools .qtip-icon{border-color:#555}.qtip-jtools .qtip-titlebar .ui-state-hover{border-color:#333} .qtip-cluetip{-webkit-box-shadow:4px 4px 5px rgba(0,0,0,0.4);-moz-box-shadow:4px 4px 5px rgba(0,0,0,0.4);box-shadow:4px 4px 5px rgba(0,0,0,0.4);background-color:#D9D9C2;color:#111;border:0 dashed transparent}.qtip-cluetip .qtip-titlebar{background-color:#87876A;color:white;border:0 dashed transparent}.qtip-cluetip .qtip-icon{border-color:#808064}.qtip-cluetip .qtip-titlebar .ui-state-hover{border-color:#696952;color:#696952} .qtip-tipsy{background:black;background:rgba(0,0,0,.87);color:white;border:0 solid transparent;font-size:11px;font-family:'Lucida Grande',sans-serif;font-weight:bold;line-height:16px;text-shadow:0 1px black}.qtip-tipsy .qtip-titlebar{padding:6px 35px 0 10px;background-color:transparent}.qtip-tipsy .qtip-content{padding:6px 10px}.qtip-tipsy .qtip-icon{border-color:#222;text-shadow:none}.qtip-tipsy .qtip-titlebar .ui-state-hover{border-color:#303030} .qtip-tipped{border:3px solid #959FA9;-moz-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;background-color:#F9F9F9;color:#454545;font-weight:normal;font-family:serif}.qtip-tipped .qtip-titlebar{border-bottom-width:0;color:white;background:#3A79B8;background-image:-webkit-gradient(linear,left top,left bottom,from(#3A79B8),to(#2E629D));background-image:-webkit-linear-gradient(top,#3A79B8,#2E629D);background-image:-moz-linear-gradient(top,#3A79B8,#2E629D);background-image:-ms-linear-gradient(top,#3A79B8,#2E629D);background-image:-o-linear-gradient(top,#3A79B8,#2E629D);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#3A79B8,endColorstr=#2E629D);-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#3A79B8,endColorstr=#2E629D)"}.qtip-tipped .qtip-icon{border:2px solid #285589;background:#285589}.qtip-tipped .qtip-icon .ui-icon{background-color:#FBFBFB;color:#555} .qtip-bootstrap{ font-size:14px;line-height:20px;color:#333333; padding:1px;background-color:#ffffff;border:1px solid #ccc;border:1px solid rgba(0,0,0,0.2);-webkit-border-radius:6px;-moz-border-radius:6px;border-radius:6px;-webkit-box-shadow:0 5px 10px rgba(0,0,0,0.2);-moz-box-shadow:0 5px 10px rgba(0,0,0,0.2);box-shadow:0 5px 10px rgba(0,0,0,0.2);-webkit-background-clip:padding-box;-moz-background-clip:padding;background-clip:padding-box}.qtip-bootstrap .qtip-titlebar{ padding:8px 14px;margin:0;font-size:14px;font-weight:normal;line-height:18px;background-color:#f7f7f7;border-bottom:1px solid #ebebeb;-webkit-border-radius:5px 5px 0 0;-moz-border-radius:5px 5px 0 0;border-radius:5px 5px 0 0}.qtip-bootstrap .qtip-titlebar .qtip-close{ right:11px;top:45%;border-style:none}.qtip-bootstrap .qtip-content{ padding:9px 14px}.qtip-bootstrap .qtip-icon{ background:transparent}.qtip-bootstrap .qtip-icon .ui-icon{ width:auto;height:auto; float:right;font-size:20px;font-weight:bold;line-height:18px;color:#000000;text-shadow:0 1px 0 #ffffff;opacity:0.2;filter:alpha(opacity=20)}.qtip-bootstrap .qtip-icon .ui-icon:hover{ color:#000000;text-decoration:none;cursor:pointer;opacity:0.4;filter:alpha(opacity=40)} .qtip:not(.ie9haxors) div.qtip-content,.qtip:not(.ie9haxors) div.qtip-titlebar{filter:none;-ms-filter:none}.qtip .qtip-tip{margin:0 auto;overflow:hidden;z-index:10} x:-o-prefocus,.qtip .qtip-tip{visibility:hidden}.qtip .qtip-tip,.qtip .qtip-tip .qtip-vml,.qtip .qtip-tip canvas{position:absolute;color:#123456;background:transparent;border:0 dashed transparent}.qtip .qtip-tip canvas{top:0;left:0}.qtip .qtip-tip .qtip-vml{behavior:url("#default#VML");display:inline-block;visibility:visible}#qtip-overlay{position:fixed;left:0;top:0;width:100%;height:100%} #qtip-overlay.blurs{cursor:pointer} #qtip-overlay div{position:absolute;left:0;top:0;width:100%;height:100%;background-color:black;opacity:0.7;filter:alpha(opacity=70);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)"}.qtipmodal-ie6fix{position:absolute !important}
+@media screen {
+	.toctoggle{-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none;font-size:94%}}</style><meta name="ResourceLoaderDynamicStyles" content="">
+<link rel="stylesheet" href="./Max-pooling _ Pooling - Computer Science Wiki_files/load(2).php">
+<meta name="generator" content="MediaWiki 1.39.6">
+<meta name="format-detection" content="telephone=no">
+<meta name="viewport" content="width=1000">
+<link rel="icon" href="https://computersciencewiki.org/favicon.ico">
+<link rel="search" type="application/opensearchdescription+xml" href="https://computersciencewiki.org/opensearch_desc.php" title="Computer Science Wiki (en)">
+<link rel="EditURI" type="application/rsd+xml" href="https://computersciencewiki.org/api.php?action=rsd">
+<link rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+<link rel="alternate" type="application/atom+xml" title="Computer Science Wiki Atom feed" href="https://computersciencewiki.org/index.php?title=Special:RecentChanges&amp;feed=atom">
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="./Max-pooling _ Pooling - Computer Science Wiki_files/js(1)"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-116709192-1');
+</script>
+<!-- Favicons -->
+<link rel="apple-touch-icon" sizes="120x120" href="https://computersciencewiki.org/favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://computersciencewiki.org/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://computersciencewiki.org/favicons/favicon-16x16.png">
+<link rel="manifest" href="https://computersciencewiki.org/favicons/site.webmanifest">
+<link rel="mask-icon" href="https://computersciencewiki.org/favicons/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="https://computersciencewiki.org/favicons/favicon.ico">
+<meta name="msapplication-TileColor" content="#ffc40d">
+<meta name="msapplication-config" content="/favicons/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+
+</head>
+<body class="skin-vector skin-vector-search-vue mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-Max-pooling_Pooling rootpage-Max-pooling_Pooling skin-vector-2022 action-view vector-feature-language-in-header-enabled vector-feature-language-in-main-page-header-disabled vector-feature-language-alert-in-sidebar-disabled vector-feature-sticky-header-disabled vector-feature-sticky-header-edit-disabled vector-feature-table-of-contents-disabled vector-feature-visual-enhancement-next-disabled uls-dialog-sticky-hide vector-toc-not-collapsed vector-below-page-title"><div class="mw-page-container">
+	<span id="top-page"></span>
+	<a class="mw-jump-link" href="https://computersciencewiki.org/index.php/Max-pooling_/_Pooling#content">Jump to content</a>
+	<div class="mw-page-container-inner">
+		<input type="checkbox" id="mw-sidebar-checkbox" class="mw-checkbox-hack-checkbox">
+		<header class="mw-header">
+			<div class="mw-header-aside">
+			<label id="mw-sidebar-button" class="mw-checkbox-hack-button mw-ui-icon mw-ui-button mw-ui-quiet mw-ui-icon-element" for="mw-sidebar-checkbox" role="button" aria-controls="mw-panel" data-event-name="ui.sidebar" tabindex="0" title="Main menu" aria-expanded="false">
+				<span>Toggle sidebar</span>
+			</label>
+			
+<a href="https://computersciencewiki.org/index.php?title=Main_Page" class="mw-logo">
+	<span class="mw-logo-container">
+		<strong class="mw-logo-wordmark">Computer Science Wiki</strong>
+	</span>
+</a>
+
+			</div>
+			<div class="mw-header-content">
+			
+<div id="p-search" role="search" class="vector-search-box-vue  vector-search-box-collapses  vector-search-box-show-thumbnail vector-search-box-auto-expand-width vector-search-box">
+	<a href="https://computersciencewiki.org/index.php?title=Special:Search" title="Search Computer Science Wiki [alt-shift-f]" accesskey="f" class="mw-ui-button mw-ui-quiet mw-ui-icon mw-ui-icon-element mw-ui-icon-wikimedia-search search-toggle">
+		<span>Search</span>
+	</a>
+	
+	<div>
+		<form action="https://computersciencewiki.org/index.php" id="searchform" class="vector-search-box-form">
+			<div id="simpleSearch" class="vector-search-box-inner" data-search-loc="header-moved">
+				<input class="vector-search-box-input" type="search" name="search" placeholder="Search Computer Science Wiki" aria-label="Search Computer Science Wiki" autocapitalize="sentences" title="Search Computer Science Wiki [alt-shift-f]" accesskey="f" id="searchInput" autocomplete="off">
+				<input type="hidden" name="title" value="Special:Search">
+				<input id="mw-searchButton" class="searchButton mw-fallbackSearchButton" type="submit" name="fulltext" title="Search the pages for this text" value="Search">
+				<input id="searchButton" class="searchButton" type="submit" name="go" title="Go to a page with this exact name if it exists" value="Go">
+			</div>
+		</form>
+	</div>
+</div>
+
+			<nav class="vector-user-links" aria-label="Personal tools" role="navigation">
+	
+
+<div id="p-vector-user-menu-overflow" class="vector-menu mw-portlet mw-portlet-vector-user-menu-overflow emptyPortlet vector-user-menu-overflow">
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</div>
+
+	
+
+<div id="p-personal" class="vector-menu mw-portlet mw-portlet-personal vector-user-menu vector-user-menu-logged-out vector-menu-dropdown" title="More options">
+	<input type="checkbox" id="p-personal-checkbox" role="button" aria-haspopup="true" data-event-name="ui.dropdown-p-personal" class="vector-menu-checkbox">
+	<label id="p-personal-label" for="p-personal-checkbox" class="vector-menu-heading mw-ui-button mw-ui-quiet mw-ui-icon mw-ui-icon-element mw-ui-icon-ellipsis mw-ui-icon-wikimedia-ellipsis">
+		<span class="vector-menu-heading-label">Personal tools</span>
+	</label>
+	<div class="vector-menu-content">
+		<div class="vector-user-menu-create-account"><a href="https://computersciencewiki.org/index.php?title=Special:CreateAccount&amp;returnto=Max-pooling+%2F+Pooling" class="vector-menu-content-item user-links-collapsible-item" title="You are encouraged to create an account and log in; however, it is not mandatory"><span class="mw-ui-icon mw-ui-icon-userAdd mw-ui-icon-wikimedia-userAdd"></span> <span>Create account</span></a></div>
+<div class="vector-user-menu-login"><a href="https://computersciencewiki.org/index.php?title=Special:UserLogin&amp;returnto=Max-pooling+%2F+Pooling" class="vector-menu-content-item vector-menu-content-item-login" title="You are encouraged to log in; however, it is not mandatory [alt-shift-o]" accesskey="o"><span class="mw-ui-icon mw-ui-icon-logIn mw-ui-icon-wikimedia-logIn"></span> <span>Log in</span></a></div>
+
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</div>
+
+</nav>
+
+			</div>
+		</header>
+		<div class="vector-sidebar-container ">
+			<div id="mw-navigation">
+				
+
+<nav id="mw-panel" class="mw-sidebar" aria-label="Site" role="navigation">
+	
+
+<div id="p-navigation" class="vector-menu mw-portlet mw-portlet-navigation vector-menu-portal portal">
+	<div id="p-navigation-label" class="vector-menu-heading ">
+		<span class="vector-menu-heading-label">Navigation</span>
+	</div>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-mainpage-description" class="mw-list-item"><a href="https://computersciencewiki.org/index.php?title=Main_Page" title="Visit the main page [alt-shift-z]" accesskey="z"><span>Main page</span></a></li><li id="n-recentchanges" class="mw-list-item"><a href="https://computersciencewiki.org/index.php?title=Special:RecentChanges" title="A list of recent changes in the wiki [alt-shift-r]" accesskey="r"><span>Recent changes</span></a></li><li id="n-help" class="mw-list-item"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" target="_blank" title="The place to find out"><span>Help</span></a></li></ul>
+		
+	</div>
+</div>
+
+	
+	
+
+<div id="p-tb" class="vector-menu mw-portlet mw-portlet-tb vector-menu-portal portal">
+	<div id="p-tb-label" class="vector-menu-heading ">
+		<span class="vector-menu-heading-label">Tools</span>
+	</div>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="t-whatlinkshere" class="mw-list-item"><a href="https://computersciencewiki.org/index.php?title=Special:WhatLinksHere/Max-pooling_/_Pooling" title="A list of all wiki pages that link here [alt-shift-j]" accesskey="j"><span>What links here</span></a></li><li id="t-recentchangeslinked" class="mw-list-item"><a href="https://computersciencewiki.org/index.php?title=Special:RecentChangesLinked/Max-pooling_/_Pooling" rel="nofollow" title="Recent changes in pages linked from this page [alt-shift-k]" accesskey="k"><span>Related changes</span></a></li><li id="t-specialpages" class="mw-list-item"><a href="https://computersciencewiki.org/index.php?title=Special:SpecialPages" title="A list of all special pages [alt-shift-q]" accesskey="q"><span>Special pages</span></a></li><li id="t-print" class="mw-list-item"><a href="javascript:print();" rel="alternate" title="Printable version of this page [alt-shift-p]" accesskey="p"><span>Printable version</span></a></li><li id="t-permalink" class="mw-list-item"><a href="https://computersciencewiki.org/index.php?title=Max-pooling_/_Pooling&amp;oldid=7839" title="Permanent link to this revision of this page"><span>Permanent link</span></a></li><li id="t-info" class="mw-list-item"><a href="https://computersciencewiki.org/index.php?title=Max-pooling_/_Pooling&amp;action=info" title="More information about this page"><span>Page information</span></a></li><li id="t-cite" class="mw-list-item"><a href="https://computersciencewiki.org/index.php?title=Special:CiteThisPage&amp;page=Max-pooling_%2F_Pooling&amp;id=7839&amp;wpFormIdentifier=titleform" title="Information on how to cite this page"><span>Cite this page</span></a></li></ul>
+		
+	</div>
+</div>
+
+
+<div id="p-Legal" class="vector-menu mw-portlet mw-portlet-Legal vector-menu-portal portal">
+	<div id="p-Legal-label" class="vector-menu-heading ">
+		<span class="vector-menu-heading-label">Legal</span>
+	</div>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-Terms-of-Service" class="mw-list-item"><a href="https://common.computersciencewiki.org/terms.php" rel="nofollow" target="_blank"><span>Terms of Service</span></a></li><li id="n-Privacy-Policy" class="mw-list-item"><a href="https://common.computersciencewiki.org/privacy.php" rel="nofollow" target="_blank"><span>Privacy Policy</span></a></li><li id="n-GDPR" class="mw-list-item"><a href="https://common.computersciencewiki.org/gdpr.php" rel="nofollow" target="_blank"><span>GDPR</span></a></li></ul>
+		
+	</div>
+</div>
+
+
+<div id="p-External_sites" class="vector-menu mw-portlet mw-portlet-External_sites vector-menu-portal portal">
+	<div id="p-External_sites-label" class="vector-menu-heading ">
+		<span class="vector-menu-heading-label">External sites</span>
+	</div>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="n-Daily-Notes" class="mw-list-item"><a href="https://courses.computersciencewiki.org/" rel="nofollow" target="_blank"><span>Daily Notes</span></a></li><li id="n-LMS" class="mw-list-item"><a href="https://lms.computersciencewiki.org/" rel="nofollow" target="_blank"><span>LMS</span></a></li><li id="n-Help-System" class="mw-list-item"><a href="https://faq.computersciencewiki.org/index.php?action=ask&amp;category_id=0" rel="nofollow" target="_blank"><span>Help System</span></a></li><li id="n-Map" class="mw-list-item"><a href="https://map.computersciencewiki.org/" rel="nofollow" target="_blank"><span>Map</span></a></li><li id="n-Github" class="mw-list-item"><a href="https://github.com/bmackenty" rel="nofollow" target="_blank"><span>Github</span></a></li></ul>
+		
+	</div>
+</div>
+
+	
+</nav>
+
+			</div>
+		</div>
+		<div class="vector-sitenotice-container">
+			<div id="siteNotice"></div>
+		</div>
+		<input type="checkbox" id="vector-toc-collapsed-checkbox" class="mw-checkbox-hack-checkbox">
+		<div class="mw-table-of-contents-container">
+			<div class="vector-sticky-toc-container mw-sticky-header-element">
+				<nav id="mw-panel-toc" class="sidebar-toc" role="navigation" aria-labelledby="sidebar-toc-label" data-event-name="ui.sidebar-toc">
+	<div id="sidebar-toc-label" class="sidebar-toc-header">
+		<p class="sidebar-toc-title">
+		Contents
+		<button class="vector-toc-uncollapse-button">move to sidebar</button>
+		<button class="vector-toc-collapse-button">hide</button>
+		</p>
+	</div>
+	<ul class="sidebar-toc-contents" id="mw-panel-toc-list">
+		<li id="toc-mw-content-text" class="sidebar-toc-list-item sidebar-toc-level-1">
+			<a href="https://computersciencewiki.org/index.php/Max-pooling_/_Pooling#top-page" class="sidebar-toc-link">
+				<div class="sidebar-toc-text">Beginning</div>
+			</a>
+		</li>
+		<li id="toc-Introduction" class="sidebar-toc-list-item sidebar-toc-level-1 sidebar-toc-list-item-expanded">
+			<a class="sidebar-toc-link" href="https://computersciencewiki.org/index.php/Max-pooling_/_Pooling#Introduction">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">1</span>Introduction</div>
+			</a>
+			
+			<ul id="toc-Introduction-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-How_does_it_work_and_why" class="sidebar-toc-list-item sidebar-toc-level-1 sidebar-toc-list-item-expanded">
+			<a class="sidebar-toc-link" href="https://computersciencewiki.org/index.php/Max-pooling_/_Pooling#How_does_it_work_and_why">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">2</span>How does it work and why</div>
+			</a>
+			
+			<ul id="toc-How_does_it_work_and_why-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-Examples" class="sidebar-toc-list-item sidebar-toc-level-1 sidebar-toc-list-item-expanded sidebar-toc-list-item-active">
+			<a class="sidebar-toc-link" href="https://computersciencewiki.org/index.php/Max-pooling_/_Pooling#Examples">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">3</span>Examples</div>
+			</a>
+			
+			<ul id="toc-Examples-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+		<li id="toc-References" class="sidebar-toc-list-item sidebar-toc-level-1 sidebar-toc-list-item-expanded">
+			<a class="sidebar-toc-link" href="https://computersciencewiki.org/index.php/Max-pooling_/_Pooling#References">
+				<div class="sidebar-toc-text">
+				<span class="sidebar-toc-numb">4</span>References</div>
+			</a>
+			
+			<ul id="toc-References-sublist" class="sidebar-toc-list">
+			</ul>
+		</li>
+	</ul>
+</nav>
+
+			</div>
+		</div>
+		<div class="mw-content-container">
+			<main id="content" class="mw-body" role="main">
+				<a id="top"></a>
+				<header class="mw-body-header">
+				
+				
+					<label id="vector-toc-collapsed-button" class="mw-ui-button mw-ui-quiet mw-ui-icon mw-ui-icon-element mw-ui-icon-wikimedia-listBullet mw-checkbox-hack-button" for="vector-toc-collapsed-checkbox" role="button" aria-controls="toc-toggle-list" data-event-name="vector.toc-toggle-list" tabindex="0" title="Table of Contents" aria-expanded="false">
+						Toggle the table of contents
+					</label>
+				    <h1 id="firstHeading" class="firstHeading mw-first-heading"><span class="mw-page-title-main">Max-pooling / Pooling</span></h1>
+				</header>
+				<nav class="vector-article-toolbar" aria-label="Tools" role="navigation">
+					<div class="mw-article-toolbar-container">
+						<div id="left-navigation">
+							
+
+<div id="p-associated-pages" class="vector-menu mw-portlet mw-portlet-associated-pages vector-menu-tabs">
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-nstab-main" class="selected mw-list-item"><a href="https://computersciencewiki.org/index.php?title=Max-pooling_/_Pooling" title="View the content page [alt-shift-c]" accesskey="c"><span>Page</span></a></li><li id="ca-talk" class="new mw-list-item"><a href="https://computersciencewiki.org/index.php?title=Talk:Max-pooling_/_Pooling&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page (page does not exist) [alt-shift-t]" accesskey="t"><span>Discussion</span></a></li></ul>
+		
+	</div>
+</div>
+
+							
+
+<div id="p-variants" class="vector-menu mw-portlet mw-portlet-variants emptyPortlet vector-menu-dropdown">
+	<input type="checkbox" id="p-variants-checkbox" role="button" aria-haspopup="true" data-event-name="ui.dropdown-p-variants" class="vector-menu-checkbox" aria-label="Change language variant">
+	<label id="p-variants-label" for="p-variants-checkbox" class="vector-menu-heading ">
+		<span class="vector-menu-heading-label">English</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"></ul>
+		
+	</div>
+</div>
+
+						</div>
+						<div id="right-navigation" class="vector-collapsible ">
+							
+
+<div id="p-views" class="vector-menu mw-portlet mw-portlet-views vector-menu-tabs">
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-view" class="selected mw-list-item"><a href="https://computersciencewiki.org/index.php?title=Max-pooling_/_Pooling"><span>Read</span></a></li><li id="ca-viewsource" class="mw-list-item"><a href="https://computersciencewiki.org/index.php?title=Max-pooling_/_Pooling&amp;action=edit" title="This page is protected.
+You can view its source [alt-shift-e]" accesskey="e"><span>View source</span></a></li><li id="ca-history" class="mw-list-item"><a href="https://computersciencewiki.org/index.php?title=Max-pooling_/_Pooling&amp;action=history" title="Past revisions of this page [alt-shift-h]" accesskey="h"><span>View history</span></a></li></ul>
+		
+	</div>
+</div>
+
+							
+
+<div id="p-cactions" class="vector-menu mw-portlet mw-portlet-cactions emptyPortlet vector-menu-dropdown vector-has-collapsible-items" title="More options">
+	<input type="checkbox" id="p-cactions-checkbox" role="button" aria-haspopup="true" data-event-name="ui.dropdown-p-cactions" class="vector-menu-checkbox">
+	<label id="p-cactions-label" for="p-cactions-checkbox" class="vector-menu-heading ">
+		<span class="vector-menu-heading-label">More</span>
+	</label>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list"><li id="ca-more-view" class="selected vector-more-collapsible-item mw-list-item"><a href="https://computersciencewiki.org/index.php?title=Max-pooling_/_Pooling"><span>Read</span></a></li><li id="ca-more-viewsource" class="vector-more-collapsible-item mw-list-item"><a href="https://computersciencewiki.org/index.php?title=Max-pooling_/_Pooling&amp;action=edit"><span>View source</span></a></li><li id="ca-more-history" class="vector-more-collapsible-item mw-list-item"><a href="https://computersciencewiki.org/index.php?title=Max-pooling_/_Pooling&amp;action=history"><span>View history</span></a></li></ul>
+		
+	</div>
+</div>
+
+						</div>
+					</div>
+				</nav>
+				<div id="bodyContent" class="vector-body" data-mw-ve-target-container="">
+					<div class="mw-body-subheader">
+					        <div class="mw-indicators">
+        </div>
+
+					    <div id="siteSub" class="noprint">From Computer Science Wiki</div>
+					</div>
+					
+					
+					
+					<div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr"><div class="mw-parser-output"><div class="mw-parser-output"><div class="thumb tright"><div class="thumbinner" style="width:130px;"><a href="https://computersciencewiki.org/index.php?title=File:Studying.png" class="image"><img alt="" src="./Max-pooling _ Pooling - Computer Science Wiki_files/Studying.png" decoding="async" width="128" height="128" class="thumbimage"></a>  <div class="thumbcaption">Case <span class="mw-lingo-term" data-lingo-term-id="2cd1c6ecec2c6d908b3ed66d4ea7b902" data-hasqtip="0">study</span> notes<sup id="cite_ref-1" class="reference"><a href="https://computersciencewiki.org/index.php/Max-pooling_/_Pooling#cite_note-1">[1]</a></sup></div></div></div>
+<div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading" data-event-name="ui.toc"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none"><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="https://computersciencewiki.org/index.php/Max-pooling_/_Pooling#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="https://computersciencewiki.org/index.php/Max-pooling_/_Pooling#How_does_it_work_and_why"><span class="tocnumber">2</span> <span class="toctext">How does it work and why</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="https://computersciencewiki.org/index.php/Max-pooling_/_Pooling#Examples"><span class="tocnumber">3</span> <span class="toctext">Examples</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="https://computersciencewiki.org/index.php/Max-pooling_/_Pooling#References"><span class="tocnumber">4</span> <span class="toctext">References</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Introduction">Introduction</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://computersciencewiki.org/index.php?title=Max-pooling_/_Pooling&amp;action=edit&amp;section=1" title="Edit section: Introduction">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Max pooling is a <b>sample-based discretization process</b>. The objective is to down-sample an input representation (image, hidden-layer output matrix, etc.), reducing its dimensionality and allowing for assumptions to be made about features contained in the sub-regions binned.<sup id="cite_ref-2" class="reference"><a href="https://computersciencewiki.org/index.php/Max-pooling_/_Pooling#cite_note-2">[2]</a></sup>
+</p>
+<h2><span class="mw-headline" id="How_does_it_work_and_why">How does it work and why</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://computersciencewiki.org/index.php?title=Max-pooling_/_Pooling&amp;action=edit&amp;section=2" title="Edit section: How does it work and why">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>This is done to in part to help over-fitting by providing an abstracted form of the representation. As well, it reduces the computational cost by reducing the <span class="mw-lingo-term" data-lingo-term-id="b1bc248a7ff2b2e95569f56de68615df" data-hasqtip="1">number</span> of parameters to learn and provides basic translation invariance to the internal representation.
+</p><p>Max pooling is done by applying a max filter to (usually) non-overlapping subregions of the initial representation.
+</p>
+<h2><span class="mw-headline" id="Examples">Examples</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://computersciencewiki.org/index.php?title=Max-pooling_/_Pooling&amp;action=edit&amp;section=3" title="Edit section: Examples">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Let's say we have a 4x4 matrix representing our initial input. 
+Let's say, as well, that we have a 2x2 filter that we'll run over our input. We'll have a <b>stride</b> of 2 (meaning the (dx, dy) for stepping over our input will be (2, 2)) and won't overlap regions.
+</p><p>For each of the regions represented by the filter, we will take the <b>max</b> of that region and create a new, output matrix where each element is the max of a region in the original input.
+</p><p>Pictorial representation:
+<a href="https://computersciencewiki.org/index.php?title=File:MaxpoolSample2.png" class="image"><img alt="MaxpoolSample2.png" src="./Max-pooling _ Pooling - Computer Science Wiki_files/MaxpoolSample2.png" decoding="async" width="750" height="313"></a>
+</p><p>Real-life example:
+<a href="https://computersciencewiki.org/index.php?title=File:MaxpoolSample.png" class="image"><img alt="MaxpoolSample.png" src="./Max-pooling _ Pooling - Computer Science Wiki_files/MaxpoolSample.png" decoding="async" width="634" height="417"></a>
+</p><p><br>
+</p>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://computersciencewiki.org/index.php?title=Max-pooling_/_Pooling&amp;action=edit&amp;section=4" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><a href="https://computersciencewiki.org/index.php/Max-pooling_/_Pooling#cite_ref-1" aria-label="Jump up" title="Jump up">↑</a></span> <span class="reference-text"><a target="_blank" rel="nofollow noreferrer noopener" class="external free" href="http://www.flaticon.com/">http://www.flaticon.com/</a></span>
+</li>
+<li id="cite_note-2"><span class="mw-cite-backlink"><a href="https://computersciencewiki.org/index.php/Max-pooling_/_Pooling#cite_ref-2" aria-label="Jump up" title="Jump up">↑</a></span> <span class="reference-text"><a target="_blank" rel="nofollow noreferrer noopener" class="external free" href="https://www.quora.com/What-is-max-pooling-in-convolutional-neural-networks">https://www.quora.com/What-is-max-pooling-in-convolutional-neural-networks</a></span>
+</li>
+</ol></div></div><div class="mw-lingo-tooltip" id="2cd1c6ecec2c6d908b3ed66d4ea7b902"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>Devote time and attention to gaining knowledge of (an academic subject), especially by means of books
+</p>
+</div></div>
+</div><div class="mw-lingo-tooltip" id="b1bc248a7ff2b2e95569f56de68615df"><div class="mw-lingo-definition navigation-not-searchable"><div class="mw-lingo-definition-text">
+<p>A unit of abstract mathematical system subject to the laws of arithmetic.
+</p>
+</div></div>
+</div>
+<!-- 
+NewPP limit report
+Cached time: 20240811105751
+Cache expiry: 86400
+Reduced expiry: false
+Complications: [show‐toc]
+CPU time usage: 0.015 seconds
+Real time usage: 0.018 seconds
+Preprocessor visited node count: 42/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/100
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 869/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key wikidb2-wiki:pcache:idhash:1148-0!canonical and timestamp 20240811105751 and revision id 7839.
+ -->
+</div>
+<div class="printfooter" data-nosnippet="">Retrieved from "<a dir="ltr" href="https://computersciencewiki.org/index.php?title=Max-pooling_/_Pooling&amp;oldid=7839">https://computersciencewiki.org/index.php?title=Max-pooling_/_Pooling&amp;oldid=7839</a>"</div></div>
+					<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="https://computersciencewiki.org/index.php?title=Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="https://computersciencewiki.org/index.php?title=Category:2018_case_study&amp;action=edit&amp;redlink=1" class="new" title="Category:2018 case study (page does not exist)">2018 case study</a></li><li><a href="https://computersciencewiki.org/index.php?title=Category:Student_created_article&amp;action=edit&amp;redlink=1" class="new" title="Category:Student created article (page does not exist)">Student created article</a></li></ul></div></div>
+				</div>
+			</main>
+			
+		</div>
+		<div class="mw-footer-container">
+			
+<footer id="footer" class="mw-footer" role="contentinfo">
+	<ul id="footer-info">
+	<li id="footer-info-lastmod"> This page was last edited on 27 February 2018, at 18:41.</li>
+	<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike</a> unless otherwise noted.</li>
+</ul>
+
+	<ul id="footer-places">
+</ul>
+
+	<ul id="footer-icons" class="noprint">
+	<li id="footer-copyrightico"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"><img src="./Max-pooling _ Pooling - Computer Science Wiki_files/cc-by-nc-sa.png" alt="Creative Commons Attribution-NonCommercial-ShareAlike" width="88" height="31" loading="lazy"></a></li>
+	<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/" target="_blank"><img src="./Max-pooling _ Pooling - Computer Science Wiki_files/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" loading="lazy"></a></li>
+</ul>
+
+</footer>
+
+		</div>
+	</div> 
+</div> 
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.015","walltime":"0.018","ppvisitednodes":{"value":42,"limit":1000000},"postexpandincludesize":{"value":0,"limit":2097152},"templateargumentsize":{"value":0,"limit":2097152},"expansiondepth":{"value":2,"limit":100},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":869,"limit":5000000},"timingprofile":["100.00%    0.000      1 -total"]},"cachereport":{"timestamp":"20240811105751","ttl":86400,"transientcontent":false}}});mw.config.set({"wgBackendResponseTime":131});});</script>
+
+<div id="p-namespaces" style="display: none;"><ul></ul></div></body></html>

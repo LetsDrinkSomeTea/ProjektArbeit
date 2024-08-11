@@ -1,0 +1,12 @@
+<svg id="Blog" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_8013" data-name="Rectangle 8013" width="18" height="17.309" transform="translate(0 0)"/>
+    </clipPath>
+  </defs>
+  <g id="Group_13407" data-name="Group 13407" transform="translate(1 1.346)" clip-path="url(#clip-path)">
+    <path id="Path_13517" data-name="Path 13517" d="M5.287,68.466a2.617,2.617,0,1,1-2.617-2.617,2.617,2.617,0,0,1,2.617,2.617" transform="translate(-0.043 -53.835)"/>
+    <path id="Path_13518" data-name="Path 13518" d="M1.539,26.561c-.311,0-.635.015-.993.045A.6.6,0,0,0,0,27.2v1.441a.6.6,0,0,0,.656.594c.3-.029.595-.044.884-.044a8.994,8.994,0,0,1,8.984,8.984c0,.052,0,.1,0,.154l0,.08a.6.6,0,0,0,.6.614h1.437a.6.6,0,0,0,.6-.585l0-.088c0-.058,0-.117,0-.176A11.628,11.628,0,0,0,1.539,26.561" transform="translate(0 -21.715)"/>
+    <path id="Path_13519" data-name="Path 13519" d="M1.539,0C1.222,0,.9.01.562.03A.6.6,0,0,0,0,.626V2.068a.6.6,0,0,0,.636.6c.346-.022.633-.033.9-.033a13.845,13.845,0,0,1,13.83,13.83c0,.042,0,.084,0,.126s0,.077,0,.115a.6.6,0,0,0,.6.608H17.4a.6.6,0,0,0,.6-.587v-.041c0-.073,0-.146,0-.22A16.479,16.479,0,0,0,1.539,0" transform="translate(0 0)"/>
+  </g>
+</svg>

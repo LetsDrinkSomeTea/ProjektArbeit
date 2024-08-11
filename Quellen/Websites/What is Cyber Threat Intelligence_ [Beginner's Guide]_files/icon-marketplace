@@ -1,0 +1,13 @@
+<svg id="Marketplace" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="17.901" viewBox="0 0 18 17.901">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_8012" data-name="Rectangle 8012" width="18" height="17.901"/>
+    </clipPath>
+  </defs>
+  <g id="Group_13406" data-name="Group 13406" clip-path="url(#clip-path)">
+    <path id="Path_13513" data-name="Path 13513" d="M3.39,0A3.39,3.39,0,1,0,6.78,3.39,3.394,3.394,0,0,0,3.39,0" transform="translate(0 0)"/>
+    <path id="Path_13514" data-name="Path 13514" d="M49.429,6.78a3.39,3.39,0,1,0-3.39-3.39,3.394,3.394,0,0,0,3.39,3.39" transform="translate(-35.176 0)"/>
+    <path id="Path_13515" data-name="Path 13515" d="M3.39,46.071a3.39,3.39,0,1,0,3.39,3.39,3.394,3.394,0,0,0-3.39-3.39" transform="translate(0 -35.201)"/>
+    <path id="Path_13516" data-name="Path 13516" d="M51.208,47.039H49.094V44.926a.817.817,0,1,0-1.633,0v2.114H45.348a.817.817,0,0,0,0,1.633h2.113v2.114a.817.817,0,0,0,1.633,0V48.672h2.114a.817.817,0,1,0,0-1.633" transform="translate(-34.024 -33.702)"/>
+  </g>
+</svg>
