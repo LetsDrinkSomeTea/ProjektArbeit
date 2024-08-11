@@ -49,7 +49,7 @@ Um zwei Personen zu tauschen, wird das Autoencoder Verfahren auf beide Personen 
     \label{fig:Autoencoder}
 \end{figure}
 
-    \item \textbf{Funktion des Autoencoder:} \\
+    \textbf{Funktion des Autoencoder:} \\
     Autoencoder entdecken latente Variablen. Hierfür leiten sie die Eingabedaten durch einen Engpass (Code), bevor sie den Decoder erreichen. Dieser Engpass zwingt den Encoder zu lernen, dass nur die Informationen extrahiert und weitergeleitet werden, die für eine präzise Rekonstruktion der ursprünglichen Eingabe am nützlichsten sind.\newline
     Der Encoder umfasst hierbei mehrere Schichten, welche eine komprimierte Darstellung der Eingabedaten durch Dimensionreduktion erzeugen. In einem typischen Autoencoder reduzieren die verborgenen Schichten die Anzahl der Knoten schrittweise im Vergleich zur Eingabeschicht. Während die Daten die Encoderschichten durchlaufen, werden sie durch einen Prozess (Strauchung) in weniger Dimensionen komprimiert.\newline
     Der Engpass (auch Code genannt) besitzt die stärkste komprimierte Darstellung der Eingabe. Er wird sowohl als Ausgangsschicht des Encodernetzes als auch die Eingabeschicht des Decodernetzes betrachtet. Eines der Ziele des Entwurfs und Trainings eines Autoencoders besteht darin, die kleinstmögliche Anzahl der relevantesten Merkmale zu ermitteln, welche für eine effektive Rekonstruktion der Eingabedaten erforderlich sind. Der austretende Code (Latent-Raum-Darstellung) dieser Schicht, wird in dem Decoder weitergeleitet und dort weiter verarbeitet.\newline
@@ -79,7 +79,7 @@ Sie können verwendet werden, um gefälschte Videos zu erstellen, die Vertrauen 
 Um ein Modell zu trainieren werden mehrere Minuten Video-Material der Zielperson und viel Rechenleistung benötigt.
 Ist das Modell dann trainiert, können je nach Auflösung Videos \gls{jit}, auch auf einem schwächeren PC, manipuliert werden.
 \glspl{gan}, in Kombination mit Autoencodern sind heutzutage nach wie vor \gls{sota} und machen den Großteil der erstellten Deepfakes aus.
-Üblicherweise wird ein Deepfake mithilfe eines Autoencoders erstellt und anschließend wird der Output durch ein \gls{GAN} verbessert und detailreicher.
+Üblicherweise wird ein Deepfake mithilfe eines Autoencoders erstellt und anschließend wird der Output durch ein \gls{gan} verbessert und detailreicher.
 Auch \gls{dfl} basiert auf dieser Technik und macht laut Entwickler ca. $95\%$ der im Internet kursierenden Deepfakes aus\cite{dfl-github-repo}.
 
 \subsubsection{FSGAN und FSGANv2}\label{subsubsec:fsgan}
