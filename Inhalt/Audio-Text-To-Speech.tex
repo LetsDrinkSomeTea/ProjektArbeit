@@ -1,6 +1,6 @@
 Um Audio Deepfakes erstellen zu können gibt es verschiedene Tools, für die verschiedene Arten des Audio Deepfakes.
-In dieser Arbeit werden wir auf 2 unterschiedlichen Audio Deepfake Tools eingehen, um die vielfältigkeit der Deepfake besser demonstrieren zu können.
-Hierfür verwenden wir das Tool Tacotron2, für einen Text to Speech Deepfake und das Tool Real-Time Voice Cloning, um eine Echtzeit Sprachklonung durchzuführen.
+In dieser Arbeit wird auf 2 unterschiedlichen Audio Deepfake Tools eingegangen, um die vielfältigkeit der Deepfakes besser demonstrieren zu können.
+Hierfür wird das Tool Tacotron2, für einen Text to Speech Deepfake und das Tool Real-Time Voice Cloning, um eine Echtzeit Sprachklonung durchzuführen, verwendet.
 
 \section{Tacotron2}
 Tacotron ist eine Architektur für Sprachsynthesen, die eine \gls{Sequenz-zu-Sequenz-Methode} verwendet, um \gls{Magnituden-Spektrogramme} direkt aus einer Eingabesequenz von Zeichen zu erzeugen.
@@ -20,7 +20,7 @@ Tacotron2 zeichnet sich durch mehrere Hauptmerkmale aus:
 
 \subsection{Workflow}
 Der Workflow von Tacotron2 ist in einer Pipeline und besteht aus drei Hauptphasen: Extraction, Training und Conversion.
-\subsubsection*{Pretraining}
+\subsubsection*{Preprocessing}
 Für die Erstellung eines Deepfakes wird eine Sammlung von Daten benötigt, um das Modell trainieren zu können. Die Sammlung beinhalten das Zusammenstellen eines Datensatzes aus Text- und Sprachaufnahmen. Hierbei wird darauf geachtet das die Daten für das Training des Modells geeignet sind.\cite{Arxiv}
 \subsubsection*{Extraction}
 In der Extraktionsphase werden dann die relevanten Abschnitte aus den Sprachaufnahmen extrahiert. Tacotron2 wandelt hierbei die Sprachaufnahmen in Mel-Spektrogramme um, die das Modell anschließend dann während des Trainings verwendet.\cite{Arxiv}
@@ -41,7 +41,7 @@ Die Tacotron2 Audio Deepfakes werden auf folgender Hardware erstellt.\\[0.5cm]
     Aufnahmeprogramm:& \texttt{Audacity}
 \end{tabular}\\[0.5cm]
 \subsection{Programmstruktur}
-Für Vorbereitung und Pretraining des Trainingsmaterials wurden folgende 3 Skripts verwendet:
+Für Vorbereitung und Preprocessing des Trainingsmaterials wurden folgende 3 Skripts verwendet:
 \begin{itemize}
     \item \textbf{transcribe\_wav2vec.py:} Das Skript \href{https://github.com/rasmurtech/Tacotron2-Wav2Vec-Transcription}{transcribe\_wav2vec.py} wird verwendet, um grobe Transkripte von den Aufnahmen zu erstellen. Dieses Transkript kann auch händisch geschrieben werden, jedoch erspart dieses Skript eine Menge Zeit.
     \item \textbf{tacotron2\_preprocessor\_wav\_files.py:} Das Skript \href{https://github.com/rasmurtech/Tacotron-2-Audio-Preprocessor}{tacotron2\_preprocessor\_wav\_files.py} wird verwendet, um die Audiodateien in das von Tacotron2 benötigte Format zu konvertieren.
@@ -53,15 +53,15 @@ Für das anschließende Training und Synthetisieren der Modelle werden folgende 
     \item \textbf{FakeYou\_Tacotron2\_Hi\_Fi\_GAN\_(CPU).ipynb:} \href{https://colab.research.google.com/github/justinjohn0306/FakeYou-Tacotron2-Notebook/blob/main/FakeYou_Tacotron2_Hi_Fi_GAN_(CPU).ipynb}{Hier} werden die trainierten Modelle synthetisiert und ausgegeben.
 \end{itemize}
 \subsection{Vorbereitung}
-Bevor der Deepfake erstellt werden kann, müssen zuvor einige Schritte durchgeführt werden. Zuerst werden Audiospuren einer Person benötigt, um genug Ausgangsmaterial für das Training später zu verfügung zu haben. Hierzu müssen mehrere verschiedene Sätze, Satz für Satz, aufgenommen und in seperate .wav Audiodateien gespeichert werden. Hierbei gilt natürlich, je mehr Audiodateien zur verfügung stehen, desto besser wird am Ende das trainierte Modell klingen. Die Audiodateien sollen dann in eine gemeinsame Ordner mit einer Zahl als Dateinamen, aufteigend, abgelegt werden (z.B. 1.wav, 2.wav, 3.wav, ...).\newline
-Danach wird ein \href{https://github.com/rasmurtech/Tacotron2-Wav2Vec-Transcription/blob/main/transcribe_wav2vec.py}{Skript} benötigt, um grobe Transkripte der Aufnahmen zu erstellen. Hierbei wird eine Liste.txt Datei erstellt, in der die aufgenommenen Sätze stehen. Diese Liste muss auf Richtigkeit geprüft werden. Es sollte außerdem darauf geachtet werden, dass jede Zeile mit einem Punkt endet und weder Großbuchstaben noch Kommas im Satz vorkommen.\newline
-\subsection{Pretraining}
+Bevor der Deepfake erstellt werden kann, müssen zuvor einige Schritte durchgeführt werden. Zuerst werden Audiospuren einer Person benötigt, um genug Ausgangsmaterial für das Training zur Verfügung zu haben. Hierzu müssen mehrere verschiedene Sätze, Satz für Satz, aufgenommen und in seperate .wav Audiodateien gespeichert werden. Hierbei gilt natürlich, je mehr Audiodateien zur Verfügung stehen, desto höher wird die finale Qualität des trainierten Modell. Die Audiodateien sollen dann in eine gemeinsame Ordner mit einer Zahl als Dateinamen, aufteigend, abgelegt werden (z.B. 1.wav, 2.wav, 3.wav, ...).\newline
+Danach wird ein \href{https://github.com/rasmurtech/Tacotron2-Wav2Vec-Transcription/blob/main/transcribe_wav2vec.py}{Skript} benötigt, um grobe Transkripte der Aufnahmen zu erstellen. Hierbei wird eine \texttt{Liste.txt} Datei erstellt, in der die aufgenommenen Sätze stehen. Diese Liste muss auf Richtigkeit geprüft werden. Es sollte außerdem darauf geachtet werden, dass jede Zeile mit einem Punkt endet und weder Großbuchstaben noch Kommas im Satz vorkommen.\newline
+\subsection{Preprocessing}
 Um das Training durchführen zu können, müssen zunächst die zuvor erstellten .wav Audiodateien durch ein preprocessing Skript durchlaufen. Das \href{https://github.com/rasmurtech/Tacotron-2-Audio-Preprocessor/blob/main/tacotron2_preprocessor_wav_files.py}{Skript} konvertiert die Audiodateien in das von Tacotron2 benötigte Format. Es ändert das Audioformat, einschließlich der Abtastrate und Kanäle.\newline
 Nachdem das preprocessing erfolgreich durchlaufen ist, muss in jeder .wav Audiodatei die entsprechende Zahl als Titel eingefügt werden. Hierzu gibt es ein weiteres \href{https://github.com/rasmurtech/Audio-Metadata-Updater/blob/main/audio_metadata_updater.py}{Skript}, dass die Zahlen aufsteigend in den Titel der jeweiligen Audiodateien schreibt.\newline
 Danach muss der Ordner, in den die .wav Audiodateien liegen, in einen komprimierten Zip-Ordner erstellt und dann in Google Drive hochladen werden.
 \subsection{Extraktion}
 \subsubsection*{Training}
-Um das Modell zu trainieren wird \href{https://colab.research.google.com/github/justinjohn0306/FakeYou-Tacotron2-Notebook/blob/dev/FakeYou_Tacotron_2_Training.ipynb}{Google Colab} verwendet. Dort müssen zunächst mehrere Schritte getan werden, bevor es zum Trainieren des Modells geht. Zuerst wird die GPU überprüft, danach muss Google Drive verbunden werden und anschließend Tacotron2 installiert werden.
+Um das Modell zu trainieren wird \href{https://colab.research.google.com/github/justinjohn0306/FakeYou-Tacotron2-Notebook/blob/dev/FakeYou_Tacotron_2_Training.ipynb}{Google Colab} verwendet. Dort müssen zunächst mehrere Schritte getan werden, bevor es zum Training des Modells geht. Zuerst wird die GPU überprüft, danach muss Google Drive verbunden werden und anschließend Tacotron2 installiert werden.
 \begin{figure}[H]
     \includegraphics[width=1.0\textwidth]{Bilder/AudioTraining1}
     \centering
@@ -86,7 +86,7 @@ Danach werden die .wav Dateien in die sogenannten Mel Spektrogramme konvertiert.
 \begin{figure}[H]
     \includegraphics[width=1.0\textwidth]{Bilder/AudioTraining4}
     \centering
-    \caption{Met Spektrogramme Konvertierung}
+    \caption{Mel Spektrogramme Konvertierung}
     \label{fig:TrainingPart4}
 \end{figure}
 Sobald die Vorbereitungen abgeschlossen sind, kann das Modell trainiert werden. Das trainierte Modell befindet sich nach dem Training in dem angegebenen Google Drive Ordner.
@@ -97,14 +97,14 @@ Sobald die Vorbereitungen abgeschlossen sind, kann das Modell trainiert werden. 
     \label{fig:TrainingPart5}
 \end{figure}
 \subsubsection*{Synthetisierung von Sprache}
-Nach dem Training des Modells, muss die Sprache noch synthetisiert werden. Hierfür muss zunächst das Modell in Google Drive auf Öffentlich gestellt und danach die Tacotron ID aus dem Google Drive Link kopiert werden. Die Tacotron ID ist immer unterschiedlich von Modell zu Modell.
+Nach dem Training des Modells, muss die Sprache noch synthetisiert werden. Hierfür muss zunächst das Modell in Google Drive auf öffentlich gestellt und danach die Tacotron ID aus dem Google Drive Link kopiert werden. Die Tacotron ID ist immer unterschiedlich von Modell zu Modell.
 \begin{figure}[H]
     \includegraphics[width=1.0\textwidth]{Bilder/AudioTrainingLink}
     \centering
     \caption{Tacotron ID aus dem Link des Modells}
     \label{fig:TrainingLink}
 \end{figure}
-Danach kann die Tacotron ID in den \href{https://colab.research.google.com/github/justinjohn0306/FakeYou-Tacotron2-Notebook/blob/main/FakeYou_Tacotron2_Hi_Fi_GAN_(CPU).ipynb#scrollTo=nU8YYg6PXgjg}{Vocoder} eingegeben werden, welcher das Modell dann verwendet, um einen Text zu einer Audio zu synthetisieren. Nach dem Laden, kann anschließend die Audio angehört werden.
+Danach kann die Tacotron ID in den \href{https://colab.research.google.com/github/justinjohn0306/FakeYou-Tacotron2-Notebook/blob/main/FakeYou_Tacotron2_Hi_Fi_GAN_(CPU).ipynb#scrollTo=nU8YYg6PXgjg}{Vocoder} eingegeben werden, welcher dann das Modell verwendet, um einen Text zu einer Audio zu synthetisieren. Nach dem Laden, kann anschließend die Audio angehört werden.
 \begin{figure}[H]
     \includegraphics[width=1.0\textwidth]{Bilder/AudioTrainingSynth}
     \centering

@@ -1,7 +1,7 @@
 \section{Praxisbeispiel Real-Time Voice Cloning}
 Real-Time Voice Cloning ist ein Bereich der Sprachsynthese und des maschinellen Lernens, welcher darauf abzielt, die Stimme einer Person in Echtzeit zu klonen, sodass der synthetisierte Klang kaum vom Original zu unterscheiden ist.\newline
-Die Motivation, Fähigkeiten und Workflow sind vergleichbar mit denen von Tacotron2, weshalb hier nicht nochmal genauer darauf eingegangen wird.\newline
-Im Folgenden wird ein der Workflow zum Erstellen von Real-Time Voice Cloning Audios demonstriert. Ziel dieses Kapitels ist es, eine Stimme in Echtzeit zu Klonen und das mit nur einer 5 Sekündigen Audioeingabe.
+Die Motivation, Fähigkeiten und Workflow sind vergleichbar mit denen von Tacotron2.\newline
+Im Folgenden wird ein der Workflow zum Erstellen von Real-Time Voice Cloning Audios demonstriert. Ziel dieses Kapitels ist es, eine Stimme in Echtzeit zu Klonen und das mit nur einer 5 sekündigen Audioeingabe.
 \subsection{Laborumgebung}
 Die Real-Time Voice Cloning Audio Deepfakes werden auf folgender Hardware erstellt.\\[0.5cm]
 \begin{tabular}{rl}
@@ -18,7 +18,7 @@ Die drei Dateien, mit denen wir uns hauptsächlich befassen, sind folgende:
 \begin{itemize}
     \item \textbf{demo\_cli.py:} Das demo\_cli.py Skript prüft ob der Encoder, Vocoder und Synthesizer in der richtigen Stelle abgelegt ist und ob diese funktionieren sowie auch miteinander kommunizieren.
     \item \textbf{demo\_toolbox.py:} Das demo\_toolbox.py Skript öffnet die eigentliche Toolbox, mit der wir die Stimme klonen können.
-    \item \textbf{requirements.txt:} In der requirements.txt Datei stehen die benötigten Packages mit dementsprechender Version drin stehen, welche man installieren muss.
+    \item \textbf{requirements.txt:} In der requirements.txt Datei stehen die benötigten Packages mit dementsprechender Version, welche installiert werden müssen.
 \end{itemize}
 
 \subsection{Vorbereitung}
@@ -37,7 +37,7 @@ Waren die Tests erfolgreich, kann das Skript demo\_toolbox.py ausgeführt werden
     \label{fig:RTVCloningToolbox}
 \end{figure}
 \subsection{Extraktion}
-Angekommen in der Toolbox, kann entweder eine bereits vorhandene Audiodatei eingegeben werden oder eine Echtzeit Aufnahme aufnehmen, um so das Trainingsmaterial der Toolbox bereitzustellen. Nachdem auswählen des Trainingsmaterial, kann die Stimme Sythetisiert und Vocoded werden. Zuerst wird ein Text eingegeben, was die geklonte Stimme wieder geben soll. Die Toolbox erstellt dann ein Mel Spektrogramm von dem Trainingmaterial und lässt dieses durch den Synthesizer durchlaufen, um an eine Audioausgabe zu gelangen. Nach einer kurzen Wartezeit wurde die Stimme geklont.
+Angekommen in der Toolbox, kann entweder eine bereits vorhandene Audiodatei eingegeben werden oder eine Echtzeit Aufnahme verwendet werden, um so das Trainingsmaterial der Toolbox bereitzustellen. Nachdem auswählen des Trainingsmaterial, kann die Stimme sythetisiert und vocoded werden. Zuerst wird der Text eingegeben, der von der geklonte Stimme wieder geben werden soll. Die Toolbox erstellt dann ein Mel Spektrogramm von dem Trainingmaterial und lässt dieses durch den Synthesizer durchlaufen, um an eine Audioausgabe zu erstellen. Nach einer kurzen Wartezeit wurde die Stimme geklont.
 \begin{figure}[H]
     \includegraphics[width=1.0\textwidth]{Bilder/AudioToolbox2}
     \centering
