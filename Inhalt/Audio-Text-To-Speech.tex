@@ -3,10 +3,10 @@ In dieser Arbeit wird auf 2 unterschiedlichen Audio Deepfake Tools eingegangen, 
 Hierfür wird das Tool Tacotron2, für einen Text to Speech Deepfake und das Tool Real-Time Voice Cloning, um eine Echtzeit Sprachklonung durchzuführen, verwendet.
 
 \section{Tacotron2}
-Tacotron ist eine Architektur für Sprachsynthesen, die eine \gls{Sequenz-zu-Sequenz-Methode} verwendet, um \gls{Magnituden-Spektrogramme} direkt aus einer Eingabesequenz von Zeichen zu erzeugen.
+Tacotron ist eine Architektur für Sprachsynthesen, die eine \gls{Sequenz-zu-Sequenz-Methode} verwendet, um \gls{Magnituden-Spektrogramme} (auch Mel-Spektrogramm gennant) direkt aus einer Eingabesequenz von Zeichen zu erzeugen.
 
 \subsection{Motivation}
-Die Motivation hinter Tacotron2 ist es bei der Erstellung von Text-to-Speech Deepfakes die Sprachqualität deutlich zu verbessern, sodass die synthetisch generierte Sprache so natürlich wie mie möglich klingt.
+Die Motivation hinter Tacotron2 ist es bei der Erstellung von Text-to-Speech Deepfakes die Sprachqualität deutlich zu verbessern, sodass die synthetisch generierte Sprache so natürlich wie möglich klingt.
 Außerdem reduziert Tacotron2 die Komplexität des Prozesses, welcher normalerweise viel Fachkenntnisse und manuelle Anpassungen benötigt.\cite{Arxiv},\cite{Arxiv2}
 
 \subsection{Fähigkeiten}
@@ -21,7 +21,7 @@ Tacotron2 zeichnet sich durch mehrere Hauptmerkmale aus:
 \subsection{Workflow}
 Der Workflow von Tacotron2 ist in einer Pipeline und besteht aus drei Hauptphasen: Extraction, Training und Conversion.
 \subsubsection*{Preprocessing}
-Für die Erstellung eines Deepfakes wird eine Sammlung von Daten benötigt, um das Modell trainieren zu können. Die Sammlung beinhalten das Zusammenstellen eines Datensatzes aus Text- und Sprachaufnahmen. Hierbei wird darauf geachtet das die Daten für das Training des Modells geeignet sind.\cite{Arxiv}
+Für die Erstellung eines Deepfakes wird eine Sammlung von Daten benötigt, um das Modell trainieren zu können. Die Sammlungen beinhalten das Zusammenstellen eines Datensatzes aus Text- und Sprachaufnahmen. Hierbei wird darauf geachtet das die Daten für das Training des Modells geeignet sind.\cite{Arxiv}
 \subsubsection*{Extraction}
 In der Extraktionsphase werden dann die relevanten Abschnitte aus den Sprachaufnahmen extrahiert. Tacotron2 wandelt hierbei die Sprachaufnahmen in Mel-Spektrogramme um, die das Modell anschließend dann während des Trainings verwendet.\cite{Arxiv}
 \subsubsection*{Training}
@@ -44,7 +44,7 @@ Die Tacotron2 Audio Deepfakes werden auf folgender Hardware erstellt.\\[0.5cm]
 Für Vorbereitung und Preprocessing des Trainingsmaterials wurden folgende 3 Skripts verwendet:
 \begin{itemize}
     \item \textbf{transcribe\_wav2vec.py:} Das Skript \href{https://github.com/rasmurtech/Tacotron2-Wav2Vec-Transcription}{transcribe\_wav2vec.py} wird verwendet, um grobe Transkripte von den Aufnahmen zu erstellen. Dieses Transkript kann auch händisch geschrieben werden, jedoch erspart dieses Skript eine Menge Zeit.
-    \item \textbf{tacotron2\_preprocessor\_wav\_files.py:} Das Skript \href{https://github.com/rasmurtech/Tacotron-2-Audio-Preprocessor}{tacotron2\_preprocessor\_wav\_files.py} wird verwendet, um die Audiodateien in das von Tacotron2 benötigte Format zu konvertieren.
+    \item \textbf{tacotron2\_preprocessor\_wav\_files.py:} Das Skript\newline \href{https://github.com/rasmurtech/Tacotron-2-Audio-Preprocessor}{tacotron2\_preprocessor\_wav\_files.py} wird verwendet, um die Audiodateien in das von Tacotron2 benötigte Format zu konvertieren.
     \item \textbf{audio\_metadata\_updater.py:} Das Skript \href{https://github.com/rasmurtech/Audio-Metadata-Updater}{audio\_metadata\_updater.py} wird verwendet, um den Titel jeder WAV Datei zu aktualisieren, sodass er der entsprechenden Nummer entspricht. Auch dieses Skript wird nicht dringen benötigt, da der Vorgang auch händisch getan werden kann. Jedoch spart es auch hier eine Menge an Zeit.
 \end{itemize}
 Für das anschließende Training und Synthetisieren der Modelle werden folgende 2 Ipynb Dateien verwendet:
